@@ -1855,13 +1855,13 @@
           <element xmi:type="uml:Property" href="HVAC.uml#_UB1RkncDEe62INvlmVZBnw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ADE1YXcJEe62INvlmVZBnw" x="214" y="58"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_Brwqc3cJEe62INvlmVZBnw" type="StereotypeComment">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_BrwqdHcJEe62INvlmVZBnw"/>
-          <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BrwqdncJEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <children xmi:type="notation:Shape" xmi:id="_DNS3MHcgEe62INvlmVZBnw" type="StereotypeComment">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_DNS3MXcgEe62INvlmVZBnw"/>
+          <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNTeQXcgEe62INvlmVZBnw" name="BASE_ELEMENT">
             <eObjectValue xmi:type="uml:InformationFlow" href="HVAC.uml#_BrSJUHcJEe62INvlmVZBnw"/>
           </styles>
           <element xsi:nil="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BrwqdXcJEe62INvlmVZBnw" x="100" y="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DNTeQHcgEe62INvlmVZBnw" x="100" y="100"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_7shE1ncIEe62INvlmVZBnw"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7shE13cIEe62INvlmVZBnw"/>
@@ -1917,21 +1917,21 @@
       <element xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7shE0XcIEe62INvlmVZBnw" x="40" y="40" width="500" height="250"/>
     </children>
-    <children xmi:type="notation:Shape" xmi:id="_7uqZ4HcIEe62INvlmVZBnw" type="StereotypeComment">
-      <styles xmi:type="notation:TitleStyle" xmi:id="_7uqZ4XcIEe62INvlmVZBnw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_7uqZ43cIEe62INvlmVZBnw" name="BASE_ELEMENT">
+    <children xmi:type="notation:Shape" xmi:id="_DNH4EHcgEe62INvlmVZBnw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_DNH4EXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNH4E3cgEe62INvlmVZBnw" name="BASE_ELEMENT">
         <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
       </styles>
       <element xsi:nil="true"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7uqZ4ncIEe62INvlmVZBnw" x="240" y="40"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DNH4EncgEe62INvlmVZBnw" x="240" y="40"/>
     </children>
-    <children xmi:type="notation:Shape" xmi:id="_AvG08HcJEe62INvlmVZBnw" type="StereotypeComment">
-      <styles xmi:type="notation:TitleStyle" xmi:id="_AvG08XcJEe62INvlmVZBnw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_AvG083cJEe62INvlmVZBnw" name="BASE_ELEMENT">
+    <children xmi:type="notation:Shape" xmi:id="_DNg5oHcgEe62INvlmVZBnw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_DNg5oXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNg5o3cgEe62INvlmVZBnw" name="BASE_ELEMENT">
         <eObjectValue xmi:type="uml:Port" href="HVAC.uml#_tBMAMHcFEe62INvlmVZBnw"/>
       </styles>
       <element xsi:nil="true"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AvG08ncJEe62INvlmVZBnw" x="190" y="117"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DNg5oncgEe62INvlmVZBnw" x="190" y="117"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_7sfPoXcIEe62INvlmVZBnw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_7sfPoncIEe62INvlmVZBnw"/>
@@ -1939,26 +1939,6 @@
       <owner xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
     </styles>
     <element xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
-    <edges xmi:type="notation:Connector" xmi:id="_7uqZ5HcIEe62INvlmVZBnw" type="StereotypeCommentLink" source="_7shE0HcIEe62INvlmVZBnw" target="_7uqZ4HcIEe62INvlmVZBnw">
-      <styles xmi:type="notation:FontStyle" xmi:id="_7uqZ5XcIEe62INvlmVZBnw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_7urA8HcIEe62INvlmVZBnw" name="BASE_ELEMENT">
-        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
-      </styles>
-      <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7uqZ5ncIEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7uqZ53cIEe62INvlmVZBnw"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7uqZ6HcIEe62INvlmVZBnw"/>
-    </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_AvG09HcJEe62INvlmVZBnw" type="StereotypeCommentLink" source="_Au_gMHcJEe62INvlmVZBnw" target="_AvG08HcJEe62INvlmVZBnw">
-      <styles xmi:type="notation:FontStyle" xmi:id="_AvG09XcJEe62INvlmVZBnw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_AvG0-XcJEe62INvlmVZBnw" name="BASE_ELEMENT">
-        <eObjectValue xmi:type="uml:Port" href="HVAC.uml#_tBMAMHcFEe62INvlmVZBnw"/>
-      </styles>
-      <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AvG09ncJEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AvG093cJEe62INvlmVZBnw"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AvG0-HcJEe62INvlmVZBnw"/>
-    </edges>
     <edges xmi:type="notation:Connector" xmi:id="_BrjPEHcJEe62INvlmVZBnw" type="InformationFlow_Edge" source="_ADE1YHcJEe62INvlmVZBnw" target="_Au_gMHcJEe62INvlmVZBnw">
       <children xmi:type="notation:DecorationNode" xmi:id="_BrjPE3cJEe62INvlmVZBnw" visible="false" type="InformationFlow_ConveyedLabel">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_BrjPFHcJEe62INvlmVZBnw" y="30"/>
@@ -1974,15 +1954,96 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BrjPEncJEe62INvlmVZBnw" points="[260, 160, -643984, -643984]$[37, 177, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BsBwMHcJEe62INvlmVZBnw" id="(0.0,0.5)"/>
     </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_BrxRgHcJEe62INvlmVZBnw" type="StereotypeCommentLink" source="_BrjPEHcJEe62INvlmVZBnw" target="_Brwqc3cJEe62INvlmVZBnw">
-      <styles xmi:type="notation:FontStyle" xmi:id="_BrxRgXcJEe62INvlmVZBnw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_BrxRhXcJEe62INvlmVZBnw" name="BASE_ELEMENT">
+    <edges xmi:type="notation:Connector" xmi:id="_DNH4FHcgEe62INvlmVZBnw" type="StereotypeCommentLink" source="_7shE0HcIEe62INvlmVZBnw" target="_DNH4EHcgEe62INvlmVZBnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_DNH4FXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNH4GXcgEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_xzkRcHcCEe62INvlmVZBnw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DNH4FncgEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNH4F3cgEe62INvlmVZBnw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNH4GHcgEe62INvlmVZBnw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_DNTeQncgEe62INvlmVZBnw" type="StereotypeCommentLink" source="_BrjPEHcJEe62INvlmVZBnw" target="_DNS3MHcgEe62INvlmVZBnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_DNTeQ3cgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNTeR3cgEe62INvlmVZBnw" name="BASE_ELEMENT">
         <eObjectValue xmi:type="uml:InformationFlow" href="HVAC.uml#_BrSJUHcJEe62INvlmVZBnw"/>
       </styles>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BrxRgncJEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BrxRg3cJEe62INvlmVZBnw"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BrxRhHcJEe62INvlmVZBnw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DNTeRHcgEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNTeRXcgEe62INvlmVZBnw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNTeRncgEe62INvlmVZBnw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_DNg5pHcgEe62INvlmVZBnw" type="StereotypeCommentLink" source="_Au_gMHcJEe62INvlmVZBnw" target="_DNg5oHcgEe62INvlmVZBnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_DNg5pXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_DNhgsHcgEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Port" href="HVAC.uml#_tBMAMHcFEe62INvlmVZBnw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DNg5pncgEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNg5p3cgEe62INvlmVZBnw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DNg5qHcgEe62INvlmVZBnw"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Hm4GkHcgEe62INvlmVZBnw" type="CompositeStructure" name="ControlExpert_IBD" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_Hm57wHcgEe62INvlmVZBnw" type="Class_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Hm57wncgEe62INvlmVZBnw" type="Class_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_Hm6i0HcgEe62INvlmVZBnw" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Hm6i0XcgEe62INvlmVZBnw" y="15"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Hm6i0ncgEe62INvlmVZBnw" type="Class_StructureCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_Iy6b4HcgEe62INvlmVZBnw" type="Comment_Shape_CN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Iy7C8HcgEe62INvlmVZBnw" type="Comment_BodyLabel_CN"/>
+          <element xmi:type="uml:Comment" href="HVAC.uml#_Iy3YkHcgEe62INvlmVZBnw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Iy6b4XcgEe62INvlmVZBnw" x="234" y="78"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_OlYJyHcgEe62INvlmVZBnw" type="StereotypeComment">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_OlYJyXcgEe62INvlmVZBnw"/>
+          <styles xmi:type="notation:EObjectValueStyle" xmi:id="_OlYJy3cgEe62INvlmVZBnw" name="BASE_ELEMENT">
+            <eObjectValue xmi:type="uml:Comment" href="HVAC.uml#_Iy3YkHcgEe62INvlmVZBnw"/>
+          </styles>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OlYJyncgEe62INvlmVZBnw" x="434" y="78"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_Hm6i03cgEe62INvlmVZBnw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hm6i1HcgEe62INvlmVZBnw"/>
+      </children>
+      <element xmi:type="uml:Class" href="HVAC.uml#_Mx3q8HcDEe62INvlmVZBnw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hm57wXcgEe62INvlmVZBnw" x="40" y="40" width="500" height="250"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_HpIJUHcgEe62INvlmVZBnw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_HpIJUXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_HpIJU3cgEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_Mx3q8HcDEe62INvlmVZBnw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HpIJUncgEe62INvlmVZBnw" x="240" y="40"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_Hm4GkXcgEe62INvlmVZBnw" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Hm4GkncgEe62INvlmVZBnw"/>
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_Hm4Gk3cgEe62INvlmVZBnw" diagramKindId="org.eclipse.papyrus.sysml16.diagram.internalblock">
+      <owner xmi:type="uml:Class" href="HVAC.uml#_Mx3q8HcDEe62INvlmVZBnw"/>
+    </styles>
+    <element xmi:type="uml:Class" href="HVAC.uml#_Mx3q8HcDEe62INvlmVZBnw"/>
+    <edges xmi:type="notation:Connector" xmi:id="_HpIJVHcgEe62INvlmVZBnw" type="StereotypeCommentLink" source="_Hm57wHcgEe62INvlmVZBnw" target="_HpIJUHcgEe62INvlmVZBnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_HpIJVXcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_HpIJWXcgEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_Mx3q8HcDEe62INvlmVZBnw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HpIJVncgEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HpIJV3cgEe62INvlmVZBnw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HpIJWHcgEe62INvlmVZBnw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_OlYw0HcgEe62INvlmVZBnw" type="StereotypeCommentLink" source="_Iy6b4HcgEe62INvlmVZBnw" target="_OlYJyHcgEe62INvlmVZBnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_OlYw0XcgEe62INvlmVZBnw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_OlZX4HcgEe62INvlmVZBnw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Comment" href="HVAC.uml#_Iy3YkHcgEe62INvlmVZBnw"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OlYw0ncgEe62INvlmVZBnw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OlYw03cgEe62INvlmVZBnw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OlYw1HcgEe62INvlmVZBnw"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>

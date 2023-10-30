@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL="http:///schemas/SysML_Extension_for_MulVAL/_tlsnAHb7Ee62Gqa0HZaL3A/21" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///schemas/SysML_Extension_for_MulVAL/_tlsnAHb7Ee62Gqa0HZaL3A/21 ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_tlzUsHb7Ee62Gqa0HZaL3A">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL="http:///schemas/SysML_Extension_for_MulVAL/_ApRbQHcgEe62INvlmVZBnw/22" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///schemas/SysML_Extension_for_MulVAL/_ApRbQHcgEe62INvlmVZBnw/22 ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_AppOsHcgEe62INvlmVZBnw">
   <uml:Model xmi:id="_N9wUUFFpEe6HEMNnvMx1Dw" name="HVAC">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_ODo54FFpEe6HEMNnvMx1Dw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -88,7 +88,12 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_HGjt8HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_1mo6cHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_Hn78sHcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_3VPxUHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ISiY4HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_xzkRcHcCEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_Iy3YkHcgEe62INvlmVZBnw">
+        <body>CVE-2022-45789&#xD;
+</body>
+      </ownedComment>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_TIE_EHcDEe62INvlmVZBnw" memberEnd="_TIICYHcDEe62INvlmVZBnw _TIJ3kHcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TIGNMHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TIGNMXcDEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
@@ -204,15 +209,15 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_JTI1oFfHEe6A-uQ1qxwh1w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gXLh0Hb8Ee6RMc6MYzF1PQ" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gXLh0Xb8Ee6RMc6MYzF1PQ" key="Version" value="0.1.9"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gXLh0nb8Ee6RMc6MYzF1PQ" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gXLh03b8Ee6RMc6MYzF1PQ" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gXLh1Hb8Ee6RMc6MYzF1PQ" key="Date" value="2023-10-30"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gXLh1Xb8Ee6RMc6MYzF1PQ" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DwV54HcgEe62INvlmVZBnw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DwV54XcgEe62INvlmVZBnw" key="Version" value="0.1.10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DwV54ncgEe62INvlmVZBnw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DwV543cgEe62INvlmVZBnw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DwV55HcgEe62INvlmVZBnw" key="Date" value="2023-10-30"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DwV55XcgEe62INvlmVZBnw" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JTKq0FfHEe6A-uQ1qxwh1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_tlzUsHb7Ee62Gqa0HZaL3A"/>
+        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_AppOsHcgEe62INvlmVZBnw"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_vOlHkFfGEe6A-uQ1qxwh1w"/>
     </profileApplication>
@@ -269,4 +274,5 @@
   <SysML_Extension_for_MulVAL:Connection xmi:id="_Nt-7oHcIEe62INvlmVZBnw" base_InformationFlow="_LiIIEHcIEe62INvlmVZBnw" protocol="ipSec"/>
   <PortsAndFlows:ItemFlow xmi:id="_Brgy0HcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:Connection xmi:id="_C9YqYHcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw" protocol="opcua"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Ok0wIHcgEe62INvlmVZBnw" CVE_id="CVE-2022-45789" range="localExploit" impact="privEscalation" base_Comment="_Iy3YkHcgEe62INvlmVZBnw"/>
 </xmi:XMI>

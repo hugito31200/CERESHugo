@@ -49,7 +49,7 @@
 [template private getHostOfProgram(prog:Class, m:Model) post(trim())]
 [for (prop: Property | m.eAllContents(Property))]
 [if (prop.type = prog)]
-[prop.eContainer(Class).name.toLowerFirst()/]
+[prop.eContainer(Class).name.toLower()/]
 [/if]
 [/for]
 [/template]
@@ -99,25 +99,12 @@ networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [get
 [/let]
 [/template]
 
-[template private generateVulnerabilities2(m:Model) post(trim())]
-[for (act:Activity | m.eAllContents(Activity))]
-[act.name/]:[act.eContainer(Activity).name/]:[act.eContainer().eContainer(Class).name/]
-[/for]
-[/template]
-
-
 [template private generateVulnerabilities(elem:OclAny, m:Model) post(trim())]
-[let vul:DataStoreNode = elem.eGet('base_DataStoreNode').oclAsType(DataStoreNode)]
-[vul.name/] in [vul.inGroup/]
-[comment][for (activity : Activity | m.eAllContents(Activity))]
-[m.eAllContents(DataStoreNode)->any(node | node = vul)/]
-[if (activity.eAllContents(DataStoreNode)->includes(vul))]
-[let prog:Class = vul.eContainer()]
-vulExists([getHostOfProgram(prog, m)/], '[elem.eGet('CVE_id')/]', [prog.name.toLower()/]).
-vulProperty('[elem.eGet('CVE_id')/]', [elem.eGet('range')/], [elem.eGet('impact')/]).
+[let vul:Comment = elem.eGet('base_Comment').oclAsType(Comment)]
+[let program:Class = vul.eContainer(Class)]
+vulExists([getHostOfProgram(program, m)/],'[elem.eGet('CVE_id')/]',[program.name.toLower()/]).
+vulProperty('[elem.eGet('CVE_id')/]',[elem.eGet('range')/],[elem.eGet('impact')/]).
 [/let]
-[/if]
-[/for] [/comment]
 [/let]
 [/template]
 
@@ -190,13 +177,13 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [/for]
 
 /******************Vulnerabilities***********************/
-[comment][for (elem: OclAny | m.siblings())]
+[for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if (class.contains('Vulnerability'))]
 [generateVulnerabilities(elem, m)/]
 [/if]
 [/let]
-[/for][/comment]
+[/for]
 
 /*****************Attacker*************************/
 [for (elem: OclAny | m.siblings())]
