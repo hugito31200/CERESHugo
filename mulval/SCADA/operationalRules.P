@@ -1,9 +1,10 @@
 primitive(isSensor(_host)).
 primitive(isActuator(_host)).
-primitive(isCompromised(_host)).
 primitive(canSniffCommunication(_h1,_h2)).
+primitive(physicalAccess(_principal,_host)).
 
 derived(accessInfo(_host)).
+derived(isCompromised(_device)).
 derived(covertAppropriation(_plc)).
 
 
@@ -77,6 +78,22 @@ interaction_rule(
   canSniffCommunication(PLC,Actuator)
   ),
   rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', 1)).
+
+
+/********************Physically compromising a sensor or an actuator************************************/
+interaction_rule(
+  (isCompromised(sensor) :-
+  isSensor(sensor),
+  physicalAccess(Principal,sensor)
+  ),
+  rule_desc('Physically compromising a sensor', 1)).
+
+interaction_rule(
+  (isCompromised(actuator) :-
+  isActuator(actuator),
+  physicalAccess(Principal,actuator)
+  ),
+  rule_desc('Physically compromising an actuator', 1)).
   
 
 

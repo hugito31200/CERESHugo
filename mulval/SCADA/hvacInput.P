@@ -1,7 +1,7 @@
-attackGoal(execCode(_,_)).
+/*attackGoal(execCode(_,_)).*/
 /*attackGoal(dos(plc))./*
 /*attackGoal(accessInfo(scada)).*/
-/*attackGoal(covertAppropriation(plc)).*/
+attackGoal(covertAppropriation(plc)).
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
@@ -21,14 +21,16 @@ hacl(scada,historian,_,_).
 hacl(historian,scada,_,_).
 
 isSensor(sensor).
-/*isCompromised(sensor).*/
 /*hacl(sensor,plc,modbus_tcp,modbus_port).*/
 hacl(sensor, plc, opcua, opcua_port).
 canSniffCommunication(sensor,plc).
 
 isActuator(actuator).
-/*isCompromised(actuator).*/
 canSniffCommunication(plc,actuator).
+
+malicious(technician).
+physicalAccess(technician,sensor).
+physicalAccess(technician,actuator).
 
 /*hacl(plc,actuator,modbus_tcp,modbus_port).*/
 hacl(plc,actuator,opcua,opcua_port).

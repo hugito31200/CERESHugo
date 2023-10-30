@@ -1,29 +1,44 @@
-1,"execCode(plc,_)","OR",0
-2,"RULE 2 (remote exploit of a server program)","AND",0
-3,"netAccess(plc,opcua,opcua_port)","OR",0
-4,"RULE 5 (multi-hop access)","AND",0
-5,"hacl(scada,plc,opcua,opcua_port)","LEAF",1
-6,"execCode(scada,root)","OR",0
-7,"RULE 0 (When a principal is compromised any machine he has an account on will also be compromised)","AND",0
-8,"canAccessHost(scada)","OR",0
-9,"RULE 9 (Access a host through a log-in service)","AND",0
-10,"netAccess(scada,ipSec,_)","OR",0
-11,"RULE 6 (direct network access)","AND",0
-12,"hacl(internet,scada,ipSec,_)","LEAF",1
-13,"attackerLocated(internet)","LEAF",1
-14,"logInService(scada,ipSec,_)","OR",0
-15,"RULE 15 (incompetent user)","AND",0
-16,"networkServiceInfo(scada,vpnService,ipSec,_,_)","LEAF",1
-17,"hasAccount(alarmProvider,scada,root)","LEAF",1
-18,"principalCompromised(alarmProvider)","OR",0
-19,"RULE 13 (incompetent user)","AND",0
-20,"inCompetent(alarmProvider)","LEAF",1
-21,"networkServiceInfo(plc,controlExpert,opcua,opcua_port,_)","LEAF",1
-22,"vulExists(plc,'CVE-2023-27976',controlExpert,remoteExploit,privEscalation)","LEAF",1
-23,"execCode(plc,root)","OR",0
-24,"RULE 1 (local exploit)","AND",0
-25,"vulExists(plc,'CVE-2022-45788',controlExpert,localExploit,privEscalation)","LEAF",1
-26,"RULE 1 (local exploit)","AND",0
-27,"vulExists(plc,'CVE-2022-45789',controlExpert,localExploit,privEscalation)","LEAF",1
-28,"RULE 2 (remote exploit of a server program)","AND",0
-29,"networkServiceInfo(plc,controlExpert,opcua,opcua_port,root)","LEAF",1
+1,"covertAppropriation(plc)","OR",0
+2,"RULE 30 (Covert Appropriation by compromising sensors and actuators)","AND",0
+3,"hacl(plc,actuator,opcua,opcua_port)","LEAF",1
+4,"hacl(sensor,plc,opcua,opcua_port)","LEAF",1
+5,"isCompromised(actuator)","OR",0
+6,"RULE 34 (Physically compromising an actuator)","AND",0
+7,"physicalAccess(technician,actuator)","LEAF",1
+8,"isActuator(actuator)","LEAF",1
+9,"isCompromised(sensor)","OR",0
+10,"RULE 33 (Physically compromising a sensor)","AND",0
+11,"physicalAccess(technician,sensor)","LEAF",1
+12,"isSensor(sensor)","LEAF",1
+13,"RULE 31 (Covert Appropriation by compromising the PLC)","AND",0
+14,"execCode(plc,_)","OR",0
+15,"RULE 2 (remote exploit of a server program)","AND",0
+16,"netAccess(plc,opcua,opcua_port)","OR",0
+17,"RULE 5 (multi-hop access)","AND",0
+18,"hacl(scada,plc,opcua,opcua_port)","LEAF",1
+19,"execCode(scada,root)","OR",0
+20,"RULE 0 (When a principal is compromised any machine he has an account on will also be compromised)","AND",0
+21,"canAccessHost(scada)","OR",0
+22,"RULE 9 (Access a host through a log-in service)","AND",0
+23,"netAccess(scada,ipSec,_)","OR",0
+24,"RULE 6 (direct network access)","AND",0
+25,"hacl(internet,scada,ipSec,_)","LEAF",1
+26,"attackerLocated(internet)","LEAF",1
+27,"logInService(scada,ipSec,_)","OR",0
+28,"RULE 15 (incompetent user)","AND",0
+29,"networkServiceInfo(scada,vpnService,ipSec,_,_)","LEAF",1
+30,"hasAccount(alarmProvider,scada,root)","LEAF",1
+31,"principalCompromised(alarmProvider)","OR",0
+32,"RULE 13 (incompetent user)","AND",0
+33,"inCompetent(alarmProvider)","LEAF",1
+34,"networkServiceInfo(plc,controlExpert,opcua,opcua_port,_)","LEAF",1
+35,"vulExists(plc,'CVE-2023-27976',controlExpert,remoteExploit,privEscalation)","LEAF",1
+36,"RULE 31 (Covert Appropriation by compromising the PLC)","AND",0
+37,"execCode(plc,root)","OR",0
+38,"RULE 1 (local exploit)","AND",0
+39,"vulExists(plc,'CVE-2022-45788',controlExpert,localExploit,privEscalation)","LEAF",1
+40,"RULE 1 (local exploit)","AND",0
+41,"vulExists(plc,'CVE-2022-45789',controlExpert,localExploit,privEscalation)","LEAF",1
+42,"RULE 32 (Covert Appropriation by sniffing communication btw sensors/actuators and PLC)","AND",0
+43,"canSniffCommunication(plc,actuator)","LEAF",1
+44,"canSniffCommunication(sensor,plc)","LEAF",1
