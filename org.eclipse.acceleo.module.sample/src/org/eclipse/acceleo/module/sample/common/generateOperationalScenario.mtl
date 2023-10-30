@@ -190,7 +190,6 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [/for]
 
 /******************Vulnerabilities***********************/
-[generateVulnerabilities2(m)/]
 [comment][for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if (class.contains('Vulnerability'))]

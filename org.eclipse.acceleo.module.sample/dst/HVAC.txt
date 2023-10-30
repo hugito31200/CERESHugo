@@ -2,36 +2,42 @@
 
 MachineExpert
 networkServiceInfo(scada, machineexpert, _, _, _).
+OPCUA_Server
+networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
 vpnService
 networkServiceInfo(scada, vpnservice, ipSec, _, _).
-opcua_server
-networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
 ControlExpert
 networkServiceInfo(plc, controlexpert, opcua, opcua_port, _).
 
 /******************Connections**********************/
+
+ItemFlow4
 hacl(internet, scada, ipSec, _).
+ItemFlow5
 hacl(scada, plc, opcua, opcua_port).
+ItemFlow6
 hacl(sensor, plc, opcua, opcua_port).
+ItemFlow7
 hacl(plc, actuator, opcua, opcua_port).
 
 
 
 
 /******************Vulnerabilities***********************/
-Activity1:invalid:invalid
-CVE-2022-45789:Activity1:ControlExpert
-Activity1:invalid:invalid
 
 /*****************Attacker*************************/
 attackerLocated(internet).
 
 /****************************Users******************************/
-inCompetent(alarmProvider).
-competent(technician).
+inCompetent(alarm_provider).
+malicious(alarm_provider).
+inCompetent(technician).
 malicious(technician).
 
-hasAccount(alarmprovider,scada,root).
+hasAccount(alarm_provider,scada,_).
 
+physicalAccess(technician,hvac).
+physicalAccess(technician,sensor).
+physicalAccess(technician,actuator).
 physicalAccess(technician,plc).
 
