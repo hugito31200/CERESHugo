@@ -1,12 +1,8 @@
 /*********************Programs************************/
 
-MachineExpert
 networkServiceInfo(scada, machineexpert, _, _, _).
-OPCUA_Server
 networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
-vpnService
 networkServiceInfo(scada, vpnservice, ipSec, _, _).
-ControlExpert
 networkServiceInfo(plc, controlexpert, opcua, opcua_port, _).
 
 /******************Connections**********************/
@@ -22,6 +18,30 @@ hacl(plc, actuator, opcua, opcua_port).
 /******************Vulnerabilities***********************/
 vulExists(plc,'CVE-2022-45789',controlexpert).
 vulProperty('CVE-2022-45789',localExploit,privEscalation).
+vulExists(plc,'CVE-2022-45788',controlexpert).
+vulProperty('CVE-2022-45788',localExploit,privEscalation).
+vulExists(plc,'CVE-2022-45788',controlexpert).
+vulProperty('CVE-2022-45788',dos,na).
+vulExists(plc,'CVE-2022-45788',controlexpert).
+vulProperty('CVE-2022-45788',leakInfo,na).
+vulExists(plc,'CVE-2021-22789',controlexpert).
+vulProperty('CVE-2021-22789',dos,na).
+vulExists(plc,'CVE-2023-1548',controlexpert).
+vulProperty('CVE-2023-1548',dos,na).
+vulExists(plc,'CVE-2023-27976',controlexpert).
+vulProperty('CVE-2023-27976',remoteExploit,privEscalation).
+vulExists(plc,'CVE-2022-37300',controlexpert).
+vulProperty('CVE-2022-37300',readAccess,na).
+vulExists(plc,'CVE-2022-37300',controlexpert).
+vulProperty('CVE-2022-37300',writeAccess,na).
+vulExists(scada,'CVE-2023-22610',machineexpert).
+vulProperty('CVE-2023-22610',dos,na).
+vulExists(scada,'CVE-2022-2988',machineexpert).
+vulProperty('CVE-2022-2988',leakInfo,na).
+vulExists(scada,'CVE-2023-22611',machineexpert).
+vulProperty('CVE-2023-22611',leakInfo,na).
+vulExists(scada,'CVE-2023-37200',opcua_server).
+vulProperty('CVE-2023-37200',leakInfo,na).
 
 /*****************Attacker*************************/
 attackerLocated(internet).

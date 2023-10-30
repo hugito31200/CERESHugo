@@ -54,7 +54,7 @@
 [/for]
 [/template]
 
-[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow)]
+[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow) post(trim())]
 [if(conn.informationTarget.eClass().name=('Port'->asBag()))]
 hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Port).eContainer(Class).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], [conn.informationTarget.oclAsType(Port).name/]).
 [else]
@@ -67,7 +67,6 @@ hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.in
 [for (program:Property | host.ownedAttribute->selectByType(Property))]
 [let isProgram : Boolean = program.type.getAppliedStereotypes().toString().contains('Program') = true->asBag()]
 [if (isProgram)]
-[program.type.name/]
 [let hasConnection : Boolean = m.siblings()->exists(elem:OclAny | elem.eClass().name='Connection' and elem.eGet('base_InformationFlow').oclAsType(InformationFlow).informationSource.name=program.name->asBag())]
 [if ((hasConnection))]
 [for (elem2: OclAny | m.siblings())]
@@ -104,6 +103,7 @@ networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [get
 [let program:Class = vul.eContainer(Class)]
 vulExists([getHostOfProgram(program, m)/],'[elem.eGet('CVE_id')/]',[program.name.toLower()/]).
 vulProperty('[elem.eGet('CVE_id')/]',[elem.eGet('range')/],[elem.eGet('impact')/]).
+['\n'/]
 [/let]
 [/let]
 [/template]

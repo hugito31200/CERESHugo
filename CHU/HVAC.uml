@@ -93,6 +93,38 @@
         <body>CVE-2022-45789&#xD;
 </body>
       </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_HVTRkHckEe62INvlmVZBnw">
+        <body>CVE-2022-45788 (localExploit)&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_QgICYHckEe62INvlmVZBnw">
+        <body>CVE-2022-45788 (dos)</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_WFERoHckEe62INvlmVZBnw">
+        <body>CVE-2022-45788 (leakInfo)&#xD;
+&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_csaZEHckEe62INvlmVZBnw">
+        <body>CVE-2021-22789&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iSzZ0HckEe62INvlmVZBnw">
+        <body>CVE-2023-1548&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_s-aA4HckEe62INvlmVZBnw">
+        <body>CVE-2023-27976&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2qwxcHckEe62INvlmVZBnw">
+        <body>CVE-2022-37300 (ra)&#xD;
+&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_8w-hwHckEe62INvlmVZBnw">
+        <body>CVE-2022-37300 (wa)</body>
+      </ownedComment>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_TIE_EHcDEe62INvlmVZBnw" memberEnd="_TIICYHcDEe62INvlmVZBnw _TIJ3kHcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TIGNMHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
@@ -124,14 +156,31 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_WZ7xYHcDEe62INvlmVZBnw" name="system" type="_qi03UFFpEe6HEMNnvMx1Dw" association="_WZ58MHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ZIX1IHclEe62INvlmVZBnw">
+        <body>CVE-2023-22610&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_elDgQHclEe62INvlmVZBnw">
+        <body>CVE-2022-2988&#xD;
+</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_odj2cHclEe62INvlmVZBnw">
+        <body>CVE-2023-22611&#xD;
+</body>
+      </ownedComment>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_lQ5loHcDEe62INvlmVZBnw" memberEnd="_lQ6zwncDEe62INvlmVZBnw _lQ7a0HcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lQ6zwHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lQ6zwXcDEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_lQ7a0HcDEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_lQ5loHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA_Server"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA_Server">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_6UTOgHclEe62INvlmVZBnw">
+        <body>CVE-2023-37200</body>
+      </ownedComment>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_mjJJQHcGEe62INvlmVZBnw" memberEnd="_mjJwUncGEe62INvlmVZBnw _mjKXYncGEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mjJwUHcGEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mjJwUXcGEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
@@ -275,4 +324,16 @@
   <PortsAndFlows:ItemFlow xmi:id="_Brgy0HcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:Connection xmi:id="_C9YqYHcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw" protocol="opcua"/>
   <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Ok0wIHcgEe62INvlmVZBnw" CVE_id="CVE-2022-45789" range="localExploit" impact="privEscalation" base_Comment="_Iy3YkHcgEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_JdPOcHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="localExploit" impact="privEscalation" base_Comment="_HVTRkHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_SpC2sHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="dos" impact="na" base_Comment="_QgICYHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Yu3lcHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="leakInfo" impact="na" base_Comment="_WFERoHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_eD1fAHckEe62INvlmVZBnw" CVE_id="CVE-2021-22789" range="dos" impact="na" base_Comment="_csaZEHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_j3NL0HckEe62INvlmVZBnw" CVE_id="CVE-2023-1548" range="dos" impact="na" base_Comment="_iSzZ0HckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_ukWrAHckEe62INvlmVZBnw" CVE_id="CVE-2023-27976" range="remoteExploit" impact="privEscalation" base_Comment="_s-aA4HckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_4EBqcHckEe62INvlmVZBnw" CVE_id="CVE-2022-37300" range="readAccess" impact="na" base_Comment="_2qwxcHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="__LHB4HckEe62INvlmVZBnw" CVE_id="CVE-2022-37300" range="writeAccess" impact="na" base_Comment="_8w-hwHckEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_cCNJAHclEe62INvlmVZBnw" CVE_id="CVE-2023-22610" range="dos" impact="na" base_Comment="_ZIX1IHclEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_ifiY0HclEe62INvlmVZBnw" CVE_id="CVE-2022-2988" range="leakInfo" impact="na" base_Comment="_elDgQHclEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_p3dooHclEe62INvlmVZBnw" CVE_id="CVE-2023-22611" range="leakInfo" impact="na" base_Comment="_odj2cHclEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_-eYpUHclEe62INvlmVZBnw" CVE_id="CVE-2023-37200" range="leakInfo" impact="na" base_Comment="_6UTOgHclEe62INvlmVZBnw"/>
 </xmi:XMI>
