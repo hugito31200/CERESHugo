@@ -1,10 +1,11 @@
 primitive(isSensor(_host)).
 primitive(isActuator(_host)).
-primitive(canSniffCommunication(_h1,_h2)).
 primitive(physicalAccess(_principal,_host)).
+primitive(malicious(_principal)).
 
 derived(accessInfo(_host)).
 derived(isCompromised(_device)).
+derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
 
 
@@ -84,17 +85,48 @@ interaction_rule(
 interaction_rule(
   (isCompromised(sensor) :-
   isSensor(sensor),
-  physicalAccess(Principal,sensor)
+  physicalAccess(Principal,sensor),
+  malicious(Principal)
   ),
   rule_desc('Physically compromising a sensor', 1)).
 
 interaction_rule(
   (isCompromised(actuator) :-
   isActuator(actuator),
-  physicalAccess(Principal,actuator)
+  physicalAccess(Principal,actuator),
+  malicious(Principal)
   ),
   rule_desc('Physically compromising an actuator', 1)).
   
+
+/********************Sniffing on a communication channel************************************/
+interaction_rule(
+  (canSniffCommunication(device,Host) :-
+  isCompromised(device),
+  hacl(device,Host,_,_)
+  ),
+  rule_desc('Compromise source of communication', 1)).
+
+interaction_rule(
+  (canSniffCommunication(device,Host) :-
+  isCompromised(device),
+  hacl(Host,device,_,_)
+  ),
+  rule_desc('Compromise end of communication', 1)).
+
+  interaction_rule(
+  (canSniffCommunication(H1,H2) :-
+  execCode(H1,_),
+  hacl(H1,H2,_,_)
+  ),
+  rule_desc('Exec code on origin node', 1)).
+
+  interaction_rule(
+  (canSniffCommunication(H1,H2) :-
+  execCode(H2,_),
+  hacl(H1,H2,_,_)
+  ),
+  rule_desc('Exec code on end node', 1)).
 
 
 
