@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateStrategicScenario" name="org.eclipse.acceleo.module.sample">
-    <property name="ECLIPSE_HOME" value="../../../Documents/Travail_Scolaire/KTH/These/Papyrus/Papyrus"/>
+    <property name="ECLIPSE_HOME" value="../../../Papyrus/Papyrus"/>
     <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
