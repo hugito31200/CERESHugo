@@ -1,0 +1,84 @@
+primitive(isSensor(_host)).
+primitive(isActuator(_host)).
+primitive(isCompromised(_host)).
+primitive(canSniffCommunication(_h1,_h2)).
+
+derived(accessInfo(_host)).
+derived(covertAppropriation(_plc)).
+
+
+/*****Denial of Service*********/
+/*From 'Simulating and Detecting Attacks of Untrusted Clients in OPC UA Networks'*/
+interaction_rule(
+  (dos(H) :-
+  networkServiceInfo(H,_,opcua,opcua_port,_),
+  canAccessHost(H2),
+  hacl(H2,H,opcua,opcua_port)
+  ),
+  rule_desc('OPC UA Flooding', 1)).
+
+interaction_rule(
+  (dos(H) :-
+  vulExists(H, _, Software, dos, _),
+  networkServiceInfo(H,Software,Protocol,Port,_),
+  netAccess(H,Protocol,Port)
+  ),
+  rule_desc('DoS vulnerability exploit', 1)).
+
+/*From 'Denial of service attacks on network-based control systems: impact and mitigation'*/
+interaction_rule(
+  (dos(H) :-
+  execCode(H2,Perm),
+  hacl(H2,H,_,_)
+  ),
+  rule_desc('Local Network Attack', 1)).
+
+/*****Information Disclosure*********/
+interaction_rule(
+  (accessInfo(H) :-
+  vulExists(H,_,Software,leakInfo,_),
+  networkServiceInfo(H,Software,Protocol,Port,_),
+  netAccess(H,Protocol,Port)
+  ),
+  rule_desc('Extracts info by exploiting vulnerability', 1)).
+
+
+/*****Covert appropriation*********/
+/* From 'A Decoupled Feedback Structure for Covertly Appropriating Networked Control Systems' */
+
+interaction_rule(
+  (covertAppropriation(Scada) :-
+  isSensor(Sensor),
+  isCompromised(Sensor),
+  isActuator(Actuator),
+  isCompromised(Actuator),
+  hacl(Sensor,Scada,_,_),
+  hacl(Scada,Actuator,_,_)
+  ),
+  rule_desc('Covert Appropriation by compromising sensors and actuators', 1)).
+
+interaction_rule(
+  (covertAppropriation(PLC) :-
+  isSensor(Sensor),
+  isActuator(Actuator),
+  execCode(PLC,_),
+  hacl(Sensor,PLC,_,_),
+  hacl(PLC,Actuator,_,_)
+  ),
+  rule_desc('Covert Appropriation by compromising the PLC', 1)).
+
+interaction_rule(
+  (covertAppropriation(PLC) :-
+  isSensor(Sensor),
+  isActuator(Actuator),
+  hacl(Sensor,PLC,_,_),
+  canSniffCommunication(Sensor,PLC),
+  hacl(PLC,Actuator,_,_),
+  canSniffCommunication(PLC,Actuator)
+  ),
+  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', 1)).
+  
+
+
+
+

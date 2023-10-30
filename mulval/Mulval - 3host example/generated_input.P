@@ -1,0 +1,21 @@
+attackGoal(execCode(fileserver,_)).
+
+networkServiceInfo(webserver, httpd, tcp, 80, apache).
+
+networkServiceInfo(fileserver, mountd, rpc, 100005, root).
+
+hacl(internet, webserver, tcp, 80).
+hacl(webserver, workstation, _, _).
+
+
+hacl(webserver, fileserver, _, _).
+hacl(fileserver, workstation, _, _).
+vulExists(webserver, 'CAN-2002-0392', httpd).
+vulProperty('CAN-2002-0392', remoteExploit, privEscalation).
+vulExists(fileserver, vulId, mountd).
+vulProperty(vulId, remoteExploit, privEscalation).
+competent(attacker).
+attackerLocated(internet).
+inCompetent(employee).
+hasAccount(employee,workstation,_).
+dependsOn(webserver,hTTPD,library).

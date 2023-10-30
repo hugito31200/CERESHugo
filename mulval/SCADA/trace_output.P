@@ -1,0 +1,103 @@
+primitive(inCompetent,1).
+primitive(competent,1).
+primitive(clientProgram,2).
+primitive(vulExists,3).
+primitive(vulProperty,3).
+primitive(hacl,4).
+primitive(attackerLocated,1).
+primitive(hasAccount,3).
+primitive(networkServiceInfo,5).
+primitive(setuidProgramInfo,3).
+primitive(nfsExportInfo,4).
+primitive(nfsMounted,5).
+primitive(localFileProtection,4).
+primitive(dependsOn,3).
+primitive(installed,2).
+primitive(bugHyp,4).
+primitive(vulExists,5).
+primitive(canAccessFile,4).
+primitive(isWebServer,1).
+primitive(isScada,1).
+primitive(isNetwork,1).
+primitive(malicious,1).
+primitive(physicalAccess,2).
+derived(execCode,2).
+derived(netAccess,3).
+derived(canAccessHost,1).
+derived(accessFile,3).
+derived(accessMaliciousInput,3).
+derived(principalCompromised,1).
+derived(dos,1).
+derived(logInService,3).
+derived(canPerformScadaAttack,1).
+derived(canPerformNetworkAttack,1).
+derived(covertAppropriation,1).
+derived(stealInfo,1).
+derived(ransomware,1).
+derived(performAttack,1).
+meta(cvss,2).
+meta(attackGoal,1).
+meta(advances,2).
+
+attack(performAttack(scada)).
+
+possible_duplicate_trace_step(because(26,rule_desc('Access through internet entry point',1),canAccessHost(scada),[hacl(internet,scada,ipSec,_h3837),attackerLocated(internet)])).
+
+possible_duplicate_trace_step(because(27,rule_desc('Malicious actor (external or internal)',1),canAccessHost(scada),[malicious(alarmProvider),hasAccount(alarmProvider,scada,root)])).
+
+possible_duplicate_trace_step(because(28,rule_desc('Malicious actor (insider) with physicalAccess',1),canAccessHost(scada),[malicious(technician),physicalAccess(technician,scada)])).
+
+possible_duplicate_trace_step(because(26,rule_desc('Access through internet entry point',1),canAccessHost(scada),[hacl(internet,scada,ipSec,_h3847),attackerLocated(internet)])).
+
+possible_duplicate_trace_step(because(27,rule_desc('Malicious actor (external or internal)',1),canAccessHost(scada),[malicious(alarmProvider),hasAccount(alarmProvider,scada,root)])).
+
+possible_duplicate_trace_step(because(28,rule_desc('Malicious actor (insider) with physicalAccess',1),canAccessHost(scada),[malicious(technician),physicalAccess(technician,scada)])).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3799,_h3800),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3799,_h3800),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3799,_h3800),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(30,rule_desc('Possible attack on SCADA system',1),canPerformScadaAttack(scada),[isScada(scada),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(30,rule_desc('Possible attack on SCADA system',1),canPerformScadaAttack(scada),[isScada(scada),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(30,rule_desc('Possible attack on SCADA system',1),canPerformScadaAttack(scada),[isScada(scada),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(31,rule_desc('DoS on SCADA System',1),dos(scada),[canPerformScadaAttack(scada)])).
+
+possible_duplicate_trace_step(because(37,rule_desc('Perform DoS Attack',1),performAttack(scada),[dos(scada)])).
+
+possible_duplicate_trace_step(because(32,rule_desc('covertAppropriation on SCADA System',1),covertAppropriation(scada),[canPerformScadaAttack(scada)])).
+
+possible_duplicate_trace_step(because(38,rule_desc('Perform covert appropriation attack',1),performAttack(scada),[covertAppropriation(scada)])).
+
+attack(performAttack(hospitalNetwork)).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3918,_h3919),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3918,_h3919),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(29,rule_desc('Lateral movement',1),canAccessHost(hospitalNetwork),[hacl(scada,hospitalNetwork,_h3918,_h3919),canAccessHost(scada)])).
+
+possible_duplicate_trace_step(because(33,rule_desc('Possible attack on Network system',1),canPerformNetworkAttack(hospitalNetwork),[isNetwork(hospitalNetwork),canAccessHost(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(34,rule_desc('DoS on network System',1),dos(hospitalNetwork),[canPerformNetworkAttack(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(37,rule_desc('Perform DoS Attack',1),performAttack(hospitalNetwork),[dos(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(35,rule_desc('Steal confidential information',1),stealInfo(hospitalNetwork),[canPerformNetworkAttack(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(39,rule_desc('Data theft',1),performAttack(hospitalNetwork),[stealInfo(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(36,rule_desc('Steal confidential information',1),ransomware(hospitalNetwork),[canPerformNetworkAttack(hospitalNetwork)])).
+
+possible_duplicate_trace_step(because(40,rule_desc('Ransomware attack',1),performAttack(hospitalNetwork),[ransomware(hospitalNetwork)])).
+
+attack(performAttack(scada)).
+
+attack(performAttack(hospitalNetwork)).
+
+attack(performAttack(hospitalNetwork)).
+

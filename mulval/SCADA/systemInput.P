@@ -1,0 +1,15 @@
+attackGoal(performAttack(_)).
+
+attackerLocated(internet).
+
+hasAccount(alarmProvider,scada,root).
+malicious(alarmProvider).
+
+physicalAccess(technician,scada).
+malicious(technician).
+
+isScada(scada).
+isNetwork(hospitalNetwork).
+
+hacl(internet,scada,ipSec,_).
+hacl(scada,hospitalNetwork,_,_).

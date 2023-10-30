@@ -1,0 +1,158 @@
+<1>||--execCode(workingStation,_)
+   (2) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+      <3>||--canAccessHost(workingStation)
+         (4) RULE 8 : Access a host through executing code on the machine
+            execCode(workingStation,_)==><1>
+         (5) RULE 8 : Access a host through executing code on the machine
+            <6>||--execCode(workingStation,root)
+               (7) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                  canAccessHost(workingStation)==><3>
+                  [8]-hasAccount(_,workingStation,root)
+                  <9>||--principalCompromised(_)
+                     (10) RULE 11 : password sniffing
+                        execCode(workingStation,root)==><6>
+                        [11]-hasAccount(_,workingStation,_)
+                     (12) RULE 12 : password sniffing
+                        execCode(workingStation,_)==><1>
+                        [11]-hasAccount(_,workingStation,_)
+                     (13) RULE 12 : password sniffing
+                        execCode(workingStation,root)==><6>
+                        [8]-hasAccount(_,workingStation,root)
+                     (14) RULE 12 : password sniffing
+                        <15>||--execCode(workingStation,unprivileged)
+                           (16) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                              canAccessHost(workingStation)==><3>
+                              [17]-hasAccount(_,workingStation,unprivileged)
+                              principalCompromised(_)==><9>
+                           (18) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                              canAccessHost(workingStation)==><3>
+                              [19]-hasAccount(apache,workingStation,unprivileged)
+                              <20>|--principalCompromised(apache)
+                                 (21) RULE 12 : password sniffing
+                                    <22>||--execCode(webServer,apache)
+                                       (23) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                                          <24>|--canAccessHost(webServer)
+                                             (25) RULE 8 : Access a host through executing code on the machine
+                                                execCode(webServer,apache)==><22>
+                                          [26]-hasAccount(apache,webServer,apache)
+                                          principalCompromised(apache)==><20>
+                                       (27) RULE 2 : remote exploit of a server program
+                                          <28>||--netAccess(webServer,tcp,80)
+                                             (29) RULE 5 : multi-hop access
+                                                [30]-hacl(fileServer,webServer,tcp,80)
+                                                <31>||--execCode(fileServer,root)
+                                                   (32) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                                                      <33>|--canAccessHost(fileServer)
+                                                         (34) RULE 8 : Access a host through executing code on the machine
+                                                            execCode(fileServer,root)==><31>
+                                                      [35]-hasAccount(root,fileServer,root)
+                                                      <36>||--principalCompromised(root)
+                                                         (37) RULE 11 : password sniffing
+                                                            execCode(fileServer,root)==><31>
+                                                            [35]-hasAccount(root,fileServer,root)
+                                                         (38) RULE 12 : password sniffing
+                                                            execCode(fileServer,root)==><31>
+                                                            [35]-hasAccount(root,fileServer,root)
+                                                   (39) RULE 2 : remote exploit of a server program
+                                                      <40>||--netAccess(fileServer,rpc,100005)
+                                                         (41) RULE 5 : multi-hop access
+                                                            [42]-hacl(fileServer,fileServer,rpc,100005)
+                                                            execCode(fileServer,root)==><31>
+                                                         (43) RULE 5 : multi-hop access
+                                                            [44]-hacl(webServer,fileServer,rpc,100005)
+                                                            execCode(webServer,apache)==><22>
+                                                         (45) RULE 5 : multi-hop access
+                                                            [46]-hacl(workingStation,fileServer,rpc,100005)
+                                                            execCode(workingStation,_)==><1>
+                                                         (47) RULE 5 : multi-hop access
+                                                            [46]-hacl(workingStation,fileServer,rpc,100005)
+                                                            execCode(workingStation,root)==><6>
+                                                         (48) RULE 5 : multi-hop access
+                                                            [46]-hacl(workingStation,fileServer,rpc,100005)
+                                                            execCode(workingStation,unprivileged)==><15>
+                                                      [49]-networkServiceInfo(fileServer,mountd,rpc,100005,root)
+                                                      [50]-vulExists(fileServer,vulID,mountd,remoteExploit,privEscalation)
+                                                   (51) RULE 4 : Trojan horse installation
+                                                      <52>|--accessFile(fileServer,write,_)
+                                                         (53) RULE 10 : execCode implies file access
+                                                            [54]-canAccessFile(fileServer,root,write,_)
+                                                            execCode(fileServer,root)==><31>
+                                             (55) RULE 5 : multi-hop access
+                                                [56]-hacl(webServer,webServer,tcp,80)
+                                                execCode(webServer,apache)==><22>
+                                             (57) RULE 5 : multi-hop access
+                                                [58]-hacl(workingStation,webServer,tcp,80)
+                                                execCode(workingStation,_)==><1>
+                                             (59) RULE 5 : multi-hop access
+                                                [58]-hacl(workingStation,webServer,tcp,80)
+                                                execCode(workingStation,root)==><6>
+                                             (60) RULE 5 : multi-hop access
+                                                [58]-hacl(workingStation,webServer,tcp,80)
+                                                execCode(workingStation,unprivileged)==><15>
+                                             (61) RULE 6 : direct network access
+                                                [62]-hacl(internet,webServer,tcp,80)
+                                                [63]-attackerLocated(internet)
+                                          [64]-networkServiceInfo(webServer,httpd,tcp,80,apache)
+                                          [65]-vulExists(webServer,'CAN-2002-0392',httpd,remoteExploit,privEscalation)
+                                    [26]-hasAccount(apache,webServer,apache)
+                           (66) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                              canAccessHost(workingStation)==><3>
+                              [67]-hasAccount(root,workingStation,unprivileged)
+                              principalCompromised(root)==><36>
+                           (68) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                              canAccessHost(workingStation)==><3>
+                              [69]-hasAccount(unprivileged,workingStation,unprivileged)
+                              <70>||--principalCompromised(unprivileged)
+                                 (71) RULE 11 : password sniffing
+                                    execCode(workingStation,root)==><6>
+                                    [69]-hasAccount(unprivileged,workingStation,unprivileged)
+                                 (72) RULE 12 : password sniffing
+                                    execCode(workingStation,unprivileged)==><15>
+                                    [69]-hasAccount(unprivileged,workingStation,unprivileged)
+                        [17]-hasAccount(_,workingStation,unprivileged)
+               (73) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                  canAccessHost(workingStation)==><3>
+                  [74]-hasAccount(apache,workingStation,root)
+                  principalCompromised(apache)==><20>
+               (75) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                  canAccessHost(workingStation)==><3>
+                  [76]-hasAccount(root,workingStation,root)
+                  principalCompromised(root)==><36>
+               (77) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+                  canAccessHost(workingStation)==><3>
+                  [78]-hasAccount(unprivileged,workingStation,root)
+                  principalCompromised(unprivileged)==><70>
+               (79) RULE 4 : Trojan horse installation
+                  <80>|--accessFile(workingStation,write,'/usr/local/share')
+                     (81) RULE 16 : NFS semantics
+                        <82>|--accessFile(fileServer,write,'/export')
+                           (83) RULE 10 : execCode implies file access
+                              [84]-canAccessFile(fileServer,root,write,'/export')
+                              execCode(fileServer,root)==><31>
+                        [85]-nfsMounted(workingStation,'/usr/local/share',fileServer,'/export',read)
+               (86) RULE 4 : Trojan horse installation
+                  <87>|--accessFile(workingStation,write,_)
+                     (88) RULE 10 : execCode implies file access
+                        [89]-canAccessFile(workingStation,root,write,_)
+                        execCode(workingStation,root)==><6>
+         (90) RULE 8 : Access a host through executing code on the machine
+            execCode(workingStation,unprivileged)==><15>
+      [11]-hasAccount(_,workingStation,_)
+      principalCompromised(_)==><9>
+   (91) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+      canAccessHost(workingStation)==><3>
+      [92]-hasAccount(apache,workingStation,_)
+      principalCompromised(apache)==><20>
+   (93) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+      canAccessHost(workingStation)==><3>
+      [94]-hasAccount(root,workingStation,_)
+      principalCompromised(root)==><36>
+   (95) RULE 0 : When a principal is compromised any machine he has an account on will also be compromised
+      canAccessHost(workingStation)==><3>
+      [96]-hasAccount(unprivileged,workingStation,_)
+      principalCompromised(unprivileged)==><70>
+
+execCode(workingStation,root)==><6>
+
+execCode(workingStation,unprivileged)==><15>
+
