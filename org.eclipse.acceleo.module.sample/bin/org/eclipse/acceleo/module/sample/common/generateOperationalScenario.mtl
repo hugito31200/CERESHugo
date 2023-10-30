@@ -101,9 +101,9 @@ networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [get
 [template private generateDevice(elem: OclAny, m: Model) post(trim())]
 [let device:Class = elem.eGet('base_Class').oclAsType(Class)]
 [if (elem.eGet('type').toString()='Actuator')]
-isActuator([device.name.toLower()/])
+isActuator([device.name.toLower()/]).
 [else]
-isSensor([device.name.toLower()/])
+isSensor([device.name.toLower()/]).
 [/if]
 [/let]
 [/template]
