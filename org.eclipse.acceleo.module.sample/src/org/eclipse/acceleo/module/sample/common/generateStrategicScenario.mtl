@@ -1,0 +1,103 @@
+[comment encoding = UTF-8 /]
+[module generateStrategicScenario('http://www.eclipse.org/papyrus/sysml/1.6/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
+
+
+[template private underscoreIfEmpty(elem:OclAny, attribute:String) post(trim())]
+[(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
+[/template]
+
+[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow)]
+[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
+hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Port).eContainer(Class).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], [conn.informationTarget.oclAsType(Port).name/]).
+[else]
+hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Property).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], _).
+[/if]
+[/template]
+
+[template private generateCS(elem: OclAny, m: Model) post(trim())]
+[let cs:Class = elem.eGet('base_Class').oclAsType(Class)]
+[if elem.eGet('type').toString() = 'Network']
+isNetwork([cs.name.toLower()/]).
+[else]
+isScada([cs.name.toLower()/]).
+[/if]
+
+[for (conn: OclAny | m.siblings())]
+[if (conn.eClass().name.contains('Connection'))]
+[let infoFlow:InformationFlow = conn.eGet('base_InformationFlow').oclAsType(InformationFlow)]
+[if(infoFlow.informationSource.name=cs.name.toLower()->asBag() or infoFlow.informationTarget.name=cs.name.toLower()->asBag())]
+[writeHACLWithOptions(conn, infoFlow)/]
+[/if]
+[/let]
+[/if]
+[/for]
+[/let]
+[/template]
+
+
+[template private generateUser(elem:OclAny, m:Model) post(trim())]
+[let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
+[if (elem.eGet('isCompetent')=true)]
+competent([user.name.toLower()/]).
+[/if]
+[if (elem.eGet('isCompetent')=false)]
+inCompetent([user.name.toLower()/]).
+[/if]
+[if (elem.eGet('isMalicious')=true)]
+malicious([user.name.toLower()/]).
+[/if]
+[/let]
+[/template]
+
+[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
+[let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
+[for (prop:Property | m.eAllContents(Property))]
+[if (prop.type=attacker)]
+attackerLocated([prop.eContainer(Class).name.toLowerFirst()/]).
+[/if]
+[/for]
+[/let]
+[/template]
+
+[template private generateHasAccount(elem:OclAny) post(trim())]
+[let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
+hasAccount([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/],[underscoreIfEmpty(elem, 'account')/]).
+[/let]
+[/template]
+
+[template private generatePhysicalAccess(elem:OclAny) post(trim())]
+[let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
+physicalAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/]).
+[/let]
+[/template]
+
+
+
+[template public generateStrategicScenario( m : Model) post(trim())]
+[file ('strategic_input.txt', false, 'UTF-8')]
+[comment @main/]
+attackGoal(performAttack(_)).
+[for (elem : OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class='ConstituentSystem')]
+[generateCS(elem, m)/]
+[/if]
+[if(class.contains('hasAccount'))]
+[generateHasAccount(elem)/]
+[/if]
+[if(class.contains('physicalAccess'))]
+[generatePhysicalAccess(elem)/]
+[/if]
+[if (class='Attacker')]
+[generateAttacker(elem, m)/]
+[/if]
+[if (class='User')]
+[generateUser(elem, m)/]
+[/if]
+[/let]
+[/for]
+[/file]
+[/template]
+
+
+

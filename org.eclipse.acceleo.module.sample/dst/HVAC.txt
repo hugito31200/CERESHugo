@@ -1,0 +1,37 @@
+/*********************Programs************************/
+
+MachineExpert
+networkServiceInfo(scada, machineexpert, _, _, _).
+vpnService
+networkServiceInfo(scada, vpnservice, ipSec, _, _).
+opcua_server
+networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
+ControlExpert
+networkServiceInfo(plc, controlexpert, opcua, opcua_port, _).
+
+/******************Connections**********************/
+hacl(internet, scada, ipSec, _).
+hacl(scada, plc, opcua, opcua_port).
+hacl(sensor, plc, opcua, opcua_port).
+hacl(plc, actuator, opcua, opcua_port).
+
+
+
+
+/******************Vulnerabilities***********************/
+Activity1:invalid:invalid
+CVE-2022-45789:Activity1:ControlExpert
+Activity1:invalid:invalid
+
+/*****************Attacker*************************/
+attackerLocated(internet).
+
+/****************************Users******************************/
+inCompetent(alarmProvider).
+competent(technician).
+malicious(technician).
+
+hasAccount(alarmprovider,scada,root).
+
+physicalAccess(technician,plc).
+
