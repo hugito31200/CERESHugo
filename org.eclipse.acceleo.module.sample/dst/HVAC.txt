@@ -1,3 +1,5 @@
+
+
 /*********************Programs************************/
 
 networkServiceInfo(scada, machineexpert, _, _, _).
@@ -13,6 +15,11 @@ hacl(sensor, plc, opcua, opcua_port).
 hacl(plc, actuator, opcua, opcua_port).
 
 
+
+
+/*********************Devices************************/
+isSensor(sensor)
+isActuator(actuator)
 
 
 /******************Vulnerabilities***********************/

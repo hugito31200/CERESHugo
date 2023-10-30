@@ -98,6 +98,16 @@ networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [get
 [/let]
 [/template]
 
+[template private generateDevice(elem: OclAny, m: Model) post(trim())]
+[let device:Class = elem.eGet('base_Class').oclAsType(Class)]
+[if (elem.eGet('type').toString()='Actuator')]
+isActuator([device.name.toLower()/])
+[else]
+isSensor([device.name.toLower()/])
+[/if]
+[/let]
+[/template]
+
 [template private generateVulnerabilities(elem:OclAny, m:Model) post(trim())]
 [let vul:Comment = elem.eGet('base_Comment').oclAsType(Comment)]
 [let program:Class = vul.eContainer(Class)]
@@ -158,6 +168,8 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [template public generateOperationalScenario( m : Model) post(trim())]
 [file (m.name+'.txt', false, 'UTF-8')]
 [comment @main/]
+
+
 /*********************Programs************************/
 [for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
@@ -175,6 +187,16 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [/if]
 [/let]
 [/for]
+
+/*********************Devices************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class.contains('Device'))]
+[generateDevice(elem,m)/]
+[/if]
+[/let]
+[/for]
+
 
 /******************Vulnerabilities***********************/
 [for (elem: OclAny | m.siblings())]

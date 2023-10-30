@@ -291,7 +291,7 @@
   <Blocks:Block xmi:id="_1m6nQHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_3VfB4HcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:Device xmi:id="_65i-gHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Device xmi:id="_8Gn1oHcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL:Device xmi:id="_8Gn1oHcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw" type="Actuator"/>
   <SysML_Extension_for_MulVAL:hasAccount xmi:id="_AtG4kHcDEe62INvlmVZBnw" base_Dependency="__npsYHcCEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:physicalAccess xmi:id="_JjS2IHcDEe62INvlmVZBnw" base_Dependency="_HGjt8HcDEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:physicalAccess xmi:id="_KbcmIHcDEe62INvlmVZBnw" base_Dependency="_Hn78sHcDEe62INvlmVZBnw"/>
