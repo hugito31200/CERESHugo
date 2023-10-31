@@ -1,1 +1,16 @@
 /.metadata/
+mulval/SCADA/ARCS.CSV
+mulval/*/AttackGraph.*
+mulval/*/dynamic_decl.gen
+mulval/*/environment.P
+mulval/*/metric.P
+mulval/*/running_rules.P
+mulval/*/trace_output.P
+mulval/*/run.*
+mulval/*/xsb_log.txt
+mulval/*/environment.xwam
+mulval/*/VERTICES.CSV
+mulval/*/ARCS.CSV
+mulval/*/translated_rules.P
+mulval/SCADA/generatedInput.P
+mulval/testcases/*

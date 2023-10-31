@@ -1,0 +1,28 @@
+attackerLocated(internet).
+attackGoal(execCode(workStation,_)).
+
+hacl(internet, webServer, tcp, 80).
+/*testPrimitive(webServer).*/
+hacl(webServer, fileServer,  _, _).
+hacl(webServer, workstation,  _, _).
+hacl(fileServer, workstation, _, _).
+
+/* configuration information of fileServer */
+networkServiceInfo(fileServer, mountd, rpc, 100005, root).
+/*nfsExportInfo(fileServer, '/export', _anyAccess, workStation).*/
+vulExists(fileServer, vulID, mountd).
+vulProperty(vulID, remoteExploit, privEscalation).
+cvss(vulID,9).
+capability_required(vulID, 1).
+localFileProtection(fileServer, root, _, _).
+
+/* configuration information of webServer */
+vulExists(webServer, 'CAN-2002-0392', httpd).
+vulProperty('CAN-2002-0392', remoteExploit, privEscalation).
+cvss('CAN-2002-0392',1).
+capability_required('CAN-2002-0392', 0).
+networkServiceInfo(webServer , httpd, tcp , 80 , apache).
+
+/* configuration information of workStation */
+nfsMounted(workStation, '/usr/local/share', fileServer, '/export', read).
+

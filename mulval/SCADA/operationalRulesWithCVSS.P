@@ -1,0 +1,136 @@
+primitive(isSensor(_host)).
+primitive(isActuator(_host)).
+primitive(physicalAccess(_principal,_host)).
+primitive(malicious(_principal)).
+
+derived(accessInfo(_host)).
+derived(isCompromised(_device)).
+derived(canSniffCommunication(_h1,_h2)).
+derived(covertAppropriation(_plc)).
+derived(dos(_host)).
+
+
+/*****Denial of Service*********/
+/*From 'Simulating and Detecting Attacks of Untrusted Clients in OPC UA Networks'*/
+interaction_rule(
+  (dos(H) :-
+  networkServiceInfo(H,_,opcua,opcua_port,_),
+  canAccessHost(H2),
+  hacl(H2,H,opcua,opcua_port)
+  ),
+  rule_desc('OPC UA Flooding', 'possible')).
+
+interaction_rule(
+  (dos(H) :-
+  vulExists(H, ID, Software, dos, _),
+  cvss(ID,AC),
+  networkServiceInfo(H,Software,Protocol,Port,_),
+  netAccess(H,Protocol,Port)
+  ),
+  rule_desc('DoS vulnerability exploit', cvss_ac(AC))).
+
+/*From 'Denial of service attacks on network-based control systems: impact and mitigation'*/
+interaction_rule(
+  (dos(H) :-
+  execCode(H2,Perm),
+  hacl(H2,H,_,_)
+  ),
+  rule_desc('Local Network Attack', 'possible')).
+
+/*****Information Disclosure*********/
+interaction_rule(
+  (accessInfo(H) :-
+  vulExists(H,ID,Software,leakInfo,_),
+  cvss(ID,AC),
+  networkServiceInfo(H,Software,Protocol,Port,_),
+  netAccess(H,Protocol,Port)
+  ),
+  rule_desc('Extracts info by exploiting vulnerability', cvss_ac(AC))).
+
+
+/*****Covert appropriation*********/
+/* From 'A Decoupled Feedback Structure for Covertly Appropriating Networked Control Systems' */
+
+interaction_rule(
+  (covertAppropriation(PLC) :-
+  isSensor(Sensor),
+  isCompromised(Sensor),
+  isActuator(Actuator),
+  isCompromised(Actuator),
+  hacl(Sensor,PLC,_,_),
+  hacl(PLC,Actuator,_,_)
+  ),
+  rule_desc('Covert Appropriation by compromising sensors and actuators', 'certain')).
+
+interaction_rule(
+  (covertAppropriation(PLC) :-
+  isSensor(Sensor),
+  isActuator(Actuator),
+  execCode(PLC,_),
+  hacl(Sensor,PLC,_,_),
+  hacl(PLC,Actuator,_,_)
+  ),
+  rule_desc('Covert Appropriation by compromising the PLC', 'certain')).
+
+interaction_rule(
+  (covertAppropriation(PLC) :-
+  isSensor(Sensor),
+  isActuator(Actuator),
+  hacl(Sensor,PLC,_,_),
+  canSniffCommunication(Sensor,PLC),
+  hacl(PLC,Actuator,_,_),
+  canSniffCommunication(PLC,Actuator)
+  ),
+  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', 'certain')).
+
+
+/********************Physically compromising a sensor or an actuator************************************/
+interaction_rule(
+  (isCompromised(sensor) :-
+  isSensor(sensor),
+  physicalAccess(Principal,sensor),
+  malicious(Principal)
+  ),
+  rule_desc('Physically compromising a sensor', 'certain')).
+
+interaction_rule(
+  (isCompromised(actuator) :-
+  isActuator(actuator),
+  physicalAccess(Principal,actuator),
+  malicious(Principal)
+  ),
+  rule_desc('Physically compromising an actuator', 'certain')).
+  
+
+/********************Sniffing on a communication channel************************************/
+interaction_rule(
+  (canSniffCommunication(device,Host) :-
+  isCompromised(device),
+  hacl(device,Host,_,_)
+  ),
+  rule_desc('Compromise source of communication', 'certain')).
+
+interaction_rule(
+  (canSniffCommunication(device,Host) :-
+  isCompromised(device),
+  hacl(Host,device,_,_)
+  ),
+  rule_desc('Compromise end of communication', 'certain')).
+
+  interaction_rule(
+  (canSniffCommunication(H1,H2) :-
+  execCode(H1,_),
+  hacl(H1,H2,_,_)
+  ),
+  rule_desc('Exec code on origin node', 'likely')).
+
+  interaction_rule(
+  (canSniffCommunication(H1,H2) :-
+  execCode(H2,_),
+  hacl(H1,H2,_,_)
+  ),
+  rule_desc('Exec code on end node', 'likely')).
+
+
+
+
