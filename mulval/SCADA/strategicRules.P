@@ -1,6 +1,9 @@
 
-primitive(isAsset(_asset,_machine,_importance)).
-primitive(stakeHolder(_stakeholder,_machine,_exposure)).
+primitive(isAsset(_asset,_importance)).
+primitive(assetLocated(_asset,_machine)).
+
+primitive(stakeHolder(_stakeholder,_exposure)).
+primitive(hasAccess(_stakeholder,_machine)).
 
 derived(targetAsset(_asset)).
 
@@ -14,7 +17,8 @@ interaction_rule(
 
 interaction_rule(
   (canAccessHost(H) :-
-  stakeHolder(S,H,Exposure)
+  stakeHolder(S,Exposure),
+  hasAccess(S,H)
   ),
   rule_desc('Enters the system via critical stakeholder', Exposure)).
 
@@ -31,7 +35,8 @@ interaction_rule(
 /**********Target assets*******************/
 interaction_rule(
   (targetAsset(Asset) :-
-  isAsset(Asset,H,Importance),
+  isAsset(Asset,Importance),
+  assetLocated(Asset,H),
   canAccessHost(H)
   ),
   rule_desc('Access to a host that contains asset', Importance)).

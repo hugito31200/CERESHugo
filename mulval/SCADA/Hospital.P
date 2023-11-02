@@ -2,10 +2,15 @@ attackGoal(targetAsset(_)).
 attackerLocated(internet).
 
 /*******************Stakeholders******************/
-stakeHolder(alarmProvider,scada,'likely').
-stakeHolder(employee, workstation,'unlikely').
-stakeHolder(technician,sensor,'possible').
-stakeHolder(technician,actuator,'possible').
+stakeHolder(alarmProvider,'likely').
+hasAccess(alarmProvider,scada).
+
+stakeHolder(employee,'unlikely').
+hasAccess(employee,workstation).
+
+stakeHolder(technician,'possible').
+hasAccess(technician,actuator).
+hasAccess(technician,sensor).
 
 /*******************Hosts and Connections*************************/
 hacl(internet,webserver,ipSec,_).
@@ -17,8 +22,15 @@ hacl(sensor, plc, opcua, opcua_port).
 hacl(plc,actuator,opcua,opcua_port).
 
 /*************************Assets*****************************/
-isAsset(patientInformation,database,'certain').
-isAsset(systemMonitoring,scada,'possible').
-isAsset(temperatureRegulation,plc,'likely').
-isAsset(handleRequests,webserver,'likely').
+isAsset(patientInformation,'certain').
+assetLocated(patientInformation,database).
+
+isAsset(systemMonitoring,'possible').
+assetLocated(systemMonitoring,scada).
+
+isAsset(temperatureRegulation,'likely').
+assetLocated(temperatureRegulation,plc).
+
+isAsset(handleRequests,'likely').
+assetLocated(handleRequests,webserver).
 
