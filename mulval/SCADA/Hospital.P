@@ -1,0 +1,22 @@
+attackGoal(targetAsset(_)).
+attackerLocated(internet).
+
+/*******************Stakeholders******************/
+stakeHolder(alarmProvider,scada,'likely').
+stakeHolder(employee, hospitalNetwork,'unlikely').
+stakeHolder(technician,sensor,'possible').
+stakeHolder(technician,actuator,'possible').
+
+/*******************Hosts and Connections*************************/
+hacl(internet,hospitalNetwork,ipSec,_).
+hacl(hospitalNetwork,database,_,_).
+hacl(hospitalNetwork,scada,_,_).
+hacl(scada,plc,opcua,opcua_port).
+hacl(sensor, plc, opcua, opcua_port).
+hacl(plc,actuator,opcua,opcua_port).
+
+/*************************Assets*****************************/
+isAsset(patientInformation,database,'certain').
+isAsset(systemMonitoring,scada,'possible').
+isAsset(temperatureRegulation,plc,'likely').
+

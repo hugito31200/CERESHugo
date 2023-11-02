@@ -1,0 +1,111 @@
+primitive(isScada(_scada)).
+primitive(isNetwork(_network)).
+primitive(malicious(_principal)).
+primitive(physicalAccess(_principal,_host)).
+
+derived(canPerformScadaAttack(_scada)).
+derived(canPerformNetworkAttack(_network)).
+derived(covertAppropriation(_scada)).
+derived(stealInfo(_network)).
+derived(ransomware(_network)).
+derived(performAttack(_host)).
+
+/******************Constituent System rules for Strategic Scenarios**********************/
+
+/**Entry point rules**/
+interaction_rule(
+  (canAccessHost(H) :-
+  attackerLocated(internet),
+  hacl(internet,H,_,_)
+  ),
+  rule_desc('Access through internet entry point', 1)).
+
+interaction_rule(
+  (canAccessHost(H) :-
+  hasAccount(Principal,H,_),
+  malicious(Principal)
+  ),
+  rule_desc('Malicious actor external or internal', 1)).
+
+interaction_rule(
+  (canAccessHost(H) :-
+  physicalAccess(Principal,H),
+  malicious(Principal)
+  ),
+  rule_desc('Malicious actor with physicalAccess', 1)).
+
+interaction_rule(
+  (canAccessHost(H) :-
+  canAccessHost(H2),
+  hacl(H2,H,_,_)
+  ),
+  rule_desc('Lateral movement', 1)).
+
+interaction_rule(
+  (canPerformScadaAttack(Scada) :-
+  canAccessHost(Scada),
+  isScada(Scada)
+  ),
+  rule_desc('Possible attack on SCADA system', 1)).
+
+interaction_rule(
+  (dos(Scada) :-
+  canPerformScadaAttack(Scada)
+  ),
+  rule_desc('DoS on SCADA System', 1)).
+
+interaction_rule(
+  (covertAppropriation(Scada) :-
+  canPerformScadaAttack(Scada)
+  ),
+  rule_desc('covertAppropriation on SCADA System', 1)).
+
+
+interaction_rule(
+  (canPerformNetworkAttack(Network) :-
+  canAccessHost(Network),
+  isNetwork(Network)
+  ),
+  rule_desc('Possible attack on Network system', 1)).
+
+interaction_rule(
+  (dos(Network) :-
+  canPerformNetworkAttack(Network)
+  ),
+  rule_desc('DoS on network System', 1)).
+
+interaction_rule(
+  (stealInfo(Network) :-
+  canPerformNetworkAttack(Network)
+  ),
+  rule_desc('Steal confidential information', 1)).
+  
+interaction_rule(
+  (ransomware(Network) :-
+  canPerformNetworkAttack(Network)
+  ),
+  rule_desc('Steal confidential information', 1)).
+
+interaction_rule(
+  (performAttack(H) :-
+  dos(H)
+  ),
+  rule_desc('Perform DoS Attack', 1)).
+
+interaction_rule(
+  (performAttack(H) :-
+  covertAppropriation(H)
+  ),
+  rule_desc('Perform covert appropriation attack', 1)).
+
+interaction_rule(
+  (performAttack(H) :-
+  stealInfo(H)
+  ),
+  rule_desc('Data theft', 1)).
+
+interaction_rule(
+  (performAttack(H) :-
+  ransomware(H)
+  ),
+  rule_desc('Ransomware attack', 1)).
