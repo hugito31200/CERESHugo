@@ -3,11 +3,27 @@ primitive(isActuator(_host)).
 primitive(physicalAccess(_principal,_host)).
 primitive(malicious(_principal)).
 
+primitive(initiallyTriggered(_vulID)).
+derived(isTriggered(_vulID)).
+
 derived(accessInfo(_host)).
 derived(isCompromised(_device)).
 derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
 
+interaction_rule(
+  (isTriggered(VulID) :-
+  initiallyTriggered(VulID)
+  ),
+  rule_desc('vulnerability triggered from the start', 1)).
+
+interaction_rule(
+  (isTriggered(VulID) :-
+  vulExists(_,VulID,_,Condition,_),
+  vulExists(_,TriggeredVul,_,_,Condition),
+  isTriggered(TriggeredVul)
+  ),
+  rule_desc('Trigger cascading vulnerability', 1)).
 
 /*****Denial of Service*********/
 /*From 'Simulating and Detecting Attacks of Untrusted Clients in OPC UA Networks'*/
@@ -21,7 +37,8 @@ interaction_rule(
 
 interaction_rule(
   (dos(H) :-
-  vulExists(H, _, Software, dos, _),
+  vulExists(H, VulID, Software, _, dos),
+  isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
@@ -38,7 +55,8 @@ interaction_rule(
 /*****Information Disclosure*********/
 interaction_rule(
   (accessInfo(H) :-
-  vulExists(H,_,Software,leakInfo,_),
+  vulExists(H,VulID,Software,_,leakInfo),
+  isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
