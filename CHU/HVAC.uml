@@ -32,7 +32,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="alarm_provider"/>
     <packagedElement xmi:type="uml:Actor" xmi:id="_Cz3yMHGcEe64YpFtfVg2wg" name="technician"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_KoBD8HGcEe64YpFtfVg2wg" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_N9wUUFFpEe6HEMNnvMx1Dw"/>
     <packagedElement xmi:type="uml:Actor" xmi:id="_k1sm4HGeEe64YpFtfVg2wg" name="Actor25"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_nrGtwHGeEe64YpFtfVg2wg" memberEnd="_nrJKAHGeEe64YpFtfVg2wg _nrJxEnGeEe64YpFtfVg2wg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nrH74HGeEe64YpFtfVg2wg" source="org.eclipse.papyrus">
@@ -194,6 +193,7 @@
       <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="Webserver">
         <ownedAttribute xmi:type="uml:Port" xmi:id="_-wf8gHokEe6sbYycmBECAA" name="80" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
@@ -269,7 +269,7 @@
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_vX6zwHmGEe69raeEJc1a7Q" name="ItemFlow64" informationSource="_7TLngnloEe69raeEJc1a7Q" informationTarget="_tdtw4HmGEe69raeEJc1a7Q"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_XePzcHmHEe69raeEJc1a7Q" client="_Nwgi0HmHEe69raeEJc1a7Q" supplier="_oQZwwHmBEe69raeEJc1a7Q"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_z7khsHohEe6sbYycmBECAA" client="_2wRdcHGbEe64YpFtfVg2wg" supplier="_y3UNcHcCEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_A07SYHolEe6sbYycmBECAA" name="ItemFlow66" informationSource="_e3lVUHmDEe69raeEJc1a7Q" informationTarget="_-wf8gHokEe6sbYycmBECAA"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_KejzMHoyEe6F8cEIkGJudw" name="ItemFlow65" informationSource="_e3lVUHmDEe69raeEJc1a7Q" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_N_mucFFpEe6HEMNnvMx1Dw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N_pKsFFpEe6HEMNnvMx1Dw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#/"/>
@@ -355,7 +355,6 @@
   <SysML_Extension_for_MulVAL:Host xmi:id="_CIzgIHGVEe6Kao45UCQQrQ" base_Class="_AVZBwHGVEe6Kao45UCQQrQ"/>
   <SysML_Extension_for_MulVAL:User xmi:id="_E6x0UHGcEe64YpFtfVg2wg" base_Actor="_2wRdcHGbEe64YpFtfVg2wg" isMalicious="true" exposure="High"/>
   <SysML_Extension_for_MulVAL:User xmi:id="_IPDogHGcEe64YpFtfVg2wg" base_Actor="_Cz3yMHGcEe64YpFtfVg2wg" isMalicious="true" exposure="Medium"/>
-  <SysML_Extension_for_MulVAL:physicalAccess xmi:id="_LtwkAHGcEe64YpFtfVg2wg" base_Dependency="_KoBD8HGcEe64YpFtfVg2wg"/>
   <SysML_Extension_for_MulVAL:Attacker xmi:id="_mIkkAHGeEe64YpFtfVg2wg" base_Actor="_k1sm4HGeEe64YpFtfVg2wg"/>
   <Blocks:Block xmi:id="_x0Q1AHcCEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_y3vrQHcCEe62INvlmVZBnw" base_Class="_y3UNcHcCEe62INvlmVZBnw"/>
@@ -428,6 +427,6 @@
   <SysML_Extension_for_MulVAL:User xmi:id="_OvzcoHmHEe69raeEJc1a7Q" base_Actor="_Nwgi0HmHEe69raeEJc1a7Q" exposure="Low"/>
   <SysML_Extension_for_MulVAL:hasAccount xmi:id="_YfkGgHmHEe69raeEJc1a7Q" base_Dependency="_XePzcHmHEe69raeEJc1a7Q" account="root"/>
   <SysML_Extension_for_MulVAL:hasAccount xmi:id="_1wKEwHohEe6sbYycmBECAA" base_Dependency="_z7khsHohEe6sbYycmBECAA"/>
-  <PortsAndFlows:ItemFlow xmi:id="_A1NmQHolEe6sbYycmBECAA" base_InformationFlow="_A07SYHolEe6sbYycmBECAA"/>
-  <SysML_Extension_for_MulVAL:Connection xmi:id="_CnfcMHolEe6sbYycmBECAA" base_InformationFlow="_A07SYHolEe6sbYycmBECAA" protocol="ipSec"/>
+  <PortsAndFlows:ItemFlow xmi:id="_KfJCAHoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw"/>
+  <SysML_Extension_for_MulVAL:Connection xmi:id="_LruJ4HoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw" protocol="ipSec"/>
 </xmi:XMI>
