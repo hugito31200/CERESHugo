@@ -35,17 +35,17 @@ isScada([cs.name.toLower()/]).
 [/template]
 
 
-[template private generateUser(elem:OclAny, m:Model) post(trim())]
+[template private generateStakeholder(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
-[if (elem.eGet('isCompetent')=true)]
-competent([user.name.toLower()/]).
-[/if]
-[if (elem.eGet('isCompetent')=false)]
-inCompetent([user.name.toLower()/]).
-[/if]
-[if (elem.eGet('isMalicious')=true)]
-malicious([user.name.toLower()/]).
-[/if]
+[let exposure:String = elem.eGet('exposure').toString()]
+stakeHolder([user.name.toLowerFirst()/],[translateImportanceLevel(exposure)/]).
+[/let]
+[/let]
+[/template]
+
+[template private generateHasAccess(elem:OclAny) post(trim())]
+[let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
+hasAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/]).
 [/let]
 [/template]
 
@@ -59,43 +59,113 @@ attackerLocated([prop.eContainer(Class).name.toLowerFirst()/]).
 [/let]
 [/template]
 
-[template private generateHasAccount(elem:OclAny) post(trim())]
-[let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
-hasAccount([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/],[underscoreIfEmpty(elem, 'account')/]).
+
+[template private generateHACL(elem: OclAny, m: Model) post(trim())]
+[let conn:InformationFlow = elem.eGet('base_InformationFlow').oclAsType(InformationFlow)]
+[if(m.siblings()->exists(node| (node.eClass().name='Host' or node.eClass().name='Device') and node.eGet('base_Class').oclAsType(Class).name->asBag()=conn.informationSource.oclAsType(Property).type.name))]
+[writeHACLWithOptions(elem, conn)/]
+[/if]
 [/let]
 [/template]
 
-[template private generatePhysicalAccess(elem:OclAny) post(trim())]
-[let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
-physicalAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/]).
+[template private translateImportanceLevel(importance:String) post(trim())]
+[if (importance='VeryHigh')]
+'certain'
+[/if]
+[if (importance='High')]
+'likely'
+[/if]
+[if (importance='Medium')]
+'possible'
+[/if]
+[if (importance='Low')]
+'unlikely'
+[/if]
+[if (importance='VeryLow')]
+0
+[/if]
+[/template]
+
+[template private generateAsset(elem:OclAny) post(trim())]
+[let asset:Class = elem.eGet('base_Class').oclAsType(Class)]
+[let importance:String = elem.eGet('importanceLevel').toString()]
+isAsset([asset.name.toLowerFirst()/],[translateImportanceLevel(importance)/]).
+[/let]
 [/let]
 [/template]
 
+[template private generateAssetLocation(elem:OclAny) post(trim())]
+[let host:Class = elem.eGet('base_Class').oclAsType(Class)]
+[let assets:OclAny = elem.eGet('assets')]
+[for(item : OclAny | assets)]
+[let asset:Class = item.eGet('base_Class').oclAsType(Class)]
+assetLocated([asset.name.toLowerFirst()/],[host.name.toLower()/]).
+[/let]
+[/for]
+[/let]
+[/let]
+[/template]
 
 
 [template public generateStrategicScenario( m : Model) post(trim())]
-[file ('strategic_input.txt', false, 'UTF-8')]
+[file (m.name+'strategic.txt', false, 'UTF-8')]
 [comment @main/]
-attackGoal(performAttack(_)).
+attackGoal(targetAsset(_)).
 [for (elem : OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
-[if (class='ConstituentSystem')]
-[generateCS(elem, m)/]
-[/if]
-[if(class.contains('hasAccount'))]
-[generateHasAccount(elem)/]
-[/if]
-[if(class.contains('physicalAccess'))]
-[generatePhysicalAccess(elem)/]
-[/if]
-[if (class='Attacker')]
-[generateAttacker(elem, m)/]
-[/if]
-[if (class='User')]
-[generateUser(elem, m)/]
+[if(class.contains('Attacker'))]
+[generateAttacker(elem,m)/]
 [/if]
 [/let]
 [/for]
+
+
+/********Stakeholders***************/
+[for (elem : OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if(class.contains('User'))]
+[generateStakeholder(elem)/]
+[/if]
+[/let]
+[/for]
+
+[for (elem : OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if(class.contains('physicalAccess') or class.contains('hasAccount'))]
+[generateHasAccess(elem)/]
+[/if]
+[/let]
+[/for]
+
+
+/******************Hosts and Connections************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class.contains('Connection'))]
+[generateHACL(elem,m)/]
+[/if]
+[/let]
+[/for]
+
+
+/********************Assets**************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class.contains('Asset'))]
+[generateAsset(elem)/]
+[/if]
+[/let]
+[/for]
+
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class.contains('Host'))]
+[generateAssetLocation(elem)/]
+[/if]
+[/let]
+[/for]
+
+
 [/file]
 [/template]
 

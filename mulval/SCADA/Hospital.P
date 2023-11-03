@@ -13,7 +13,7 @@ hasAccess(technician,actuator).
 hasAccess(technician,sensor).
 
 /*******************Hosts and Connections*************************/
-hacl(internet,webserver,ipSec,_).
+hacl(internet,webserver,ipSec,80).
 hacl(webserver,workstation,_,_).
 hacl(webserver,database,_,_).
 hacl(webserver,scada,_,_).
