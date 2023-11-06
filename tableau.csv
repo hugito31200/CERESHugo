@@ -1,0 +1,8 @@
+Pre-Condition,,,Post-Conditions
+visitLinks,webAccess,,dos
+accessWebPage,,,leakInfo
+sendMessages,hijackCommunication,,authenticationBypass
+hijackModbus,,,localExploit
+localExploit,codeExecution,,remoteExploit
+loadFile,,,
+remoteExploit,,,

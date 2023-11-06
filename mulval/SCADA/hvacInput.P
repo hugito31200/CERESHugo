@@ -1,24 +1,22 @@
-/*attackGoal(execCode(_,_)).*/
-attackGoal(dos(plc)).
+/*attackGoal(execCode(scada,_)).*/
+/*attackGoal(dos(scada)).*/
 /*attackGoal(accessInfo(scada)).*/
-/*attackGoal(covertAppropriation(plc)).*/
+attackGoal(covertAppropriation(plc)).
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
-hasAccount(alarmProvider,scada,root).
+hasAccount(alarmProvider,webServer,root).
 
-hacl(internet,scada,ipSec,_).
-networkServiceInfo(scada,vpnService,ipSec,_,_).
+hacl(internet,webServer,ipSec,80).
+networkServiceInfo(webServer,vpnService,ipSec,80,_).
 
-hacl(plc,scada,modbus_tcp,modbus_port).
+hacl(webServer,scada,_,_).
 hacl(plc,scada,opcua,opcua_port).
-hacl(plc,scada,ethernet_ip,ethernet_port).
 /*hacl(scada,plc,modbus_tcp,modbus_port).*/
 hacl(scada,plc,opcua,opcua_port).
 /*hacl(scada,plc,ethernet_ip,ethernet_port).*/
 
-hacl(scada,historian,_,_).
-hacl(historian,scada,_,_).
+hacl(webServer,database,_,_).
 
 isSensor(sensor).
 /*hacl(sensor,plc,modbus_tcp,modbus_port).*/
@@ -40,38 +38,35 @@ networkServiceInfo(scada,machineExpert,_,_,_).
 networkServiceInfo(scada,opcua_server,opcua,opcua_port,_).
 
 vulExists(scada,'CVE-2023-22610',machineExpert).
-vulProperty('CVE-2023-22610',na,dos).
+vulProperty('CVE-2023-22610',hijackComm,dos).
 
 vulExists(scada,'CVE-2022-2988',machineExpert).
-vulProperty('CVE-2022-2988',na,leakInfo).
+vulProperty('CVE-2022-2988',webAccess,leakInfo).
 
 vulExists(scada,'CVE-2023-22611',machineExpert).
-vulProperty('CVE-2023-22611',na,leakInfo).
+vulProperty('CVE-2023-22611',hijackComm,leakInfo).
 
 vulExists(plc,'CVE-2022-45789',controlExpert).
 vulProperty('CVE-2022-45789',localExploit,privEscalation).
+vulProperty('CVE-2022-45789',hijackComm,authenticationBypass).
 
 vulExists(plc,'CVE-2022-45788',controlExpert).
 vulProperty('CVE-2022-45788',localExploit,privEscalation).
-vulProperty('CVE-2022-45788',weakPassword,dos).
-vulProperty('CVE-2022-45788',na,leakInfo).
-
-vulExists(scada,'CWE-521',vpnService).
-vulProperty('CWE-521',na,weakPassword).
-initiallyTriggered('CWE-521').
+vulProperty('CVE-2022-45788',codeExecution,dos).
+vulProperty('CVE-2022-45788',codeExecution,leakInfo).
 
 vulExists(plc,'CVE-2021-22789',controlExpert).
-vulProperty('CVE-2021-22789',na,dos).
+vulProperty('CVE-2021-22789',loadFile,dos).
 
 vulExists(plc,'CVE-2023-1548',controlExpert).
-vulProperty('CVE-2023-1548',na,dos).
+vulProperty('CVE-2023-1548',codeExecution,dos).
 
 vulExists(plc,'CVE-2023-27976',controlExpert).
-vulProperty('CVE-2023-27976',remoteExploit,privEscalation).
+vulProperty('CVE-2023-27976',codeExecution,privEscalation).
+vulProperty('CVE-2023-27976',webAccess,remoteExploit).
 
 vulExists(plc,'CVE-2022-37300',controlExpert).
-vulProperty('CVE-2022-37300',na,readAccess).
-vulProperty('CVE-2022-37300',na,writeAccess).
+vulProperty('CVE-2022-37300',hijackComm,authenticationBypass).
 
 vulExists(scada,'CVE-2023-37200',opcua_server).
-vulProperty('CVE-2023-37200',na,leakInfo).
+vulProperty('CVE-2023-37200',codeExecution,leakInfo).

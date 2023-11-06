@@ -11,44 +11,18 @@ derived(isCompromised(_device)).
 derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
 
-/************Vulnerability triggering*******************/
-
-interaction_rule(
-  (isTriggered(VulID) :-
-  vulExists(_,VulID,_,none,_)
-  ),
-  rule_desc('Vulnerability triggered from the start', 1)).
-
-interaction_rule(
-  (isTriggered(VulID) :-
-  vulExists(_,VulID,_,Condition,_),
-  vulExists(_,TriggeredVul,_,_,Condition),
-  isTriggered(TriggeredVul)
-  ),
-  rule_desc('Trigger cascading vulnerability', 1)).
-
-interaction_rule(
-  (isTriggered(VulID) :-
-  vulExists(H1,VulID,_,hijackComm,_),
-  execCode(H2,_),
-  hacl(H2,H1,_,_)
-  ),
-  rule_desc('Hijack communication', 1)).
-
-
 /*****Denial of Service*********/
 /*From 'Simulating and Detecting Attacks of Untrusted Clients in OPC UA Networks'*/
 interaction_rule(
   (dos(H) :-
-  networkServiceInfo(H,_,opcua,opcua_port,_),
-  netAccess(H,_,_)
+  canAccessHost(H2),
+  hacl(H2,H,opcua,opcua_port)
   ),
   rule_desc('OPC UA Flooding', 1)).
 
 interaction_rule(
   (dos(H) :-
   vulExists(H, VulID, Software, _, dos),
-  isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
@@ -66,7 +40,6 @@ interaction_rule(
 interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakInfo),
-  isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
