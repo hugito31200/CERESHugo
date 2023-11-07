@@ -109,12 +109,21 @@ isSensor([device.name.toLower()/]).
 [/template]
 
 [template private generateVulnerabilities(elem:OclAny, m:Model) post(trim())]
-[let vul:Comment = elem.eGet('base_Comment').oclAsType(Comment)]
-[let program:Class = vul.eContainer(Class)]
-vulExists([getHostOfProgram(program, m)/],'[elem.eGet('CVE_id')/]',[program.name.toLower()/]).
-vulProperty('[elem.eGet('CVE_id')/]',[elem.eGet('range')/],[elem.eGet('impact')/]).
-['\n'/]
+[let vul: DataStoreNode = elem.eGet('base_DataStoreNode').oclAsType(DataStoreNode)]
+[for(act: Activity | m.eAllContents(Activity))]
+[let prog: Class = act.eContainer(Class)]
+[for(preCond: Constraint | act.eAllContents(Constraint))]
+[if (preCond.getAppliedStereotypes().toString().contains('PreCondition')=true->asBag() and preCond.constrainedElement=vul->asOrderedSet())]
+vulExists([getHostOfProgram(prog, m)/],'[elem.eGet('CVE_id')/]',[prog.name.toLower()/]).
+[for(postCond: Constraint | act.eAllContents(Constraint))]
+[if (postCond.getAppliedStereotypes().toString().contains('PostCondition')=true->asBag() and postCond.constrainedElement=vul->asOrderedSet())]
+vulProperty('[elem.eGet('CVE_id')/]',[preCond.name.toLowerFirst()/],[postCond.name.toLowerFirst()/]).
+[/if]
+[/for]
+[/if]
+[/for]
 [/let]
+[/for]
 [/let]
 [/template]
 
@@ -166,7 +175,7 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 
 
 [template public generateOperationalScenario( m : Model) post(trim())]
-[file (m.name+'.txt', false, 'UTF-8')]
+[file (m.name+'_operational.txt', false, 'UTF-8')]
 [comment @main/]
 
 
