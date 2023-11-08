@@ -6,11 +6,11 @@
 [/template]
 
 [template private formatName(name:String) post(trim())]
-[name.replace(' ', '').toLower()/]
+[name.replaceAll(' ', '').toLower()/]
 [/template]
 
 [template private formatName(names:Bag(String)) post(trim())]
-[names.replace(' ', '').toLower()/]
+[names.replaceAll(' ', '').toLower()/]
 [/template]
 
 

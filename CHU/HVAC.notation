@@ -3402,13 +3402,13 @@
           <element xmi:type="uml:Property" href="HVAC.uml#_yRFMIH4OEe6wVOUTP2joHw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yRHBUX4OEe6wVOUTP2joHw" x="274" y="58"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_0Aq6cH4OEe6wVOUTP2joHw" type="StereotypeComment">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_0Aq6cX4OEe6wVOUTP2joHw"/>
-          <styles xmi:type="notation:EObjectValueStyle" xmi:id="_0ArhgH4OEe6wVOUTP2joHw" name="BASE_ELEMENT">
+        <children xmi:type="notation:Shape" xmi:id="_qrUiYH4TEe6wVOUTP2joHw" type="StereotypeComment">
+          <styles xmi:type="notation:TitleStyle" xmi:id="_qrUiYX4TEe6wVOUTP2joHw"/>
+          <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qrUiY34TEe6wVOUTP2joHw" name="BASE_ELEMENT">
             <eObjectValue xmi:type="uml:InformationFlow" href="HVAC.uml#_0ALLMH4OEe6wVOUTP2joHw"/>
           </styles>
           <element xsi:nil="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Aq6cn4OEe6wVOUTP2joHw" x="100" y="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qrUiYn4TEe6wVOUTP2joHw" x="100" y="100"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_hIM_pn4OEe6wVOUTP2joHw"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hIM_p34OEe6wVOUTP2joHw"/>
@@ -3464,13 +3464,13 @@
       <element xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hIM_oX4OEe6wVOUTP2joHw" x="40" y="40" width="641" height="250"/>
     </children>
-    <children xmi:type="notation:Shape" xmi:id="_hKb0QH4OEe6wVOUTP2joHw" type="StereotypeComment">
-      <styles xmi:type="notation:TitleStyle" xmi:id="_hKb0QX4OEe6wVOUTP2joHw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_hKb0Q34OEe6wVOUTP2joHw" name="BASE_ELEMENT">
+    <children xmi:type="notation:Shape" xmi:id="_qrIVIH4TEe6wVOUTP2joHw" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_qrIVIX4TEe6wVOUTP2joHw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qrIVI34TEe6wVOUTP2joHw" name="BASE_ELEMENT">
         <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
       </styles>
       <element xsi:nil="true"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hKb0Qn4OEe6wVOUTP2joHw" x="240" y="40"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qrIVIn4TEe6wVOUTP2joHw" x="240" y="40"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_hIHgEX4OEe6wVOUTP2joHw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_hIHgEn4OEe6wVOUTP2joHw"/>
@@ -3478,16 +3478,6 @@
       <owner xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
     </styles>
     <element xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
-    <edges xmi:type="notation:Connector" xmi:id="_hKb0RH4OEe6wVOUTP2joHw" type="StereotypeCommentLink" source="_hIM_oH4OEe6wVOUTP2joHw" target="_hKb0QH4OEe6wVOUTP2joHw">
-      <styles xmi:type="notation:FontStyle" xmi:id="_hKb0RX4OEe6wVOUTP2joHw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_hKcbUn4OEe6wVOUTP2joHw" name="BASE_ELEMENT">
-        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
-      </styles>
-      <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hKb0Rn4OEe6wVOUTP2joHw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hKcbUH4OEe6wVOUTP2joHw"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hKcbUX4OEe6wVOUTP2joHw"/>
-    </edges>
     <edges xmi:type="notation:Connector" xmi:id="_0AcQ8H4OEe6wVOUTP2joHw" type="InformationFlow_Edge" source="_yRHBUH4OEe6wVOUTP2joHw" target="_usz0IH4OEe6wVOUTP2joHw">
       <children xmi:type="notation:DecorationNode" xmi:id="_0Ac4AH4OEe6wVOUTP2joHw" type="InformationFlow_ConveyedLabel">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0Ac4AX4OEe6wVOUTP2joHw" y="30"/>
@@ -3503,15 +3493,25 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0AcQ8n4OEe6wVOUTP2joHw" points="[340, 180, -643984, -643984]$[30, 164, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0BCt4H4OEe6wVOUTP2joHw" id="(0.0,0.5)"/>
     </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_0ArhgX4OEe6wVOUTP2joHw" type="StereotypeCommentLink" source="_0AcQ8H4OEe6wVOUTP2joHw" target="_0Aq6cH4OEe6wVOUTP2joHw">
-      <styles xmi:type="notation:FontStyle" xmi:id="_0Arhgn4OEe6wVOUTP2joHw"/>
-      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_0Arhhn4OEe6wVOUTP2joHw" name="BASE_ELEMENT">
+    <edges xmi:type="notation:Connector" xmi:id="_qrIVJH4TEe6wVOUTP2joHw" type="StereotypeCommentLink" source="_hIM_oH4OEe6wVOUTP2joHw" target="_qrIVIH4TEe6wVOUTP2joHw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_qrIVJX4TEe6wVOUTP2joHw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qrI8MH4TEe6wVOUTP2joHw" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="HVAC.uml#_61FpYHmAEe69raeEJc1a7Q"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qrIVJn4TEe6wVOUTP2joHw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qrIVJ34TEe6wVOUTP2joHw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qrIVKH4TEe6wVOUTP2joHw"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_qrVJcH4TEe6wVOUTP2joHw" type="StereotypeCommentLink" source="_0AcQ8H4OEe6wVOUTP2joHw" target="_qrUiYH4TEe6wVOUTP2joHw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_qrVJcX4TEe6wVOUTP2joHw"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_qrVJdX4TEe6wVOUTP2joHw" name="BASE_ELEMENT">
         <eObjectValue xmi:type="uml:InformationFlow" href="HVAC.uml#_0ALLMH4OEe6wVOUTP2joHw"/>
       </styles>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Arhg34OEe6wVOUTP2joHw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0ArhhH4OEe6wVOUTP2joHw"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0ArhhX4OEe6wVOUTP2joHw"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qrVJcn4TEe6wVOUTP2joHw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qrVJc34TEe6wVOUTP2joHw"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qrVJdH4TEe6wVOUTP2joHw"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>

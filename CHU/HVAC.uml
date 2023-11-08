@@ -30,9 +30,9 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nrJxEXGeEe64YpFtfVg2wg" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="alarm_provider"/>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_Cz3yMHGcEe64YpFtfVg2wg" name="technician"/>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_k1sm4HGeEe64YpFtfVg2wg" name="Actor25"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_Cz3yMHGcEe64YpFtfVg2wg" name="Technician"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_k1sm4HGeEe64YpFtfVg2wg" name="Attacker"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_nrGtwHGeEe64YpFtfVg2wg" memberEnd="_nrJKAHGeEe64YpFtfVg2wg _nrJxEnGeEe64YpFtfVg2wg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nrH74HGeEe64YpFtfVg2wg" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nrH74XGeEe64YpFtfVg2wg" key="nature" value="UML_Nature"/>
@@ -184,7 +184,7 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_lQ7a0HcDEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_lQ5loHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA_Server"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA Server"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_mjJJQHcGEe62INvlmVZBnw" memberEnd="_mjJwUncGEe62INvlmVZBnw _mjKXYncGEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mjJwUHcGEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mjJwUXcGEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
@@ -192,11 +192,11 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_mjKXYncGEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_mjJJQHcGEe62INvlmVZBnw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_oOW4cHcHEe62INvlmVZBnw" name="ItemFlow41" informationSource="_mjJwUncGEe62INvlmVZBnw" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="vpnService"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPNService"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_BrSJUHcJEe62INvlmVZBnw" name="ItemFlow45" informationSource="_UB1RkncDEe62INvlmVZBnw" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="RegulateTemperature"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="MonitorSystem"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KAOW0HmBEe69raeEJc1a7Q" name="HandleNetworkRequest"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="Regulate Temperature"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="Monitor System"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KAOW0HmBEe69raeEJc1a7Q" name="Handle Network Requests"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_KAp-AHloEe69raeEJc1a7Q" name="HVAC">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6DqgYnloEe69raeEJc1a7Q" name="sensor" type="_1mo6cHcCEe62INvlmVZBnw" aggregation="shared" association="_6Dp5UHloEe69raeEJc1a7Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6DrHcHloEe69raeEJc1a7Q"/>
@@ -232,7 +232,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wy59UXmBEe69raeEJc1a7Q" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="Webserver">
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="WebServer">
         <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
       </nestedClassifier>
@@ -282,7 +282,7 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_YQu58nl_Ee69raeEJc1a7Q" name="system" type="_qi03UFFpEe6HEMNnvMx1Dw" association="_YQtr0Hl_Ee69raeEJc1a7Q"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_cj5tYHmBEe69raeEJc1a7Q" name="patientInformation"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cj5tYHmBEe69raeEJc1a7Q" name="Patient Information"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_vdK5cHmBEe69raeEJc1a7Q" memberEnd="_vdLggXmBEe69raeEJc1a7Q _vdMHkHmBEe69raeEJc1a7Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vdK5cXmBEe69raeEJc1a7Q" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vdLggHmBEe69raeEJc1a7Q" key="nature" value="UML_Nature"/>
