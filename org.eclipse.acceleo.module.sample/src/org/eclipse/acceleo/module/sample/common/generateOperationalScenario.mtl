@@ -116,7 +116,34 @@ malicious([formatName(user.name)/]).
 [/let]
 [/template]
 
-[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
+[template private translateAttackType(type:OclAny) post(trim())]
+[let typeName: String = type.toString()]
+[if(typeName='DenialOfService')]
+dos
+[/if]
+[if(typeName='ExecCode')]
+execCode
+[/if]
+[if(typeName='CovertAppropriation')]
+covertAppropriation
+[/if]
+[if(typeName='StealData')]
+accessInfo
+[/if]
+[/let]
+[/template]
+
+[template private generateAttackGoal(elem:OclAny) post(trim())]
+[let goal:OclAny = elem.eGet('goal')]
+[if(goal.eGet('target')=null)]
+attackGoal([translateAttackType(goal.eGet('type'))/](_)).
+[else]
+attackGoal([translateAttackType(goal.eGet('type'))/]([formatName(goal.eGet('target').eGet('base_Class').oclAsType(Class).name)/])).
+[/if]
+[/let]
+[/template]
+
+[template private generateAttackerLocation(elem:OclAny, m:Model) post(trim())]
 [let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [for (prop:Property | m.eAllContents(Property))]
 [if (prop.type=attacker)]
@@ -124,6 +151,11 @@ attackerLocated([formatName(prop.eContainer(Class).name)/]).
 [/if]
 [/for]
 [/let]
+[/template]
+
+[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
+[generateAttackGoal(elem)/]
+[generateAttackerLocation(elem,m)/]
 [/template]
 
 [template private generateHasAccount(elem:OclAny) post(trim())]
@@ -138,7 +170,7 @@ physicalAccess([formatName(dependency.client.name)/],[formatName(dependency.supp
 [/let]
 [/template]
 
-
+ 
 [template private generateDependency(elem:OclAny, m:Model) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
 [let progs:Bag(Class) = dependency.client.oclAsType(Class)]
@@ -153,6 +185,14 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [template public generateOperationalScenario( m : Model) post(trim())]
 [file (m.name+'_operational.txt', false, 'UTF-8')]
 [comment @main/]
+/*****************Attacker*************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if(class.contains('Attacker'))]
+[generateAttacker(elem, m)/]
+[/if]
+[/let]
+[/for]
 
 
 /*********************Programs************************/
@@ -192,15 +232,6 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [/let]
 [/for]
 
-/*****************Attacker*************************/
-[for (elem: OclAny | m.siblings())]
-[let class:String = elem.eClass().name]
-[if(class.contains('Attacker'))]
-[generateAttacker(elem, m)/]
-[/if]
-[/let]
-[/for]
-
 /****************************Users******************************/
 [for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
@@ -226,12 +257,6 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [/let]
 [/for]
 
-[comment]
-[if(class.contains('dependsOn'))]
-[generateDependency(elem,m)/]
-[/if]
-[/let]
-[/for][/comment]
 [/file]
 
 [/template]
