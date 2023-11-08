@@ -29,7 +29,7 @@ interaction_rule(
 
 interaction_rule(
   (isTriggered(VulID) :-
-  vulExists(H1,VulID,_,hijackComm,_),
+  vulExists(H1,VulID,_,hijackcomm,_),
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
@@ -65,7 +65,7 @@ interaction_rule(
 /*****Information Disclosure*********/
 interaction_rule(
   (accessInfo(H) :-
-  vulExists(H,VulID,Software,_,leakInfo),
+  vulExists(H,VulID,Software,_,leakinfo),
   isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
