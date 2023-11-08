@@ -72,7 +72,7 @@ attackerLocated([formatName(prop.eContainer(Class).name)/]).
 [if (importance='VeryLow')]
 0
 [/if]
-[/template]
+[/template] 
 
 [template private generateAsset(elem:OclAny) post(trim())]
 [let asset:Class = elem.eGet('base_Class').oclAsType(Class)]

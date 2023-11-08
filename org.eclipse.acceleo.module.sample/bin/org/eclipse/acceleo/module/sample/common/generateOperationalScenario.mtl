@@ -1,42 +1,18 @@
 [comment encoding = UTF-8 /]
 [module generateOperationalScenario('http://www.eclipse.org/papyrus/sysml/1.6/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
 
-[template private getCustomStereotype(elem:Class, m:Model)]
-[for (member:OclAny | m.siblings())]
-[if(member.eClass().name.contains('Host'))]
-[let baseClass:Class = member.eGet('base_Class').oclAsType(Class)]
-[if (baseClass.name.toLower()->asBag()=elem.name.toLower()->asBag())]
-[elem.name/]:[member.eClass().name/]
-[/if]
-[/let]
-[/if]
-[/for]
-[/template]
-
-[template private getCustomStereotype(elem:InformationFlow, m:Model)]
-[for (member:OclAny | m.siblings())]
-[if(member.eClass().name.contains('Connection'))]
-[let baseIF:InformationFlow = member.eGet('base_InformationFlow').oclAsType(InformationFlow)]
-[if (baseIF.name.toLower()->asBag()=elem.name.toLower()->asBag())]
-[elem.name/]:[member.eClass().name/]
-[/if]
-[/let]
-[/if]
-[/for]
-[/template]
-
 [template private underscoreIfEmpty(elem:OclAny, attribute:String) post(trim())]
 [(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
 [/template]
 
-
-[template private getProgramUserFromConnection(conn : InformationFlow, m : Model) post(trim())]
-[for (prog: OclAny | m.siblings())]
-[if (prog.eClass().name.contains('Program') and prog.eGet('base_Class').oclAsType(Class).name.toLower()->asBag()=conn.informationSource.name->asBag())]
-[prog.eGet('user')/]
-[/if]
-[/for]
+[template private formatName(name:String) post(trim())]
+[name.replaceAll(' ', '').toLower()/]
 [/template]
+
+[template private formatName(names:Bag(String)) post(trim())]
+[names.replaceAll(' ', '').toLower()/]
+[/template]
+
 
 [template private getProgramUser(program: Class, m : Model) post(trim())]
 [for(elem:OclAny | m.siblings())]
@@ -49,16 +25,16 @@
 [template private getHostOfProgram(prog:Class, m:Model) post(trim())]
 [for (prop: Property | m.eAllContents(Property))]
 [if (prop.type = prog)]
-[prop.eContainer(Class).name.toLower()/]
+[formatName(prop.eContainer(Class).name)/]
 [/if]
 [/for]
 [/template]
 
 [template private writeHACLWithOptions(root:OclAny, conn:InformationFlow) post(trim())]
 [if(conn.informationTarget.eClass().name=('Port'->asBag()))]
-hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Port).eContainer(Class).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], [conn.informationTarget.oclAsType(Port).name/]).
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Port).eContainer(Class).name)/], [underscoreIfEmpty(root,'protocol')/], [formatName(conn.informationTarget.oclAsType(Port).name)/]).
 [else]
-hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Property).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], _).
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Property).name)/], [underscoreIfEmpty(root,'protocol')/], _).
 [/if]
 [/template]
 
@@ -74,14 +50,14 @@ hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.in
 [let conn:InformationFlow = elem2.eGet('base_InformationFlow').oclAsType(InformationFlow)]
 [if(conn.informationSource.name=program.name->asBag())]
 [let connectedToPort : Boolean = (conn.informationTarget.oclIsTypeOf(Port)=true->asBag())]
-networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], [underscoreIfEmpty(elem2, 'protocol')/], [(if connectedToPort then conn.informationTarget.name else '_' endif)/], [getProgramUser(program.type.oclAsType(Class),m)/]).
+networkServiceInfo([formatName(host.name)/], [formatName(program.name)/], [underscoreIfEmpty(elem2, 'protocol')/], [(if connectedToPort then formatName(conn.informationTarget.name) else '_' endif)/], [getProgramUser(program.type.oclAsType(Class),m)/]).
 [/let]
 [/if]
 [/let]
 [/if]
 [/for]
 [else]
-networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [getProgramUser(program.type.oclAsType(Class),m)/]).
+networkServiceInfo([formatName(host.name)/], [formatName(program.name)/], _, _, [getProgramUser(program.type.oclAsType(Class),m)/]).
 [/if]
 [/let]
 [/if]
@@ -101,64 +77,105 @@ networkServiceInfo([host.name.toLower()/], [program.name.toLower()/], _, _, [get
 [template private generateDevice(elem: OclAny, m: Model) post(trim())]
 [let device:Class = elem.eGet('base_Class').oclAsType(Class)]
 [if (elem.eGet('type').toString()='Actuator')]
-isActuator([device.name.toLower()/]).
+isActuator([formatName(device.name)/]).
 [else]
-isSensor([device.name.toLower()/]).
+isSensor([formatName(device.name)/]).
 [/if]
 [/let]
 [/template]
 
 [template private generateVulnerabilities(elem:OclAny, m:Model) post(trim())]
-[let vul:Comment = elem.eGet('base_Comment').oclAsType(Comment)]
-[let program:Class = vul.eContainer(Class)]
-vulExists([getHostOfProgram(program, m)/],'[elem.eGet('CVE_id')/]',[program.name.toLower()/]).
-vulProperty('[elem.eGet('CVE_id')/]',[elem.eGet('range')/],[elem.eGet('impact')/]).
-['\n'/]
+[let vul: DataStoreNode = elem.eGet('base_DataStoreNode').oclAsType(DataStoreNode)]
+[for(act: Activity | m.eAllContents(Activity))]
+[let prog: Class = act.eContainer(Class)]
+[for(preCond: Constraint | act.eAllContents(Constraint))]
+[if (preCond.getAppliedStereotypes().toString().contains('PreCondition')=true->asBag() and preCond.constrainedElement->includes(vul))]
+vulExists([getHostOfProgram(prog, m)/],'[elem.eGet('CVE_id')/]',[formatName(prog.name)/]).
+[for(postCond: Constraint | act.eAllContents(Constraint))]
+[if (postCond.getAppliedStereotypes().toString().contains('PostCondition')=true->asBag() and postCond.constrainedElement->includes(vul))]
+vulProperty('[elem.eGet('CVE_id')/]',[formatName(preCond.name)/],[formatName(postCond.name)/]).
+[/if]
+[/for]
+[/if]
+[/for]
 [/let]
+[/for]
 [/let]
 [/template]
 
 [template private generateUser(elem:OclAny, m:Model) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [if (elem.eGet('isCompetent')=true)]
-competent([user.name.toLowerFirst()/]).
+competent([formatName(user.name)/]).
 [else]
-inCompetent([user.name.toLowerFirst()/]).
+inCompetent([formatName(user.name)/]).
 [/if]
 [if (elem.eGet('isMalicious')=true)]
-malicious([user.name.toLowerFirst()/]).
+malicious([formatName(user.name)/]).
 [/if]
 [/let]
 [/template]
 
-[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
+[template private translateAttackType(type:OclAny) post(trim())]
+[let typeName: String = type.toString()]
+[if(typeName='DenialOfService')]
+dos
+[/if]
+[if(typeName='ExecCode')]
+execCode
+[/if]
+[if(typeName='CovertAppropriation')]
+covertAppropriation
+[/if]
+[if(typeName='StealData')]
+accessInfo
+[/if]
+[/let]
+[/template]
+
+[template private generateAttackGoal(elem:OclAny) post(trim())]
+[let goal:OclAny = elem.eGet('goal')]
+[if(goal.eGet('target')=null)]
+attackGoal([translateAttackType(goal.eGet('type'))/](_)).
+[else]
+attackGoal([translateAttackType(goal.eGet('type'))/]([formatName(goal.eGet('target').eGet('base_Class').oclAsType(Class).name)/])).
+[/if]
+[/let]
+[/template] 
+
+[template private generateAttackerLocation(elem:OclAny, m:Model) post(trim())]
 [let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [for (prop:Property | m.eAllContents(Property))]
 [if (prop.type=attacker)]
-attackerLocated([prop.eContainer(Class).name.toLowerFirst()/]).
+attackerLocated([formatName(prop.eContainer(Class).name)/]).
 [/if]
 [/for]
 [/let]
 [/template]
 
+[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
+[generateAttackGoal(elem)/]
+[generateAttackerLocation(elem,m)/]
+[/template]
+
 [template private generateHasAccount(elem:OclAny) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
-hasAccount([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/],[underscoreIfEmpty(elem, 'account')/]).
+hasAccount([formatName(dependency.client.name)/],[formatName(dependency.supplier.name)/],[underscoreIfEmpty(elem, 'account')/]).
 [/let]
 [/template]
 
 [template private generatePhysicalAccess(elem:OclAny) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
-physicalAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/]).
+physicalAccess([formatName(dependency.client.name)/],[formatName(dependency.supplier.name)/]).
 [/let]
 [/template]
 
-
+ 
 [template private generateDependency(elem:OclAny, m:Model) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
 [let progs:Bag(Class) = dependency.client.oclAsType(Class)]
 [for (prog:Class | progs)]
-dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.supplier.name.toLowerFirst()/]).
+dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(dependency.supplier.name)/]).
 [/for]
 [/let]
 [/let]
@@ -166,8 +183,16 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 
 
 [template public generateOperationalScenario( m : Model) post(trim())]
-[file (m.name+'.txt', false, 'UTF-8')]
+[file (m.name+'_operational.txt', false, 'UTF-8')]
 [comment @main/]
+/*****************Attacker*************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if(class.contains('Attacker'))]
+[generateAttacker(elem, m)/]
+[/if]
+[/let]
+[/for]
 
 
 /*********************Programs************************/
@@ -207,15 +232,6 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [/let]
 [/for]
 
-/*****************Attacker*************************/
-[for (elem: OclAny | m.siblings())]
-[let class:String = elem.eClass().name]
-[if(class.contains('Attacker'))]
-[generateAttacker(elem, m)/]
-[/if]
-[/let]
-[/for]
-
 /****************************Users******************************/
 [for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
@@ -241,12 +257,6 @@ dependsOn([getHostOfProgram(prog, m)/],[prog.name.toLowerFirst()/],[dependency.s
 [/let]
 [/for]
 
-[comment]
-[if(class.contains('dependsOn'))]
-[generateDependency(elem,m)/]
-[/if]
-[/let]
-[/for][/comment]
 [/file]
 
 [/template]

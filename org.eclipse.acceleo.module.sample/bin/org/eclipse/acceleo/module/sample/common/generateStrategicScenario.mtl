@@ -6,46 +6,34 @@
 [(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
 [/template]
 
-[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow)]
-[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
-hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Port).eContainer(Class).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], [conn.informationTarget.oclAsType(Port).name/]).
-[else]
-hacl([conn.informationSource.oclAsType(Property).type.name.toLower()/], [conn.informationTarget.oclAsType(Property).name.toLower()/], [underscoreIfEmpty(root,'protocol')/], _).
-[/if]
+[template private formatName(name:String) post(trim())]
+[name.replaceAll(' ', '').toLower()/]
 [/template]
 
-[template private generateCS(elem: OclAny, m: Model) post(trim())]
-[let cs:Class = elem.eGet('base_Class').oclAsType(Class)]
-[if elem.eGet('type').toString() = 'Network']
-isNetwork([cs.name.toLower()/]).
-[else]
-isScada([cs.name.toLower()/]).
-[/if]
+[template private formatName(names:Bag(String)) post(trim())]
+[names.replaceAll(' ', '').toLower()/]
+[/template]
 
-[for (conn: OclAny | m.siblings())]
-[if (conn.eClass().name.contains('Connection'))]
-[let infoFlow:InformationFlow = conn.eGet('base_InformationFlow').oclAsType(InformationFlow)]
-[if(infoFlow.informationSource.name=cs.name.toLower()->asBag() or infoFlow.informationTarget.name=cs.name.toLower()->asBag())]
-[writeHACLWithOptions(conn, infoFlow)/]
+[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow)]
+[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Port).eContainer(Class).name)/], [underscoreIfEmpty(root,'protocol')/], [formatName(conn.informationTarget.oclAsType(Port).name)/]).
+[else]
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Property).name)/], [underscoreIfEmpty(root,'protocol')/], _).
 [/if]
-[/let]
-[/if]
-[/for]
-[/let]
 [/template]
 
 
 [template private generateStakeholder(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [let exposure:String = elem.eGet('exposure').toString()]
-stakeHolder([user.name.toLowerFirst()/],[translateImportanceLevel(exposure)/]).
+stakeHolder([formatName(user.name)/],[translateImportanceLevel(exposure)/]).
 [/let]
 [/let]
 [/template]
 
 [template private generateHasAccess(elem:OclAny) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
-hasAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower()/]).
+hasAccess([formatName(dependency.client.name)/],[formatName(dependency.supplier.name)/]).
 [/let]
 [/template]
 
@@ -53,7 +41,7 @@ hasAccess([dependency.client.name.toLower()/],[dependency.supplier.name.toLower(
 [let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [for (prop:Property | m.eAllContents(Property))]
 [if (prop.type=attacker)]
-attackerLocated([prop.eContainer(Class).name.toLowerFirst()/]).
+attackerLocated([formatName(prop.eContainer(Class).name)/]).
 [/if]
 [/for]
 [/let]
@@ -84,12 +72,12 @@ attackerLocated([prop.eContainer(Class).name.toLowerFirst()/]).
 [if (importance='VeryLow')]
 0
 [/if]
-[/template]
+[/template] 
 
 [template private generateAsset(elem:OclAny) post(trim())]
 [let asset:Class = elem.eGet('base_Class').oclAsType(Class)]
 [let importance:String = elem.eGet('importanceLevel').toString()]
-isAsset([asset.name.toLowerFirst()/],[translateImportanceLevel(importance)/]).
+isAsset([formatName(asset.name)/],[translateImportanceLevel(importance)/]).
 [/let]
 [/let]
 [/template]
@@ -99,7 +87,7 @@ isAsset([asset.name.toLowerFirst()/],[translateImportanceLevel(importance)/]).
 [let assets:OclAny = elem.eGet('assets')]
 [for(item : OclAny | assets)]
 [let asset:Class = item.eGet('base_Class').oclAsType(Class)]
-assetLocated([asset.name.toLowerFirst()/],[host.name.toLower()/]).
+assetLocated([formatName(asset.name)/],[formatName(host.name)/]).
 [/let]
 [/for]
 [/let]
@@ -164,8 +152,6 @@ attackGoal(targetAsset(_)).
 [/if]
 [/let]
 [/for]
-
-
 [/file]
 [/template]
 

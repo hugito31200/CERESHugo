@@ -141,7 +141,7 @@ attackGoal([translateAttackType(goal.eGet('type'))/](_)).
 attackGoal([translateAttackType(goal.eGet('type'))/]([formatName(goal.eGet('target').eGet('base_Class').oclAsType(Class).name)/])).
 [/if]
 [/let]
-[/template]
+[/template] 
 
 [template private generateAttackerLocation(elem:OclAny, m:Model) post(trim())]
 [let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
