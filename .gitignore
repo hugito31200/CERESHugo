@@ -14,3 +14,4 @@ mulval/*/ARCS.CSV
 mulval/*/translated_rules.P
 mulval/SCADA/generatedInput.P
 mulval/testcases/*
+org.eclipse.acceleo.module.sample/dst/*
