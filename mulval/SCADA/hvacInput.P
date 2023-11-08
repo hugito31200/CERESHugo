@@ -1,14 +1,14 @@
 /*attackGoal(execCode(scada,_)).*/
-/*attackGoal(dos(scada)).*/
+attackGoal(dos(scada)).
 /*attackGoal(accessInfo(scada)).*/
-attackGoal(covertAppropriation(plc)).
+/*attackGoal(covertAppropriation(plc)).*/
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
 hasAccount(alarmProvider,webServer,root).
 
 hacl(internet,webServer,ipSec,80).
-networkServiceInfo(webServer,vpnService,ipSec,80,_).
+networkServiceInfo(webServer,vpnservice,ipSec,80,_).
 
 hacl(webServer,scada,_,_).
 hacl(plc,scada,opcua,opcua_port).
