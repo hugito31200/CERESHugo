@@ -23,160 +23,217 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:InformationFlow" xmi:id="_GsDs0HmAEe69raeEJc1a7Q" name="SCADA_Conn" informationSource="_QIBk4HloEe69raeEJc1a7Q" informationTarget="_rtNgwHl_Ee69raeEJc1a7Q"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KAp-AHloEe69raeEJc1a7Q" name="HVAC">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6DqgYnloEe69raeEJc1a7Q" name="sensor" type="_1mo6cHcCEe62INvlmVZBnw" aggregation="shared" association="_6Dp5UHloEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6DrHcHloEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6DrugHloEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6vazInloEe69raeEJc1a7Q" name="actuator" type="_3VPxUHcCEe62INvlmVZBnw" aggregation="shared" association="_6vY98HloEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6vcBQHloEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6vcoUHloEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7TLngnloEe69raeEJc1a7Q" name="plc" type="_xzkRcHcCEe62INvlmVZBnw" aggregation="shared" association="_7TJyUHloEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7TMOkHloEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7TMOkXloEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7-iRoXloEe69raeEJc1a7Q" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" aggregation="shared" association="_7-hDgHloEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7-i4sHloEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7-i4sXloEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_rtNgwHl_Ee69raeEJc1a7Q" name="FullPort6" type="_y3UNcHcCEe62INvlmVZBnw" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_FaR_EHmEEe69raeEJc1a7Q" name="Webserver" type="_61FpYHmAEe69raeEJc1a7Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_MK0vgHloEe69raeEJc1a7Q" name="Network">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_e3lVUHmDEe69raeEJc1a7Q" name="Internet" type="_AVZBwHGVEe6Kao45UCQQrQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vdLggXmBEe69raeEJc1a7Q" name="workstation" type="_oQZwwHmBEe69raeEJc1a7Q" aggregation="shared" association="_vdK5cHmBEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vdLggnmBEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vdLgg3mBEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wJyH0nmBEe69raeEJc1a7Q" name="webserver" type="_61FpYHmAEe69raeEJc1a7Q" aggregation="shared" association="_wJxgwHmBEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJyu4HmBEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wJyu4XmBEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wy5WQHmBEe69raeEJc1a7Q" name="database" type="_hMlvwHmBEe69raeEJc1a7Q" aggregation="shared" association="_wy3hEHmBEe69raeEJc1a7Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wy59UHmBEe69raeEJc1a7Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wy59UXmBEe69raeEJc1a7Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
+      </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_AVZBwHGVEe6Kao45UCQQrQ" name="Internet">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_nrJKAHGeEe64YpFtfVg2wg" name="actor25" type="_k1sm4HGeEe64YpFtfVg2wg" aggregation="shared" association="_nrGtwHGeEe64YpFtfVg2wg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nrJxEHGeEe64YpFtfVg2wg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nrJxEXGeEe64YpFtfVg2wg" value="1"/>
-      </ownedAttribute>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hWbOkH4eEe6wVOUTP2joHw" name="Hosts">
+      <packagedElement xmi:type="uml:Class" xmi:id="_AVZBwHGVEe6Kao45UCQQrQ" name="Internet">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nrJKAHGeEe64YpFtfVg2wg" name="actor25" type="_k1sm4HGeEe64YpFtfVg2wg" aggregation="shared" association="_nrGtwHGeEe64YpFtfVg2wg">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nrJxEHGeEe64YpFtfVg2wg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nrJxEXGeEe64YpFtfVg2wg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xzkRcHcCEe62INvlmVZBnw" name="PLC">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UB1RkncDEe62INvlmVZBnw" name="controlexpert" type="_Mx3q8HcDEe62INvlmVZBnw" aggregation="shared" association="_UB0qgHcDEe62INvlmVZBnw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UB14oHcDEe62INvlmVZBnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UB14oXcDEe62INvlmVZBnw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_tBMAMHcFEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_y3UNcHcCEe62INvlmVZBnw" name="SCADA">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_lQ6zwncDEe62INvlmVZBnw" name="machineexpert" type="_io96EHcDEe62INvlmVZBnw" aggregation="shared" association="_lQ5loHcDEe62INvlmVZBnw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lQ6zw3cDEe62INvlmVZBnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lQ6zxHcDEe62INvlmVZBnw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mjJwUncGEe62INvlmVZBnw" name="opcua_server" type="_fFN_IHcGEe62INvlmVZBnw" aggregation="shared" association="_mjJJQHcGEe62INvlmVZBnw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mjKXYHcGEe62INvlmVZBnw"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mjKXYXcGEe62INvlmVZBnw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_BJgj4HcHEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_1mo6cHcCEe62INvlmVZBnw" name="Sensor"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3VPxUHcCEe62INvlmVZBnw" name="Actuator">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_9C3UEHcFEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_tdtw4HmGEe69raeEJc1a7Q" name="opcua_port" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="WebServer">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_Cz3yMHGcEe64YpFtfVg2wg" name="Technician"/>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_k1sm4HGeEe64YpFtfVg2wg" name="Attacker"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_o-bhwH4eEe6wVOUTP2joHw" name="Actors">
+      <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_Cz3yMHGcEe64YpFtfVg2wg" name="Technician"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_k1sm4HGeEe64YpFtfVg2wg" name="Attacker"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_Nwgi0HmHEe69raeEJc1a7Q" name="employee"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wi-RQH4eEe6wVOUTP2joHw" name="Programs">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert" classifierBehavior="_OZwnwH1DEe6tb6ZOauBynQ">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_OZwnwH1DEe6tb6ZOauBynQ" name="Vulnerabilities" node="_TTc6kH1DEe6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _6hLrQH14Ee6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_eC0nUH1DEe6tb6ZOauBynQ" name="HijackComm" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_eC3DkH1DEe6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_sjbKAH1DEe6tb6ZOauBynQ" name="Dos" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_sjcYIH1DEe6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_UdXvMH1zEe6tb6ZOauBynQ" name="CodeExecution" constrainedElement="_O6risH1zEe6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_UdZkYH1zEe6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_hL6eYH1zEe6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_O6risH1zEe6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_hL7sgH1zEe6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_Hw2nAH14Ee6tb6ZOauBynQ" name="loadFile" constrainedElement="_Dkvy8H14Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_Hw3OEH14Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_BNfLMH15Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_BNgZUH15Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_FcT8EH15Ee6tb6ZOauBynQ" name="RemoteExploit" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_FcUjIH15Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_Y8GVkH15Ee6tb6ZOauBynQ" name="AuthenticationBypass" constrainedElement="_Sgwp0H15Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y8HjsH15Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_TTc6kH1DEe6tb6ZOauBynQ" name="CVE-2022-45789">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TTeIsH1DEe6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_O6risH1zEe6tb6ZOauBynQ" name="CVE-2022-45788">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_O6sJwH1zEe6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_Dkvy8H14Ee6tb6ZOauBynQ" name="CVE-2021-22789">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_DkwaAH14Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_Tdbi4H14Ee6tb6ZOauBynQ" name="CVE-2023-1548">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TdcJ8H14Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_6hLrQH14Ee6tb6ZOauBynQ" name="CVE-2023-27976">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6hMSUH14Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_Sgwp0H15Ee6tb6ZOauBynQ" name="CVE-2022-37300">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_SgxQ4H15Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert" classifierBehavior="_tzYGcH15Ee6tb6ZOauBynQ">
+        <ownedBehavior xmi:type="uml:Activity" xmi:id="_tzYGcH15Ee6tb6ZOauBynQ" name="Activity1" node="_1qnIcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_ANhGgH16Ee6tb6ZOauBynQ" name="HijackComm" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ANiUoH16Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_FN2z4H16Ee6tb6ZOauBynQ" name="Dos" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_FN3a8H16Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_R7jOgH16Ee6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_da8qAH16Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_R7j1kH16Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_LXYW4H16Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_tzYGcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_LXY98H16Ee6tb6ZOauBynQ" name="constraintSpec">
+              <language>OCL</language>
+              <body>true</body>
+            </specification>
+          </ownedRule>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_1qnIcH15Ee6tb6ZOauBynQ" name="CVE-2023-22610">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1qnIcX15Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_ZEwF0H16Ee6tb6ZOauBynQ" name="CVE-2022-2988">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_ZEwF0X16Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+          <node xmi:type="uml:DataStoreNode" xmi:id="_da8qAH16Ee6tb6ZOauBynQ" name="CVE-2023-22611">
+            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_da9REH16Ee6tb6ZOauBynQ" value="1"/>
+          </node>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA Server"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPNService"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_-_zuQH4eEe6wVOUTP2joHw" name="Assets">
+      <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="Regulate Temperature"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="Monitor System"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KAOW0HmBEe69raeEJc1a7Q" name="Handle Network Requests"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cj5tYHmBEe69raeEJc1a7Q" name="Patient Information"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_nrGtwHGeEe64YpFtfVg2wg" memberEnd="_nrJKAHGeEe64YpFtfVg2wg _nrJxEnGeEe64YpFtfVg2wg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nrH74HGeEe64YpFtfVg2wg" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nrH74XGeEe64YpFtfVg2wg" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_nrJxEnGeEe64YpFtfVg2wg" name="internet" type="_AVZBwHGVEe6Kao45UCQQrQ" association="_nrGtwHGeEe64YpFtfVg2wg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_xzkRcHcCEe62INvlmVZBnw" name="PLC">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UB1RkncDEe62INvlmVZBnw" name="controlexpert" type="_Mx3q8HcDEe62INvlmVZBnw" aggregation="shared" association="_UB0qgHcDEe62INvlmVZBnw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UB14oHcDEe62INvlmVZBnw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UB14oXcDEe62INvlmVZBnw" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_tBMAMHcFEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_y3UNcHcCEe62INvlmVZBnw" name="SCADA">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_lQ6zwncDEe62INvlmVZBnw" name="machineexpert" type="_io96EHcDEe62INvlmVZBnw" aggregation="shared" association="_lQ5loHcDEe62INvlmVZBnw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lQ6zw3cDEe62INvlmVZBnw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lQ6zxHcDEe62INvlmVZBnw" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_mjJwUncGEe62INvlmVZBnw" name="opcua_server" type="_fFN_IHcGEe62INvlmVZBnw" aggregation="shared" association="_mjJJQHcGEe62INvlmVZBnw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mjKXYHcGEe62INvlmVZBnw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mjKXYXcGEe62INvlmVZBnw" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_BJgj4HcHEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_1mo6cHcCEe62INvlmVZBnw" name="Sensor"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3VPxUHcCEe62INvlmVZBnw" name="Actuator">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_9C3UEHcFEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_tdtw4HmGEe69raeEJc1a7Q" name="opcua_port" aggregation="composite"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_HGjt8HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_1mo6cHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_Hn78sHcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_3VPxUHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ISiY4HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_xzkRcHcCEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert" classifierBehavior="_OZwnwH1DEe6tb6ZOauBynQ">
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_OZwnwH1DEe6tb6ZOauBynQ" name="Vulnerabilities" node="_TTc6kH1DEe6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _6hLrQH14Ee6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_eC0nUH1DEe6tb6ZOauBynQ" name="HijackComm" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_eC3DkH1DEe6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_sjbKAH1DEe6tb6ZOauBynQ" name="Dos" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_sjcYIH1DEe6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_UdXvMH1zEe6tb6ZOauBynQ" name="CodeExecution" constrainedElement="_O6risH1zEe6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_UdZkYH1zEe6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_hL6eYH1zEe6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_O6risH1zEe6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_hL7sgH1zEe6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_Hw2nAH14Ee6tb6ZOauBynQ" name="loadFile" constrainedElement="_Dkvy8H14Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Hw3OEH14Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_BNfLMH15Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_BNgZUH15Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_FcT8EH15Ee6tb6ZOauBynQ" name="RemoteExploit" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_FcUjIH15Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_Y8GVkH15Ee6tb6ZOauBynQ" name="AuthenticationBypass" constrainedElement="_Sgwp0H15Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y8HjsH15Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_TTc6kH1DEe6tb6ZOauBynQ" name="CVE-2022-45789">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TTeIsH1DEe6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_O6risH1zEe6tb6ZOauBynQ" name="CVE-2022-45788">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_O6sJwH1zEe6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_Dkvy8H14Ee6tb6ZOauBynQ" name="CVE-2021-22789">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_DkwaAH14Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_Tdbi4H14Ee6tb6ZOauBynQ" name="CVE-2023-1548">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TdcJ8H14Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_6hLrQH14Ee6tb6ZOauBynQ" name="CVE-2023-27976">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6hMSUH14Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_Sgwp0H15Ee6tb6ZOauBynQ" name="CVE-2022-37300">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_SgxQ4H15Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-      </ownedBehavior>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_UB0qgHcDEe62INvlmVZBnw" memberEnd="_UB1RkncDEe62INvlmVZBnw _UB2fsHcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UB1RkHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UB1RkXcDEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_UB2fsHcDEe62INvlmVZBnw" name="system" type="_xzkRcHcCEe62INvlmVZBnw" association="_UB0qgHcDEe62INvlmVZBnw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert" classifierBehavior="_tzYGcH15Ee6tb6ZOauBynQ">
-      <ownedBehavior xmi:type="uml:Activity" xmi:id="_tzYGcH15Ee6tb6ZOauBynQ" name="Activity1" node="_1qnIcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_ANhGgH16Ee6tb6ZOauBynQ" name="HijackComm" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_ANiUoH16Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_FN2z4H16Ee6tb6ZOauBynQ" name="Dos" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_FN3a8H16Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_R7jOgH16Ee6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_da8qAH16Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_R7j1kH16Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:type="uml:Constraint" xmi:id="_LXYW4H16Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_tzYGcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_LXY98H16Ee6tb6ZOauBynQ" name="constraintSpec">
-            <language>OCL</language>
-            <body>true</body>
-          </specification>
-        </ownedRule>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_1qnIcH15Ee6tb6ZOauBynQ" name="CVE-2023-22610">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1qnIcX15Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_ZEwF0H16Ee6tb6ZOauBynQ" name="CVE-2022-2988">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_ZEwF0X16Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-        <node xmi:type="uml:DataStoreNode" xmi:id="_da8qAH16Ee6tb6ZOauBynQ" name="CVE-2023-22611">
-          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_da9REH16Ee6tb6ZOauBynQ" value="1"/>
-        </node>
-      </ownedBehavior>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_lQ5loHcDEe62INvlmVZBnw" memberEnd="_lQ6zwncDEe62INvlmVZBnw _lQ7a0HcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lQ6zwHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
@@ -184,7 +241,6 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_lQ7a0HcDEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_lQ5loHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA Server"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_mjJJQHcGEe62INvlmVZBnw" memberEnd="_mjJwUncGEe62INvlmVZBnw _mjKXYncGEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mjJwUHcGEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mjJwUXcGEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
@@ -192,54 +248,7 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_mjKXYncGEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_mjJJQHcGEe62INvlmVZBnw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_oOW4cHcHEe62INvlmVZBnw" name="ItemFlow41" informationSource="_mjJwUncGEe62INvlmVZBnw" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPNService"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_BrSJUHcJEe62INvlmVZBnw" name="ItemFlow45" informationSource="_UB1RkncDEe62INvlmVZBnw" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="Regulate Temperature"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="Monitor System"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KAOW0HmBEe69raeEJc1a7Q" name="Handle Network Requests"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KAp-AHloEe69raeEJc1a7Q" name="HVAC">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_6DqgYnloEe69raeEJc1a7Q" name="sensor" type="_1mo6cHcCEe62INvlmVZBnw" aggregation="shared" association="_6Dp5UHloEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6DrHcHloEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6DrugHloEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_6vazInloEe69raeEJc1a7Q" name="actuator" type="_3VPxUHcCEe62INvlmVZBnw" aggregation="shared" association="_6vY98HloEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6vcBQHloEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6vcoUHloEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_7TLngnloEe69raeEJc1a7Q" name="plc" type="_xzkRcHcCEe62INvlmVZBnw" aggregation="shared" association="_7TJyUHloEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7TMOkHloEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7TMOkXloEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_7-iRoXloEe69raeEJc1a7Q" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" aggregation="shared" association="_7-hDgHloEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7-i4sHloEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7-i4sXloEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_rtNgwHl_Ee69raeEJc1a7Q" name="FullPort6" type="_y3UNcHcCEe62INvlmVZBnw" aggregation="composite"/>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_FaR_EHmEEe69raeEJc1a7Q" name="Webserver" type="_61FpYHmAEe69raeEJc1a7Q"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_MK0vgHloEe69raeEJc1a7Q" name="Network">
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_e3lVUHmDEe69raeEJc1a7Q" name="Internet" type="_AVZBwHGVEe6Kao45UCQQrQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_vdLggXmBEe69raeEJc1a7Q" name="workstation" type="_oQZwwHmBEe69raeEJc1a7Q" aggregation="shared" association="_vdK5cHmBEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vdLggnmBEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vdLgg3mBEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wJyH0nmBEe69raeEJc1a7Q" name="webserver" type="_61FpYHmAEe69raeEJc1a7Q" aggregation="shared" association="_wJxgwHmBEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJyu4HmBEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wJyu4XmBEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wy5WQHmBEe69raeEJc1a7Q" name="database" type="_hMlvwHmBEe69raeEJc1a7Q" aggregation="shared" association="_wy3hEHmBEe69raeEJc1a7Q">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wy59UHmBEe69raeEJc1a7Q"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wy59UXmBEe69raeEJc1a7Q" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="WebServer">
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
-      </nestedClassifier>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
-      <nestedClassifier xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
-      <nestedClassifier xmi:type="uml:Actor" xmi:id="_Nwgi0HmHEe69raeEJc1a7Q" name="employee"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_QH-hkHloEe69raeEJc1a7Q" memberEnd="_QIBk4HloEe69raeEJc1a7Q _QICL8nloEe69raeEJc1a7Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QIA90HloEe69raeEJc1a7Q" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QIA90XloEe69raeEJc1a7Q" key="nature" value="UML_Nature"/>
@@ -282,7 +291,6 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_YQu58nl_Ee69raeEJc1a7Q" name="system" type="_qi03UFFpEe6HEMNnvMx1Dw" association="_YQtr0Hl_Ee69raeEJc1a7Q"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_cj5tYHmBEe69raeEJc1a7Q" name="Patient Information"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_vdK5cHmBEe69raeEJc1a7Q" memberEnd="_vdLggXmBEe69raeEJc1a7Q _vdMHkHmBEe69raeEJc1a7Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vdK5cXmBEe69raeEJc1a7Q" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vdLggHmBEe69raeEJc1a7Q" key="nature" value="UML_Nature"/>
