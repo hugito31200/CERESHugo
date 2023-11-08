@@ -113,10 +113,10 @@ isSensor([device.name.toLower()/]).
 [for(act: Activity | m.eAllContents(Activity))]
 [let prog: Class = act.eContainer(Class)]
 [for(preCond: Constraint | act.eAllContents(Constraint))]
-[if (preCond.getAppliedStereotypes().toString().contains('PreCondition')=true->asBag() and preCond.constrainedElement=vul->asOrderedSet())]
+[if (preCond.getAppliedStereotypes().toString().contains('PreCondition')=true->asBag() and preCond.constrainedElement->includes(vul))]
 vulExists([getHostOfProgram(prog, m)/],'[elem.eGet('CVE_id')/]',[prog.name.toLower()/]).
 [for(postCond: Constraint | act.eAllContents(Constraint))]
-[if (postCond.getAppliedStereotypes().toString().contains('PostCondition')=true->asBag() and postCond.constrainedElement=vul->asOrderedSet())]
+[if (postCond.getAppliedStereotypes().toString().contains('PostCondition')=true->asBag() and postCond.constrainedElement->includes(vul))]
 vulProperty('[elem.eGet('CVE_id')/]',[preCond.name.toLowerFirst()/],[postCond.name.toLowerFirst()/]).
 [/if]
 [/for]

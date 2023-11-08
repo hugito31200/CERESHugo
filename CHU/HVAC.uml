@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL="http:///schemas/SysML_Extension_for_MulVAL/_h2I_4Hl9Ee69raeEJc1a7Q/26" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///schemas/SysML_Extension_for_MulVAL/_h2I_4Hl9Ee69raeEJc1a7Q/26 ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_h2MqQHl9Ee69raeEJc1a7Q">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL="http:///schemas/SysML_Extension_for_MulVAL/_xakwQH1xEe6tb6ZOauBynQ/31" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///schemas/SysML_Extension_for_MulVAL/_xakwQH1xEe6tb6ZOauBynQ/31 ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_xalXUH1xEe6tb6ZOauBynQ">
   <uml:Model xmi:id="_N9wUUFFpEe6HEMNnvMx1Dw" name="HVAC">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_ODo54FFpEe6HEMNnvMx1Dw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -56,10 +56,6 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mjKXYXcGEe62INvlmVZBnw" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_BJgj4HcHEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_7iSnQXcHEe62INvlmVZBnw" name="vpnservice" type="_4DiocHcHEe62INvlmVZBnw" aggregation="shared" association="_7iRZIHcHEe62INvlmVZBnw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7iSnQncHEe62INvlmVZBnw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7iTOUHcHEe62INvlmVZBnw" value="1"/>
-      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_1mo6cHcCEe62INvlmVZBnw" name="Sensor"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_3VPxUHcCEe62INvlmVZBnw" name="Actuator">
@@ -69,43 +65,75 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_HGjt8HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_1mo6cHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_Hn78sHcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_3VPxUHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ISiY4HcDEe62INvlmVZBnw" client="_Cz3yMHGcEe64YpFtfVg2wg" supplier="_xzkRcHcCEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_Iy3YkHcgEe62INvlmVZBnw">
-        <body>CVE-2022-45789&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_HVTRkHckEe62INvlmVZBnw">
-        <body>CVE-2022-45788 (localExploit)&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_QgICYHckEe62INvlmVZBnw">
-        <body>CVE-2022-45788 (dos)</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_WFERoHckEe62INvlmVZBnw">
-        <body>CVE-2022-45788 (leakInfo)&#xD;
-&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_csaZEHckEe62INvlmVZBnw">
-        <body>CVE-2021-22789&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_iSzZ0HckEe62INvlmVZBnw">
-        <body>CVE-2023-1548&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_s-aA4HckEe62INvlmVZBnw">
-        <body>CVE-2023-27976&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_2qwxcHckEe62INvlmVZBnw">
-        <body>CVE-2022-37300 (ra)&#xD;
-&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_8w-hwHckEe62INvlmVZBnw">
-        <body>CVE-2022-37300 (wa)</body>
-      </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert" classifierBehavior="_OZwnwH1DEe6tb6ZOauBynQ">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_OZwnwH1DEe6tb6ZOauBynQ" name="Vulnerabilities" node="_TTc6kH1DEe6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _6hLrQH14Ee6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_eC0nUH1DEe6tb6ZOauBynQ" name="HijackComm" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_eC3DkH1DEe6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_sjbKAH1DEe6tb6ZOauBynQ" name="Dos" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_sjcYIH1DEe6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_UdXvMH1zEe6tb6ZOauBynQ" name="CodeExecution" constrainedElement="_O6risH1zEe6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_UdZkYH1zEe6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_hL6eYH1zEe6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_O6risH1zEe6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_hL7sgH1zEe6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_Hw2nAH14Ee6tb6ZOauBynQ" name="loadFile" constrainedElement="_Dkvy8H14Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Hw3OEH14Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_BNfLMH15Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_BNgZUH15Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_FcT8EH15Ee6tb6ZOauBynQ" name="RemoteExploit" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_FcUjIH15Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_Y8GVkH15Ee6tb6ZOauBynQ" name="AuthenticationBypass" constrainedElement="_Sgwp0H15Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y8HjsH15Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_TTc6kH1DEe6tb6ZOauBynQ" name="CVE-2022-45789">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TTeIsH1DEe6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_O6risH1zEe6tb6ZOauBynQ" name="CVE-2022-45788">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_O6sJwH1zEe6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_Dkvy8H14Ee6tb6ZOauBynQ" name="CVE-2021-22789">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_DkwaAH14Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_Tdbi4H14Ee6tb6ZOauBynQ" name="CVE-2023-1548">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TdcJ8H14Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_6hLrQH14Ee6tb6ZOauBynQ" name="CVE-2023-27976">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6hMSUH14Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_Sgwp0H15Ee6tb6ZOauBynQ" name="CVE-2022-37300">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_SgxQ4H15Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+      </ownedBehavior>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_UB0qgHcDEe62INvlmVZBnw" memberEnd="_UB1RkncDEe62INvlmVZBnw _UB2fsHcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UB1RkHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
@@ -113,19 +141,42 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_UB2fsHcDEe62INvlmVZBnw" name="system" type="_xzkRcHcCEe62INvlmVZBnw" association="_UB0qgHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_ZIX1IHclEe62INvlmVZBnw">
-        <body>CVE-2023-22610&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_elDgQHclEe62INvlmVZBnw">
-        <body>CVE-2022-2988&#xD;
-</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_odj2cHclEe62INvlmVZBnw">
-        <body>CVE-2023-22611&#xD;
-</body>
-      </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert" classifierBehavior="_tzYGcH15Ee6tb6ZOauBynQ">
+      <ownedBehavior xmi:type="uml:Activity" xmi:id="_tzYGcH15Ee6tb6ZOauBynQ" name="Activity1" node="_1qnIcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_ANhGgH16Ee6tb6ZOauBynQ" name="HijackComm" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_ANiUoH16Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_FN2z4H16Ee6tb6ZOauBynQ" name="Dos" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_FN3a8H16Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_R7jOgH16Ee6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_da8qAH16Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_R7j1kH16Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_LXYW4H16Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_tzYGcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_LXY98H16Ee6tb6ZOauBynQ" name="constraintSpec">
+            <language>OCL</language>
+            <body>true</body>
+          </specification>
+        </ownedRule>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_1qnIcH15Ee6tb6ZOauBynQ" name="CVE-2023-22610">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1qnIcX15Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_ZEwF0H16Ee6tb6ZOauBynQ" name="CVE-2022-2988">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_ZEwF0X16Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+        <node xmi:type="uml:DataStoreNode" xmi:id="_da8qAH16Ee6tb6ZOauBynQ" name="CVE-2023-22611">
+          <upperBound xmi:type="uml:LiteralInteger" xmi:id="_da9REH16Ee6tb6ZOauBynQ" value="1"/>
+        </node>
+      </ownedBehavior>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_lQ5loHcDEe62INvlmVZBnw" memberEnd="_lQ6zwncDEe62INvlmVZBnw _lQ7a0HcDEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lQ6zwHcDEe62INvlmVZBnw" source="org.eclipse.papyrus">
@@ -133,11 +184,7 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_lQ7a0HcDEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_lQ5loHcDEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA_Server">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_6UTOgHclEe62INvlmVZBnw">
-        <body>CVE-2023-37200</body>
-      </ownedComment>
-    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA_Server"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_mjJJQHcGEe62INvlmVZBnw" memberEnd="_mjJwUncGEe62INvlmVZBnw _mjKXYncGEe62INvlmVZBnw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mjJwUHcGEe62INvlmVZBnw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mjJwUXcGEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
@@ -146,12 +193,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_oOW4cHcHEe62INvlmVZBnw" name="ItemFlow41" informationSource="_mjJwUncGEe62INvlmVZBnw" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="vpnService"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_7iRZIHcHEe62INvlmVZBnw" memberEnd="_7iSnQXcHEe62INvlmVZBnw _7iTOUXcHEe62INvlmVZBnw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7iSAMHcHEe62INvlmVZBnw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7iSnQHcHEe62INvlmVZBnw" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_7iTOUXcHEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_7iRZIHcHEe62INvlmVZBnw"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_BrSJUHcJEe62INvlmVZBnw" name="ItemFlow45" informationSource="_UB1RkncDEe62INvlmVZBnw" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="RegulateTemperature"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="MonitorSystem"/>
@@ -192,8 +233,8 @@
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="Webserver">
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_-wf8gHokEe6sbYycmBECAA" name="80" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
@@ -268,8 +309,9 @@
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="ItemFlow63" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_vX6zwHmGEe69raeEJc1a7Q" name="ItemFlow64" informationSource="_7TLngnloEe69raeEJc1a7Q" informationTarget="_tdtw4HmGEe69raeEJc1a7Q"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_XePzcHmHEe69raeEJc1a7Q" client="_Nwgi0HmHEe69raeEJc1a7Q" supplier="_oQZwwHmBEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_z7khsHohEe6sbYycmBECAA" client="_2wRdcHGbEe64YpFtfVg2wg" supplier="_y3UNcHcCEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_KejzMHoyEe6F8cEIkGJudw" name="ItemFlow65" informationSource="_e3lVUHmDEe69raeEJc1a7Q" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_5k4mYH4NEe6wVOUTP2joHw" client="_2wRdcHGbEe64YpFtfVg2wg" supplier="_61FpYHmAEe69raeEJc1a7Q"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_0ALLMH4OEe6wVOUTP2joHw" name="ItemFlow63" informationSource="_yRFMIH4OEe6wVOUTP2joHw" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_N_mucFFpEe6HEMNnvMx1Dw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N_pKsFFpEe6HEMNnvMx1Dw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#/"/>
@@ -331,15 +373,15 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_JTI1oFfHEe6A-uQ1qxwh1w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kGGQUHl9Ee69raeEJc1a7Q" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kGGQUXl9Ee69raeEJc1a7Q" key="Version" value="0.1.14"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kGGQUnl9Ee69raeEJc1a7Q" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kGGQU3l9Ee69raeEJc1a7Q" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kGGQVHl9Ee69raeEJc1a7Q" key="Date" value="2023-11-02"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kGGQVXl9Ee69raeEJc1a7Q" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z4MCMH1xEe6tb6ZOauBynQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z4MCMX1xEe6tb6ZOauBynQ" key="Version" value="0.1.19"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z4MCMn1xEe6tb6ZOauBynQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z4MCM31xEe6tb6ZOauBynQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z4MCNH1xEe6tb6ZOauBynQ" key="Date" value="2023-11-07"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z4MCNX1xEe6tb6ZOauBynQ" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JTKq0FfHEe6A-uQ1qxwh1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_h2MqQHl9Ee69raeEJc1a7Q"/>
+        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_xalXUH1xEe6tb6ZOauBynQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_vOlHkFfGEe6A-uQ1qxwh1w"/>
     </profileApplication>
@@ -382,19 +424,6 @@
   <SysML_Extension_for_MulVAL:Program xmi:id="_DsgPoHcIEe62INvlmVZBnw" base_Class="_4DiocHcHEe62INvlmVZBnw"/>
   <PortsAndFlows:ItemFlow xmi:id="_Brgy0HcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:Connection xmi:id="_C9YqYHcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw" protocol="opcua"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Ok0wIHcgEe62INvlmVZBnw" CVE_id="CVE-2022-45789" range="localExploit" impact="privEscalation" base_Comment="_Iy3YkHcgEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_JdPOcHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="localExploit" impact="privEscalation" base_Comment="_HVTRkHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_SpC2sHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="dos" impact="na" base_Comment="_QgICYHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Yu3lcHckEe62INvlmVZBnw" CVE_id="CVE-2022-45788" range="leakInfo" impact="na" base_Comment="_WFERoHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_eD1fAHckEe62INvlmVZBnw" CVE_id="CVE-2021-22789" range="dos" impact="na" base_Comment="_csaZEHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_j3NL0HckEe62INvlmVZBnw" CVE_id="CVE-2023-1548" range="dos" impact="na" base_Comment="_iSzZ0HckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_ukWrAHckEe62INvlmVZBnw" CVE_id="CVE-2023-27976" range="remoteExploit" impact="privEscalation" base_Comment="_s-aA4HckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_4EBqcHckEe62INvlmVZBnw" CVE_id="CVE-2022-37300" range="readAccess" impact="na" base_Comment="_2qwxcHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="__LHB4HckEe62INvlmVZBnw" CVE_id="CVE-2022-37300" range="writeAccess" impact="na" base_Comment="_8w-hwHckEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_cCNJAHclEe62INvlmVZBnw" CVE_id="CVE-2023-22610" range="dos" impact="na" base_Comment="_ZIX1IHclEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_ifiY0HclEe62INvlmVZBnw" CVE_id="CVE-2022-2988" range="leakInfo" impact="na" base_Comment="_elDgQHclEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_p3dooHclEe62INvlmVZBnw" CVE_id="CVE-2023-22611" range="leakInfo" impact="na" base_Comment="_odj2cHclEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_-eYpUHclEe62INvlmVZBnw" CVE_id="CVE-2023-37200" range="leakInfo" impact="na" base_Comment="_6UTOgHclEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL:Asset xmi:id="_aWJbMHlnEe69raeEJc1a7Q" importanceLevel="High" base_Class="_WnL2IHlnEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL:Asset xmi:id="_j2z5IHlnEe69raeEJc1a7Q" importanceLevel="Medium" base_Class="_hEjz8HlnEe69raeEJc1a7Q"/>
   <Blocks:Block xmi:id="_KA1kMHloEe69raeEJc1a7Q" base_Class="_KAp-AHloEe69raeEJc1a7Q"/>
@@ -426,7 +455,30 @@
   <SysML_Extension_for_MulVAL:Connection xmi:id="_x7jOIHmGEe69raeEJc1a7Q" base_InformationFlow="_vX6zwHmGEe69raeEJc1a7Q" protocol="opcua"/>
   <SysML_Extension_for_MulVAL:User xmi:id="_OvzcoHmHEe69raeEJc1a7Q" base_Actor="_Nwgi0HmHEe69raeEJc1a7Q" exposure="Low"/>
   <SysML_Extension_for_MulVAL:hasAccount xmi:id="_YfkGgHmHEe69raeEJc1a7Q" base_Dependency="_XePzcHmHEe69raeEJc1a7Q" account="root"/>
-  <SysML_Extension_for_MulVAL:hasAccount xmi:id="_1wKEwHohEe6sbYycmBECAA" base_Dependency="_z7khsHohEe6sbYycmBECAA"/>
   <PortsAndFlows:ItemFlow xmi:id="_KfJCAHoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw"/>
   <SysML_Extension_for_MulVAL:Connection xmi:id="_LruJ4HoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw" protocol="ipSec"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_W4l1QH1DEe6tb6ZOauBynQ" base_DataStoreNode="_TTc6kH1DEe6tb6ZOauBynQ" CVE_id="CVE-2022-45789"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_oy768H1DEe6tb6ZOauBynQ" base_Constraint="_eC0nUH1DEe6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_vL0IkH1DEe6tb6ZOauBynQ" base_Constraint="_sjbKAH1DEe6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_SgfLwH1zEe6tb6ZOauBynQ" base_DataStoreNode="_O6risH1zEe6tb6ZOauBynQ" CVE_id="CVE-2022-45788"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_aTDJIH1zEe6tb6ZOauBynQ" base_Constraint="_UdXvMH1zEe6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_ja10EH1zEe6tb6ZOauBynQ" base_Constraint="_hL6eYH1zEe6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_Elv88H14Ee6tb6ZOauBynQ" base_DataStoreNode="_Dkvy8H14Ee6tb6ZOauBynQ" CVE_id="CVE-2021-22789"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_N-t3cH14Ee6tb6ZOauBynQ" base_Constraint="_Hw2nAH14Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_YFCnMH14Ee6tb6ZOauBynQ" base_DataStoreNode="_Tdbi4H14Ee6tb6ZOauBynQ" CVE_id="CVE-2023-1548"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_99XeQH14Ee6tb6ZOauBynQ" base_DataStoreNode="_6hLrQH14Ee6tb6ZOauBynQ" CVE_id="CVE-2023-27976"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_Ehrf0H15Ee6tb6ZOauBynQ" base_Constraint="_BNfLMH15Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_JyBYEH15Ee6tb6ZOauBynQ" base_Constraint="_FcT8EH15Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_VwdgAH15Ee6tb6ZOauBynQ" base_DataStoreNode="_Sgwp0H15Ee6tb6ZOauBynQ" CVE_id="CVE-2022-37300"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_cmdugH15Ee6tb6ZOauBynQ" base_Constraint="_Y8GVkH15Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_21gOQH15Ee6tb6ZOauBynQ" base_DataStoreNode="_1qnIcH15Ee6tb6ZOauBynQ" CVE_id="CVE-2023-22610"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_ERWIUH16Ee6tb6ZOauBynQ" base_Constraint="_ANhGgH16Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PreCondition xmi:id="_PW3EMH16Ee6tb6ZOauBynQ" base_Constraint="_LXYW4H16Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_Q0eRsH16Ee6tb6ZOauBynQ" base_Constraint="_FN2z4H16Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:PostCondition xmi:id="_WNioIH16Ee6tb6ZOauBynQ" base_Constraint="_R7jOgH16Ee6tb6ZOauBynQ"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_aINt8H16Ee6tb6ZOauBynQ" base_DataStoreNode="_ZEwF0H16Ee6tb6ZOauBynQ" CVE_id="CVE-2022-2988"/>
+  <SysML_Extension_for_MulVAL:Vulnerability xmi:id="_ecmUQH16Ee6tb6ZOauBynQ" base_DataStoreNode="_da8qAH16Ee6tb6ZOauBynQ" CVE_id="CVE-2023-22611"/>
+  <SysML_Extension_for_MulVAL:hasAccount xmi:id="_7DJ7MH4NEe6wVOUTP2joHw" base_Dependency="_5k4mYH4NEe6wVOUTP2joHw" account=""/>
+  <PortsAndFlows:ItemFlow xmi:id="_0AXYcH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw"/>
+  <SysML_Extension_for_MulVAL:Connection xmi:id="_1WSCgH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw" protocol="ipSec"/>
 </xmi:XMI>
