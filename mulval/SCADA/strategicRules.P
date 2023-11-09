@@ -7,6 +7,13 @@ primitive(hasAccess(_stakeholder,_machine)).
 
 derived(targetAsset(_asset)).
 
+/******************************************************/
+/*             Tabling Predicates                     */
+/*   All derived predicates should be tabled          */
+/******************************************************/
+
+:- table targetAsset/1.
+
 /**********Entry points*******************/
 interaction_rule(
   (canAccessHost(H) :-

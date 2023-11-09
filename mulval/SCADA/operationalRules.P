@@ -11,6 +11,17 @@ derived(isCompromised(_device)).
 derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
 
+/******************************************************/
+/*             Tabling Predicates                     */
+/*   All derived predicates should be tabled          */
+/******************************************************/
+
+:- table isTriggered/1.
+:- table accessInfo/1.
+:- table isCompromised/1.
+:- table canSniffCommunication/2.
+:- table covertAppropriation/1.
+
 /************Vulnerability triggering*******************/
 
 interaction_rule(
@@ -111,17 +122,17 @@ interaction_rule(
 
 /********************Physically compromising a sensor or an actuator************************************/
 interaction_rule(
-  (isCompromised(sensor) :-
-  isSensor(sensor),
-  physicalAccess(Principal,sensor),
+  (isCompromised(Sensor) :-
+  isSensor(Sensor),
+  physicalAccess(Principal,Sensor),
   malicious(Principal)
   ),
   rule_desc('Physically compromising a sensor', 1)).
 
 interaction_rule(
-  (isCompromised(actuator) :-
-  isActuator(actuator),
-  physicalAccess(Principal,actuator),
+  (isCompromised(Actuator) :-
+  isActuator(Actuator),
+  physicalAccess(Principal,Actuator),
   malicious(Principal)
   ),
   rule_desc('Physically compromising an actuator', 1)).
@@ -129,16 +140,16 @@ interaction_rule(
 
 /********************Sniffing on a communication channel************************************/
 interaction_rule(
-  (canSniffCommunication(device,Host) :-
-  isCompromised(device),
-  hacl(device,Host,_,_)
+  (canSniffCommunication(Device,Host) :-
+  isCompromised(Device),
+  hacl(Device,Host,_,_)
   ),
   rule_desc('Compromise source of communication', 1)).
 
 interaction_rule(
   (canSniffCommunication(device,Host) :-
-  isCompromised(device),
-  hacl(Host,device,_,_)
+  isCompromised(Device),
+  hacl(Host,Device,_,_)
   ),
   rule_desc('Compromise end of communication', 1)).
 
