@@ -1,4 +1,3 @@
-
 primitive(isAsset(_asset,_importance)).
 primitive(assetLocated(_asset,_machine)).
 

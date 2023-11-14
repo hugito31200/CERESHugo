@@ -39,7 +39,7 @@ interaction_rule(
 /*****Information Disclosure*********/
 interaction_rule(
   (accessInfo(H) :-
-  vulExists(H,VulID,Software,_,leakInfo),
+  vulExists(H,VulID,Software,_,leakinfo),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
