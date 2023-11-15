@@ -83,7 +83,9 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mjKXYHcGEe62INvlmVZBnw"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mjKXYXcGEe62INvlmVZBnw" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_BJgj4HcHEe62INvlmVZBnw" name="opcua_port" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_BJgj4HcHEe62INvlmVZBnw" name="opcua_port" aggregation="composite">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_1mo6cHcCEe62INvlmVZBnw" name="Sensor"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_3VPxUHcCEe62INvlmVZBnw" name="Actuator">
@@ -410,7 +412,7 @@
   <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_CIzgIHGVEe6Kao45UCQQrQ" base_Class="_AVZBwHGVEe6Kao45UCQQrQ"/>
   <SysML_Extension_for_MulVAL.Stereotypes:User xmi:id="_E6x0UHGcEe64YpFtfVg2wg" base_Actor="_2wRdcHGbEe64YpFtfVg2wg" isMalicious="true" exposure="High"/>
   <SysML_Extension_for_MulVAL.Stereotypes:User xmi:id="_IPDogHGcEe64YpFtfVg2wg" base_Actor="_Cz3yMHGcEe64YpFtfVg2wg" isMalicious="true" exposure="Medium"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Attacker xmi:id="_mIkkAHGeEe64YpFtfVg2wg" base_Actor="_k1sm4HGeEe64YpFtfVg2wg" goal="_eBdmcH41Ee6wVOUTP2joHw"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Attacker xmi:id="_mIkkAHGeEe64YpFtfVg2wg" base_Actor="_k1sm4HGeEe64YpFtfVg2wg" goal="_lq2ZsH41Ee6wVOUTP2joHw"/>
   <Blocks:Block xmi:id="_x0Q1AHcCEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_y3vrQHcCEe62INvlmVZBnw" base_Class="_y3UNcHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_1m6nQHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw"/>
