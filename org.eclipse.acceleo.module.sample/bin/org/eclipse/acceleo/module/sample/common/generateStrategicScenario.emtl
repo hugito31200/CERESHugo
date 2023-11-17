@@ -863,6 +863,144 @@
         </source>
       </post>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateNetworkServiceInfo">
+      <body xsi:type="mtl:LetBlock">
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:LetBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="networkServiceInfo("/>
+              <body xsi:type="mtl:TemplateInvocation" definition="/0/formatName">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <argument xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="host" referredVariable="/0/generateNetworkServiceInfo/%/host">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+              <body xsi:type="mtl:TemplateInvocation" definition="/0/formatName">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <argument xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="program" referredVariable="/0/generateNetworkServiceInfo/%/%/program">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", _, _, _).&#xD;&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:VariableExp" name="isProgram" referredVariable="/0/generateNetworkServiceInfo/%/%/%/isProgram">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </ifExpr>
+            </body>
+            <letVariable name="isProgram">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <initExpression xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Bag(Boolean)">
+                  <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Bag(String)">
+                    <source xsi:type="ocl.ecore:OperationCallExp" eType="/3/Set(Stereotype)">
+                      <source xsi:type="ocl.ecore:PropertyCallExp">
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                        <source xsi:type="ocl.ecore:VariableExp" name="program" referredVariable="/0/generateNetworkServiceInfo/%/%/program">
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                        </source>
+                        <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+                      </source>
+                      <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/getAppliedStereotypes"/>
+                    </source>
+                    <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/toString">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                      <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/temp23">
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                      </source>
+                    </body>
+                    <iterator xsi:type="ocl.ecore:Variable" name="temp23">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                    </iterator>
+                  </source>
+                  <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="temp2" referredVariable="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/temp24">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Program">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                  </body>
+                  <iterator xsi:type="ocl.ecore:Variable" name="temp24">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </iterator>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp" eType="/3/Bag(Boolean)">
+                  <source xsi:type="ocl.ecore:CollectionLiteralExp" eType="/3/Set(Boolean)">
+                    <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL/Annotations">
+                      <details key="IMPLICIT_SET_CONVERSION" value="true"/>
+                    </eAnnotations>
+                    <part xsi:type="ocl.ecore:CollectionItem">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                      <item xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+                        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                      </item>
+                    </part>
+                  </source>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/asBag"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Bag(T)_Class/=.1"/>
+              </initExpression>
+            </letVariable>
+          </body>
+          <loopVariable name="program">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Property)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(Property)">
+              <source xsi:type="ocl.ecore:VariableExp" name="host" referredVariable="/0/generateNetworkServiceInfo/%/host">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//StructuredClassifier/ownedAttribute"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/26/Property">
+              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/selectByType"/>
+          </iterSet>
+        </body>
+        <letVariable name="host">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          <initExpression xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
+              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateNetworkServiceInfo/elem">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="base_Class">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/26/Class">
+              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </initExpression>
+        </letVariable>
+      </body>
+      <parameter name="elem">
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </parameter>
+      <parameter name="m">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+      </parameter>
+      <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/74">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </source>
+      </post>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="translateImportanceLevel">
       <body xsi:type="mtl:IfBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="'certain'&#xD;&#xA;"/>
@@ -934,7 +1072,7 @@
       </parameter>
       <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/74">
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/88">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </source>
       </post>
@@ -970,7 +1108,7 @@
                 <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateAsset/elem">
                   <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
                 </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="importanceLevel">
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="importance">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
               </source>
@@ -1002,112 +1140,14 @@
       </parameter>
       <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/84">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        </source>
-      </post>
-    </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Template" name="generateAssetLocation">
-      <body xsi:type="mtl:LetBlock">
-        <body xsi:type="mtl:LetBlock">
-          <body xsi:type="mtl:ForBlock">
-            <body xsi:type="mtl:LetBlock">
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="assetLocated("/>
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/formatName">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <argument xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="asset" referredVariable="/0/generateAssetLocation/%/%/%/%/asset">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-                </argument>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/formatName">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <argument xsi:type="ocl.ecore:PropertyCallExp">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="host" referredVariable="/0/generateAssetLocation/%/host">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  </source>
-                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-                </argument>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=").&#xD;&#xA;"/>
-              <letVariable name="asset">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                <initExpression xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
-                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="item" referredVariable="/0/generateAssetLocation/%/%/%/item">
-                      <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                    </source>
-                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="base_Class">
-                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    </argument>
-                  </source>
-                  <argument xsi:type="ocl.ecore:TypeExp" eType="/26/Class">
-                    <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  </argument>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
-                </initExpression>
-              </letVariable>
-            </body>
-            <loopVariable name="item">
-              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-            </loopVariable>
-            <iterSet xsi:type="ocl.ecore:VariableExp" name="assets" referredVariable="/0/generateAssetLocation/%/%/assets">
-              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-            </iterSet>
-          </body>
-          <letVariable name="assets">
-            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-            <initExpression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
-              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateAssetLocation/elem">
-                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-              </source>
-              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="assets">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              </argument>
-            </initExpression>
-          </letVariable>
-        </body>
-        <letVariable name="host">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-          <initExpression xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
-              <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateAssetLocation/elem">
-                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-              </source>
-              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="base_Class">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              </argument>
-            </source>
-            <argument xsi:type="ocl.ecore:TypeExp" eType="/26/Class">
-              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
-          </initExpression>
-        </letVariable>
-      </body>
-      <parameter name="elem">
-        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-      </parameter>
-      <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/93">
+        <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/98">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </source>
       </post>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="generateStrategicScenario" visibility="Public" main="true">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="attackGoal(targetAsset(_)).&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:LetBlock">
             <body xsi:type="mtl:IfBlock">
@@ -1155,120 +1195,104 @@
             </source>
           </iterSet>
         </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;/********************Attack Goals**************************/&#xD;&#xA;/*Uncomment to run one or multiple attack goals*/&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;/*attackGoal(targetAsset(_)).*/&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/*attackGoal(targetAsset("/>
+            <body xsi:type="mtl:TemplateInvocation" definition="/0/formatName">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
+                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.3/elem">
+                      <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="base_Class">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                  </source>
+                  <argument xsi:type="ocl.ecore:TypeExp" eType="/26/Class">
+                    <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")).*/&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.3/elem">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="isAsset">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+            </ifExpr>
+          </body>
+          <loopVariable name="elem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
+            <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+            </source>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;/********************Assets**************************/&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:TemplateInvocation" definition="/0/generateAsset">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.5/elem">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eGet">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.5/elem">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="isAsset">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+            </ifExpr>
+          </body>
+          <loopVariable name="elem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
+            <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+            </source>
+          </iterSet>
+        </body>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;/********Stakeholders***************/&#xD;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:LetBlock">
             <body xsi:type="mtl:IfBlock">
               <body xsi:type="mtl:TemplateInvocation" definition="/0/generateStakeholder">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.3/elem">
-                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                </argument>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.3/%/class">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="User">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                </argument>
-              </ifExpr>
-            </body>
-            <letVariable name="class">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <initExpression xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.3/elem">
-                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                  </source>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
-              </initExpression>
-            </letVariable>
-          </body>
-          <loopVariable name="elem">
-            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-          </loopVariable>
-          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
-            <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
-            </source>
-          </iterSet>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-        <body xsi:type="mtl:ForBlock">
-          <body xsi:type="mtl:LetBlock">
-            <body xsi:type="mtl:IfBlock">
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHasAccess">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.5/elem">
-                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                </argument>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.5/%/class">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="physicalAccess">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </argument>
-                </source>
-                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.5/%/class">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </source>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="hasAccount">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </argument>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/or"/>
-              </ifExpr>
-            </body>
-            <letVariable name="class">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <initExpression xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:OperationCallExp">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-                  <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.5/elem">
-                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                  </source>
-                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
-              </initExpression>
-            </letVariable>
-          </body>
-          <loopVariable name="elem">
-            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-          </loopVariable>
-          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
-            <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
-            </source>
-          </iterSet>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;/******************Hosts and Connections************************/&#xD;&#xA;"/>
-        <body xsi:type="mtl:ForBlock">
-          <body xsi:type="mtl:LetBlock">
-            <body xsi:type="mtl:IfBlock">
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHACL">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.7/elem">
                   <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                </argument>
-                <argument xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
                 </argument>
               </body>
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
@@ -1277,7 +1301,7 @@
                 <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.7/%/class">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Connection">
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="User">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
               </ifExpr>
@@ -1306,25 +1330,38 @@
             </source>
           </iterSet>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;/********************Assets**************************/&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:LetBlock">
             <body xsi:type="mtl:IfBlock">
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateAsset">
+              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHasAccess">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.9/elem">
                   <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
                 </argument>
               </body>
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.9/%/class">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.9/%/class">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="physicalAccess">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
                 </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Asset">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.9/%/class">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="hasAccount">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
                 </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/or"/>
               </ifExpr>
             </body>
             <letVariable name="class">
@@ -1351,14 +1388,17 @@
             </source>
           </iterSet>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;/******************Hosts and Connections************************/&#xD;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:LetBlock">
             <body xsi:type="mtl:IfBlock">
-              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateAssetLocation">
+              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHACL">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.11/elem">
                   <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
                 </argument>
               </body>
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
@@ -1367,7 +1407,7 @@
                 <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.11/%/class">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Host">
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Connection">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
               </ifExpr>
@@ -1396,6 +1436,55 @@
             </source>
           </iterSet>
         </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:LetBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="mtl:TemplateInvocation" definition="/0/generateNetworkServiceInfo">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.13/elem">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="class" referredVariable="/0/generateStrategicScenario/%/%.13/%/class">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Host">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </ifExpr>
+            </body>
+            <letVariable name="class">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <initExpression xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateStrategicScenario/%/%.13/elem">
+                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                  </source>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+              </initExpression>
+            </letVariable>
+          </body>
+          <loopVariable name="elem">
+            <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/3/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
+            <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/generateStrategicScenario/m">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+            </source>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -1587,6 +1676,19 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </eParameters>
       </eOperations>
+      <eOperations name="generateNetworkServiceInfo">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateNetworkServiceInfo"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="elem">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+        <eParameters name="m">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+        </eParameters>
+      </eOperations>
       <eOperations name="translateImportanceLevel">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
@@ -1602,16 +1704,6 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateAsset"/>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="elem">
-          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateAssetLocation">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL" references="/0/generateAssetLocation"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
           <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -1697,6 +1789,21 @@
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Property)" instanceClassName="java.util.List">
       <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Property)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Stereotype)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:BagType" name="Bag(Boolean)" instanceClassName="org.eclipse.ocl.util.Bag">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Boolean)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:CollectionType" instanceClassName="java.util.Collection">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
@@ -1915,36 +2022,6 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
@@ -1963,46 +2040,19 @@
     <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -2014,6 +2064,63 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
@@ -2057,6 +2164,21 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -3616,1037 +3738,1192 @@
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.291" references="/0/translateImportanceLevel">
+    <eAnnotations source="positions.291" references="/0/generateNetworkServiceInfo">
       <details key="start" value="2559"/>
-      <details key="end" value="2868"/>
+      <details key="end" value="3036"/>
       <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.292" references="/0/translateImportanceLevel/%">
-      <details key="start" value="2636"/>
-      <details key="end" value="2682"/>
+    <eAnnotations source="positions.292" references="/0/generateNetworkServiceInfo/%">
+      <details key="start" value="2644"/>
+      <details key="end" value="3023"/>
       <details key="line" value="60"/>
     </eAnnotations>
-    <eAnnotations source="positions.293" references="/0/translateImportanceLevel/%/%">
-      <details key="start" value="2666"/>
-      <details key="end" value="2677"/>
+    <eAnnotations source="positions.293" references="/0/generateNetworkServiceInfo/%/%">
+      <details key="start" value="2705"/>
+      <details key="end" value="3015"/>
       <details key="line" value="61"/>
     </eAnnotations>
-    <eAnnotations source="positions.294" references="/0/translateImportanceLevel/%/%.1">
-      <details key="start" value="2640"/>
-      <details key="end" value="2663"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.294" references="/0/generateNetworkServiceInfo/%/%/%">
+      <details key="start" value="2777"/>
+      <details key="end" value="3006"/>
+      <details key="line" value="62"/>
     </eAnnotations>
-    <eAnnotations source="positions.295" references="/0/translateImportanceLevel/%/%.1/importance">
-      <details key="start" value="2641"/>
-      <details key="end" value="2651"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.296" references="/0/translateImportanceLevel/%/%.1/%">
-      <details key="start" value="2652"/>
-      <details key="end" value="2662"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.297" references="/0/translateImportanceLevel/%.1">
-      <details key="start" value="2684"/>
-      <details key="end" value="2725"/>
+    <eAnnotations source="positions.295" references="/0/generateNetworkServiceInfo/%/%/%/%">
+      <details key="start" value="2890"/>
+      <details key="end" value="2998"/>
       <details key="line" value="63"/>
     </eAnnotations>
-    <eAnnotations source="positions.298" references="/0/translateImportanceLevel/%.1/%">
-      <details key="start" value="2710"/>
-      <details key="end" value="2720"/>
+    <eAnnotations source="positions.296" references="/0/generateNetworkServiceInfo/%/%/%/%/%">
+      <details key="start" value="2908"/>
+      <details key="end" value="2927"/>
       <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.299" references="/0/translateImportanceLevel/%.1/%.1">
-      <details key="start" value="2688"/>
-      <details key="end" value="2707"/>
+    <eAnnotations source="positions.297" references="/0/generateNetworkServiceInfo/%/%/%/%/%.1">
+      <details key="start" value="2928"/>
+      <details key="end" value="2949"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.300" references="/0/translateImportanceLevel/%.1/%.1/importance">
-      <details key="start" value="2689"/>
-      <details key="end" value="2699"/>
+    <eAnnotations source="positions.298" references="/0/generateNetworkServiceInfo/%/%/%/%/%.1/%">
+      <details key="start" value="2939"/>
+      <details key="end" value="2948"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.301" references="/0/translateImportanceLevel/%.1/%.1/%">
-      <details key="start" value="2700"/>
-      <details key="end" value="2706"/>
+    <eAnnotations source="positions.299" references="/0/generateNetworkServiceInfo/%/%/%/%/%.1/%/host">
+      <details key="start" value="2939"/>
+      <details key="end" value="2943"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.302" references="/0/translateImportanceLevel/%.2">
-      <details key="start" value="2727"/>
-      <details key="end" value="2772"/>
-      <details key="line" value="66"/>
+    <eAnnotations source="positions.300" references="/0/generateNetworkServiceInfo/%/%/%/%/%.2">
+      <details key="start" value="2951"/>
+      <details key="end" value="2953"/>
+      <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.303" references="/0/translateImportanceLevel/%.2/%">
-      <details key="start" value="2755"/>
-      <details key="end" value="2767"/>
-      <details key="line" value="67"/>
-    </eAnnotations>
-    <eAnnotations source="positions.304" references="/0/translateImportanceLevel/%.2/%.1">
-      <details key="start" value="2731"/>
-      <details key="end" value="2752"/>
+    <eAnnotations source="positions.301" references="/0/generateNetworkServiceInfo/%/%/%/%/%.3">
+      <details key="start" value="2954"/>
+      <details key="end" value="2978"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.305" references="/0/translateImportanceLevel/%.2/%.1/importance">
-      <details key="start" value="2732"/>
-      <details key="end" value="2742"/>
+    <eAnnotations source="positions.302" references="/0/generateNetworkServiceInfo/%/%/%/%/%.3/%">
+      <details key="start" value="2965"/>
+      <details key="end" value="2977"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.306" references="/0/translateImportanceLevel/%.2/%.1/%">
-      <details key="start" value="2743"/>
-      <details key="end" value="2751"/>
+    <eAnnotations source="positions.303" references="/0/generateNetworkServiceInfo/%/%/%/%/%.3/%/program">
+      <details key="start" value="2965"/>
+      <details key="end" value="2972"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.307" references="/0/translateImportanceLevel/%.3">
-      <details key="start" value="2774"/>
-      <details key="end" value="2816"/>
-      <details key="line" value="69"/>
+    <eAnnotations source="positions.304" references="/0/generateNetworkServiceInfo/%/%/%/%/%.4">
+      <details key="start" value="2980"/>
+      <details key="end" value="2993"/>
+      <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.308" references="/0/translateImportanceLevel/%.3/%">
-      <details key="start" value="2799"/>
-      <details key="end" value="2811"/>
-      <details key="line" value="70"/>
-    </eAnnotations>
-    <eAnnotations source="positions.309" references="/0/translateImportanceLevel/%.3/%.1">
-      <details key="start" value="2778"/>
-      <details key="end" value="2796"/>
+    <eAnnotations source="positions.305" references="/0/generateNetworkServiceInfo/%/%/%/%/isProgram">
+      <details key="start" value="2894"/>
+      <details key="end" value="2905"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.310" references="/0/translateImportanceLevel/%.3/%.1/importance">
-      <details key="start" value="2779"/>
-      <details key="end" value="2789"/>
+    <eAnnotations source="positions.306" references="/0/generateNetworkServiceInfo/%/%/%/isProgram">
+      <details key="start" value="2782"/>
+      <details key="end" value="2887"/>
+      <details key="line" value="62"/>
+    </eAnnotations>
+    <eAnnotations source="positions.307" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%">
+      <details key="start" value="2805"/>
+      <details key="end" value="2888"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.311" references="/0/translateImportanceLevel/%.3/%.1/%">
-      <details key="start" value="2790"/>
-      <details key="end" value="2795"/>
+    <eAnnotations source="positions.308" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect">
+      <details key="start" value="2805"/>
+      <details key="end" value="2872"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.312" references="/0/translateImportanceLevel/%.4">
-      <details key="start" value="2818"/>
-      <details key="end" value="2855"/>
-      <details key="line" value="72"/>
-    </eAnnotations>
-    <eAnnotations source="positions.313" references="/0/translateImportanceLevel/%.4/%">
-      <details key="start" value="2847"/>
-      <details key="end" value="2850"/>
-      <details key="line" value="73"/>
-    </eAnnotations>
-    <eAnnotations source="positions.314" references="/0/translateImportanceLevel/%.4/%.1">
-      <details key="start" value="2822"/>
-      <details key="end" value="2844"/>
+    <eAnnotations source="positions.309" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect">
+      <details key="start" value="2805"/>
+      <details key="end" value="2852"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.315" references="/0/translateImportanceLevel/%.4/%.1/importance">
-      <details key="start" value="2823"/>
-      <details key="end" value="2833"/>
+    <eAnnotations source="positions.310" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/%">
+      <details key="start" value="2805"/>
+      <details key="end" value="2841"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.316" references="/0/translateImportanceLevel/%.4/%.1/%">
-      <details key="start" value="2834"/>
-      <details key="end" value="2843"/>
+    <eAnnotations source="positions.311" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/%/%">
+      <details key="start" value="2805"/>
+      <details key="end" value="2817"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.317" references="/0/translateImportanceLevel/importance">
-      <details key="start" value="2602"/>
-      <details key="end" value="2619"/>
-      <details key="line" value="59"/>
-    </eAnnotations>
-    <eAnnotations source="positions.318" references="/0/translateImportanceLevel/%.5">
-      <details key="start" value="2626"/>
-      <details key="end" value="2632"/>
+    <eAnnotations source="positions.312" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/%/%/program">
+      <details key="start" value="2805"/>
+      <details key="end" value="2812"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.319" references="/0/translateImportanceLevel/%.5/self">
+    <eAnnotations source="positions.313" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/%.1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.320" references="/0/generateAsset">
-      <details key="start" value="2873"/>
-      <details key="end" value="3166"/>
-      <details key="line" value="77"/>
-    </eAnnotations>
-    <eAnnotations source="positions.321" references="/0/generateAsset/%">
-      <details key="start" value="2933"/>
-      <details key="end" value="3153"/>
-      <details key="line" value="78"/>
-    </eAnnotations>
-    <eAnnotations source="positions.322" references="/0/generateAsset/%/%">
-      <details key="start" value="2995"/>
-      <details key="end" value="3145"/>
-      <details key="line" value="79"/>
-    </eAnnotations>
-    <eAnnotations source="positions.323" references="/0/generateAsset/%/%/%">
-      <details key="start" value="3062"/>
-      <details key="end" value="3070"/>
-      <details key="line" value="80"/>
-    </eAnnotations>
-    <eAnnotations source="positions.324" references="/0/generateAsset/%/%/%.1">
-      <details key="start" value="3071"/>
-      <details key="end" value="3093"/>
+    <eAnnotations source="positions.314" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.325" references="/0/generateAsset/%/%/%.1/%">
-      <details key="start" value="3082"/>
-      <details key="end" value="3092"/>
+    <eAnnotations source="positions.315" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/collect/temp23">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.326" references="/0/generateAsset/%/%/%.1/%/asset">
-      <details key="start" value="3082"/>
-      <details key="end" value="3087"/>
+    <eAnnotations source="positions.316" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/%">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.327" references="/0/generateAsset/%/%/%.2">
-      <details key="start" value="3095"/>
-      <details key="end" value="3096"/>
-      <details key="line" value="80"/>
-    </eAnnotations>
-    <eAnnotations source="positions.328" references="/0/generateAsset/%/%/%.3">
-      <details key="start" value="3097"/>
-      <details key="end" value="3133"/>
+    <eAnnotations source="positions.317" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/%/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.329" references="/0/generateAsset/%/%/%.3/importance">
+    <eAnnotations source="positions.318" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/%/%">
+      <details key="start" value="2862"/>
+      <details key="end" value="2871"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.319" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/collect/temp24">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.320" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/%">
+      <details key="start" value="2875"/>
+      <details key="end" value="2888"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.321" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/%/%">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.322" references="/0/generateNetworkServiceInfo/%/%/%/isProgram/%/%/%/%/%">
+      <details key="start" value="2875"/>
+      <details key="end" value="2879"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.323" references="/0/generateNetworkServiceInfo/%/%/program">
+      <details key="start" value="2711"/>
+      <details key="end" value="2727"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.324" references="/0/generateNetworkServiceInfo/%/%/%.1">
+      <details key="start" value="2730"/>
+      <details key="end" value="2773"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.325" references="/0/generateNetworkServiceInfo/%/%/%.1/%">
+      <details key="start" value="2730"/>
+      <details key="end" value="2749"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.326" references="/0/generateNetworkServiceInfo/%/%/%.1/%/host">
+      <details key="start" value="2730"/>
+      <details key="end" value="2734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.327" references="/0/generateNetworkServiceInfo/%/%/%.1/%.1">
+      <details key="start" value="2764"/>
+      <details key="end" value="2772"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.328" references="/0/generateNetworkServiceInfo/%/host">
+      <details key="start" value="2649"/>
+      <details key="end" value="2702"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.329" references="/0/generateNetworkServiceInfo/%/host/%">
+      <details key="start" value="2663"/>
+      <details key="end" value="2703"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.330" references="/0/generateNetworkServiceInfo/%/host/%/%">
+      <details key="start" value="2663"/>
+      <details key="end" value="2686"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.331" references="/0/generateNetworkServiceInfo/%/host/%/%/elem">
+      <details key="start" value="2663"/>
+      <details key="end" value="2667"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.332" references="/0/generateNetworkServiceInfo/%/host/%/%/%">
+      <details key="start" value="2673"/>
+      <details key="end" value="2685"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.333" references="/0/generateNetworkServiceInfo/%/host/%/%.1">
+      <details key="start" value="2697"/>
+      <details key="end" value="2702"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.334" references="/0/generateNetworkServiceInfo/elem">
+      <details key="start" value="2604"/>
+      <details key="end" value="2616"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.335" references="/0/generateNetworkServiceInfo/m">
+      <details key="start" value="2618"/>
+      <details key="end" value="2627"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.336" references="/0/generateNetworkServiceInfo/%.1">
+      <details key="start" value="2634"/>
+      <details key="end" value="2640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.337" references="/0/generateNetworkServiceInfo/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.338" references="/0/translateImportanceLevel">
+      <details key="start" value="3040"/>
+      <details key="end" value="3349"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.339" references="/0/translateImportanceLevel/%">
+      <details key="start" value="3117"/>
+      <details key="end" value="3163"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.340" references="/0/translateImportanceLevel/%/%">
+      <details key="start" value="3147"/>
+      <details key="end" value="3158"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.341" references="/0/translateImportanceLevel/%/%.1">
+      <details key="start" value="3121"/>
+      <details key="end" value="3144"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.342" references="/0/translateImportanceLevel/%/%.1/importance">
       <details key="start" value="3122"/>
       <details key="end" value="3132"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.330" references="/0/generateAsset/%/%/%.4">
-      <details key="start" value="3135"/>
-      <details key="end" value="3139"/>
-      <details key="line" value="80"/>
-    </eAnnotations>
-    <eAnnotations source="positions.331" references="/0/generateAsset/%/%/importance">
-      <details key="start" value="3000"/>
-      <details key="end" value="3059"/>
-      <details key="line" value="79"/>
-    </eAnnotations>
-    <eAnnotations source="positions.332" references="/0/generateAsset/%/%/importance/%">
-      <details key="start" value="3021"/>
-      <details key="end" value="3060"/>
+    <eAnnotations source="positions.343" references="/0/translateImportanceLevel/%/%.1/%">
+      <details key="start" value="3133"/>
+      <details key="end" value="3143"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.333" references="/0/generateAsset/%/%/importance/%/%">
-      <details key="start" value="3021"/>
-      <details key="end" value="3049"/>
+    <eAnnotations source="positions.344" references="/0/translateImportanceLevel/%.1">
+      <details key="start" value="3165"/>
+      <details key="end" value="3206"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.345" references="/0/translateImportanceLevel/%.1/%">
+      <details key="start" value="3191"/>
+      <details key="end" value="3201"/>
+      <details key="line" value="76"/>
+    </eAnnotations>
+    <eAnnotations source="positions.346" references="/0/translateImportanceLevel/%.1/%.1">
+      <details key="start" value="3169"/>
+      <details key="end" value="3188"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.334" references="/0/generateAsset/%/%/importance/%/%/elem">
-      <details key="start" value="3021"/>
-      <details key="end" value="3025"/>
+    <eAnnotations source="positions.347" references="/0/translateImportanceLevel/%.1/%.1/importance">
+      <details key="start" value="3170"/>
+      <details key="end" value="3180"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.335" references="/0/generateAsset/%/%/importance/%/%/%">
-      <details key="start" value="3031"/>
-      <details key="end" value="3048"/>
+    <eAnnotations source="positions.348" references="/0/translateImportanceLevel/%.1/%.1/%">
+      <details key="start" value="3181"/>
+      <details key="end" value="3187"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.336" references="/0/generateAsset/%/asset">
-      <details key="start" value="2938"/>
-      <details key="end" value="2992"/>
+    <eAnnotations source="positions.349" references="/0/translateImportanceLevel/%.2">
+      <details key="start" value="3208"/>
+      <details key="end" value="3253"/>
       <details key="line" value="78"/>
     </eAnnotations>
-    <eAnnotations source="positions.337" references="/0/generateAsset/%/asset/%">
-      <details key="start" value="2953"/>
-      <details key="end" value="2993"/>
+    <eAnnotations source="positions.350" references="/0/translateImportanceLevel/%.2/%">
+      <details key="start" value="3236"/>
+      <details key="end" value="3248"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.351" references="/0/translateImportanceLevel/%.2/%.1">
+      <details key="start" value="3212"/>
+      <details key="end" value="3233"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.338" references="/0/generateAsset/%/asset/%/%">
-      <details key="start" value="2953"/>
-      <details key="end" value="2976"/>
+    <eAnnotations source="positions.352" references="/0/translateImportanceLevel/%.2/%.1/importance">
+      <details key="start" value="3213"/>
+      <details key="end" value="3223"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.339" references="/0/generateAsset/%/asset/%/%/elem">
-      <details key="start" value="2953"/>
-      <details key="end" value="2957"/>
+    <eAnnotations source="positions.353" references="/0/translateImportanceLevel/%.2/%.1/%">
+      <details key="start" value="3224"/>
+      <details key="end" value="3232"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.340" references="/0/generateAsset/%/asset/%/%/%">
-      <details key="start" value="2963"/>
-      <details key="end" value="2975"/>
+    <eAnnotations source="positions.354" references="/0/translateImportanceLevel/%.3">
+      <details key="start" value="3255"/>
+      <details key="end" value="3297"/>
+      <details key="line" value="81"/>
+    </eAnnotations>
+    <eAnnotations source="positions.355" references="/0/translateImportanceLevel/%.3/%">
+      <details key="start" value="3280"/>
+      <details key="end" value="3292"/>
+      <details key="line" value="82"/>
+    </eAnnotations>
+    <eAnnotations source="positions.356" references="/0/translateImportanceLevel/%.3/%.1">
+      <details key="start" value="3259"/>
+      <details key="end" value="3277"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.341" references="/0/generateAsset/%/asset/%/%.1">
-      <details key="start" value="2987"/>
-      <details key="end" value="2992"/>
+    <eAnnotations source="positions.357" references="/0/translateImportanceLevel/%.3/%.1/importance">
+      <details key="start" value="3260"/>
+      <details key="end" value="3270"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.342" references="/0/generateAsset/elem">
-      <details key="start" value="2905"/>
-      <details key="end" value="2916"/>
-      <details key="line" value="77"/>
-    </eAnnotations>
-    <eAnnotations source="positions.343" references="/0/generateAsset/%.1">
-      <details key="start" value="2923"/>
-      <details key="end" value="2929"/>
+    <eAnnotations source="positions.358" references="/0/translateImportanceLevel/%.3/%.1/%">
+      <details key="start" value="3271"/>
+      <details key="end" value="3276"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.344" references="/0/generateAsset/%.1/self">
-      <details key="start" value="-1"/>
-      <details key="end" value="-1"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.359" references="/0/translateImportanceLevel/%.4">
+      <details key="start" value="3299"/>
+      <details key="end" value="3336"/>
+      <details key="line" value="84"/>
     </eAnnotations>
-    <eAnnotations source="positions.345" references="/0/generateAssetLocation">
-      <details key="start" value="3170"/>
-      <details key="end" value="3545"/>
+    <eAnnotations source="positions.360" references="/0/translateImportanceLevel/%.4/%">
+      <details key="start" value="3328"/>
+      <details key="end" value="3331"/>
       <details key="line" value="85"/>
     </eAnnotations>
-    <eAnnotations source="positions.346" references="/0/generateAssetLocation/%">
-      <details key="start" value="3238"/>
-      <details key="end" value="3532"/>
-      <details key="line" value="86"/>
-    </eAnnotations>
-    <eAnnotations source="positions.347" references="/0/generateAssetLocation/%/%">
-      <details key="start" value="3299"/>
-      <details key="end" value="3524"/>
-      <details key="line" value="87"/>
-    </eAnnotations>
-    <eAnnotations source="positions.348" references="/0/generateAssetLocation/%/%/%">
-      <details key="start" value="3342"/>
-      <details key="end" value="3516"/>
-      <details key="line" value="88"/>
-    </eAnnotations>
-    <eAnnotations source="positions.349" references="/0/generateAssetLocation/%/%/%/%">
-      <details key="start" value="3373"/>
-      <details key="end" value="3508"/>
-      <details key="line" value="89"/>
-    </eAnnotations>
-    <eAnnotations source="positions.350" references="/0/generateAssetLocation/%/%/%/%/%">
-      <details key="start" value="3435"/>
-      <details key="end" value="3448"/>
-      <details key="line" value="90"/>
-    </eAnnotations>
-    <eAnnotations source="positions.351" references="/0/generateAssetLocation/%/%/%/%/%.1">
-      <details key="start" value="3449"/>
-      <details key="end" value="3471"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.352" references="/0/generateAssetLocation/%/%/%/%/%.1/%">
-      <details key="start" value="3460"/>
-      <details key="end" value="3470"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.353" references="/0/generateAssetLocation/%/%/%/%/%.1/%/asset">
-      <details key="start" value="3460"/>
-      <details key="end" value="3465"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.354" references="/0/generateAssetLocation/%/%/%/%/%.2">
-      <details key="start" value="3473"/>
-      <details key="end" value="3474"/>
-      <details key="line" value="90"/>
-    </eAnnotations>
-    <eAnnotations source="positions.355" references="/0/generateAssetLocation/%/%/%/%/%.3">
-      <details key="start" value="3475"/>
-      <details key="end" value="3496"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.356" references="/0/generateAssetLocation/%/%/%/%/%.3/%">
-      <details key="start" value="3486"/>
-      <details key="end" value="3495"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.357" references="/0/generateAssetLocation/%/%/%/%/%.3/%/host">
-      <details key="start" value="3486"/>
-      <details key="end" value="3490"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.358" references="/0/generateAssetLocation/%/%/%/%/%.4">
-      <details key="start" value="3498"/>
-      <details key="end" value="3502"/>
-      <details key="line" value="90"/>
-    </eAnnotations>
-    <eAnnotations source="positions.359" references="/0/generateAssetLocation/%/%/%/%/asset">
-      <details key="start" value="3378"/>
-      <details key="end" value="3432"/>
-      <details key="line" value="89"/>
-    </eAnnotations>
-    <eAnnotations source="positions.360" references="/0/generateAssetLocation/%/%/%/%/asset/%">
-      <details key="start" value="3393"/>
-      <details key="end" value="3433"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.361" references="/0/generateAssetLocation/%/%/%/%/asset/%/%">
-      <details key="start" value="3393"/>
-      <details key="end" value="3416"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.362" references="/0/generateAssetLocation/%/%/%/%/asset/%/%/item">
-      <details key="start" value="3393"/>
-      <details key="end" value="3397"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.363" references="/0/generateAssetLocation/%/%/%/%/asset/%/%/%">
-      <details key="start" value="3403"/>
-      <details key="end" value="3415"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.364" references="/0/generateAssetLocation/%/%/%/%/asset/%/%.1">
-      <details key="start" value="3427"/>
-      <details key="end" value="3432"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.365" references="/0/generateAssetLocation/%/%/%/item">
-      <details key="start" value="3347"/>
-      <details key="end" value="3360"/>
-      <details key="line" value="88"/>
-    </eAnnotations>
-    <eAnnotations source="positions.366" references="/0/generateAssetLocation/%/%/%/assets">
-      <details key="start" value="3363"/>
-      <details key="end" value="3369"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.367" references="/0/generateAssetLocation/%/%/assets">
-      <details key="start" value="3304"/>
-      <details key="end" value="3339"/>
-      <details key="line" value="87"/>
-    </eAnnotations>
-    <eAnnotations source="positions.368" references="/0/generateAssetLocation/%/%/assets/%">
-      <details key="start" value="3321"/>
-      <details key="end" value="3340"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.369" references="/0/generateAssetLocation/%/%/assets/%/elem">
-      <details key="start" value="3321"/>
+    <eAnnotations source="positions.361" references="/0/translateImportanceLevel/%.4/%.1">
+      <details key="start" value="3303"/>
       <details key="end" value="3325"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.370" references="/0/generateAssetLocation/%/%/assets/%/%">
-      <details key="start" value="3331"/>
-      <details key="end" value="3339"/>
+    <eAnnotations source="positions.362" references="/0/translateImportanceLevel/%.4/%.1/importance">
+      <details key="start" value="3304"/>
+      <details key="end" value="3314"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.371" references="/0/generateAssetLocation/%/host">
-      <details key="start" value="3243"/>
-      <details key="end" value="3296"/>
-      <details key="line" value="86"/>
-    </eAnnotations>
-    <eAnnotations source="positions.372" references="/0/generateAssetLocation/%/host/%">
-      <details key="start" value="3257"/>
-      <details key="end" value="3297"/>
+    <eAnnotations source="positions.363" references="/0/translateImportanceLevel/%.4/%.1/%">
+      <details key="start" value="3315"/>
+      <details key="end" value="3324"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.373" references="/0/generateAssetLocation/%/host/%/%">
-      <details key="start" value="3257"/>
-      <details key="end" value="3280"/>
+    <eAnnotations source="positions.364" references="/0/translateImportanceLevel/importance">
+      <details key="start" value="3083"/>
+      <details key="end" value="3100"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.365" references="/0/translateImportanceLevel/%.5">
+      <details key="start" value="3107"/>
+      <details key="end" value="3113"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.374" references="/0/generateAssetLocation/%/host/%/%/elem">
-      <details key="start" value="3257"/>
-      <details key="end" value="3261"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.375" references="/0/generateAssetLocation/%/host/%/%/%">
-      <details key="start" value="3267"/>
-      <details key="end" value="3279"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.376" references="/0/generateAssetLocation/%/host/%/%.1">
-      <details key="start" value="3291"/>
-      <details key="end" value="3296"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.377" references="/0/generateAssetLocation/elem">
-      <details key="start" value="3210"/>
-      <details key="end" value="3221"/>
-      <details key="line" value="85"/>
-    </eAnnotations>
-    <eAnnotations source="positions.378" references="/0/generateAssetLocation/%.1">
-      <details key="start" value="3228"/>
-      <details key="end" value="3234"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.379" references="/0/generateAssetLocation/%.1/self">
+    <eAnnotations source="positions.366" references="/0/translateImportanceLevel/%.5/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.380" references="/0/generateStrategicScenario">
-      <details key="start" value="3551"/>
-      <details key="end" value="4928"/>
+    <eAnnotations source="positions.367" references="/0/generateAsset">
+      <details key="start" value="3354"/>
+      <details key="end" value="3642"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.368" references="/0/generateAsset/%">
+      <details key="start" value="3414"/>
+      <details key="end" value="3629"/>
+      <details key="line" value="90"/>
+    </eAnnotations>
+    <eAnnotations source="positions.369" references="/0/generateAsset/%/%">
+      <details key="start" value="3476"/>
+      <details key="end" value="3621"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.370" references="/0/generateAsset/%/%/%">
+      <details key="start" value="3538"/>
+      <details key="end" value="3546"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.371" references="/0/generateAsset/%/%/%.1">
+      <details key="start" value="3547"/>
+      <details key="end" value="3569"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.372" references="/0/generateAsset/%/%/%.1/%">
+      <details key="start" value="3558"/>
+      <details key="end" value="3568"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.373" references="/0/generateAsset/%/%/%.1/%/asset">
+      <details key="start" value="3558"/>
+      <details key="end" value="3563"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.374" references="/0/generateAsset/%/%/%.2">
+      <details key="start" value="3571"/>
+      <details key="end" value="3572"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.375" references="/0/generateAsset/%/%/%.3">
+      <details key="start" value="3573"/>
+      <details key="end" value="3609"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.376" references="/0/generateAsset/%/%/%.3/importance">
+      <details key="start" value="3598"/>
+      <details key="end" value="3608"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.377" references="/0/generateAsset/%/%/%.4">
+      <details key="start" value="3611"/>
+      <details key="end" value="3615"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.378" references="/0/generateAsset/%/%/importance">
+      <details key="start" value="3481"/>
+      <details key="end" value="3535"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.379" references="/0/generateAsset/%/%/importance/%">
+      <details key="start" value="3502"/>
+      <details key="end" value="3536"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.380" references="/0/generateAsset/%/%/importance/%/%">
+      <details key="start" value="3502"/>
+      <details key="end" value="3525"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.381" references="/0/generateAsset/%/%/importance/%/%/elem">
+      <details key="start" value="3502"/>
+      <details key="end" value="3506"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.382" references="/0/generateAsset/%/%/importance/%/%/%">
+      <details key="start" value="3512"/>
+      <details key="end" value="3524"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.383" references="/0/generateAsset/%/asset">
+      <details key="start" value="3419"/>
+      <details key="end" value="3473"/>
+      <details key="line" value="90"/>
+    </eAnnotations>
+    <eAnnotations source="positions.384" references="/0/generateAsset/%/asset/%">
+      <details key="start" value="3434"/>
+      <details key="end" value="3474"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.385" references="/0/generateAsset/%/asset/%/%">
+      <details key="start" value="3434"/>
+      <details key="end" value="3457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.386" references="/0/generateAsset/%/asset/%/%/elem">
+      <details key="start" value="3434"/>
+      <details key="end" value="3438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.387" references="/0/generateAsset/%/asset/%/%/%">
+      <details key="start" value="3444"/>
+      <details key="end" value="3456"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.388" references="/0/generateAsset/%/asset/%/%.1">
+      <details key="start" value="3468"/>
+      <details key="end" value="3473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.389" references="/0/generateAsset/elem">
+      <details key="start" value="3386"/>
+      <details key="end" value="3397"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.390" references="/0/generateAsset/%.1">
+      <details key="start" value="3404"/>
+      <details key="end" value="3410"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.391" references="/0/generateAsset/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.392" references="/0/generateStrategicScenario">
+      <details key="start" value="3648"/>
+      <details key="end" value="5473"/>
       <details key="line" value="98"/>
     </eAnnotations>
-    <eAnnotations source="positions.381" references="/0/generateStrategicScenario/%">
-      <details key="start" value="3621"/>
-      <details key="end" value="4915"/>
+    <eAnnotations source="positions.393" references="/0/generateStrategicScenario/%">
+      <details key="start" value="3718"/>
+      <details key="end" value="5460"/>
       <details key="line" value="99"/>
     </eAnnotations>
-    <eAnnotations source="positions.382" references="/0/generateStrategicScenario/%/%">
-      <details key="start" value="3688"/>
-      <details key="end" value="3717"/>
+    <eAnnotations source="positions.394" references="/0/generateStrategicScenario/%/%">
+      <details key="start" value="3785"/>
+      <details key="end" value="3787"/>
       <details key="line" value="101"/>
     </eAnnotations>
-    <eAnnotations source="positions.383" references="/0/generateStrategicScenario/%/%.1">
-      <details key="start" value="3717"/>
-      <details key="end" value="3880"/>
+    <eAnnotations source="positions.395" references="/0/generateStrategicScenario/%/%.1">
+      <details key="start" value="3787"/>
+      <details key="end" value="3950"/>
       <details key="line" value="102"/>
     </eAnnotations>
-    <eAnnotations source="positions.384" references="/0/generateStrategicScenario/%/%.1/%">
-      <details key="start" value="3755"/>
-      <details key="end" value="3872"/>
+    <eAnnotations source="positions.396" references="/0/generateStrategicScenario/%/%.1/%">
+      <details key="start" value="3825"/>
+      <details key="end" value="3942"/>
       <details key="line" value="103"/>
     </eAnnotations>
-    <eAnnotations source="positions.385" references="/0/generateStrategicScenario/%/%.1/%/%">
-      <details key="start" value="3796"/>
-      <details key="end" value="3864"/>
+    <eAnnotations source="positions.397" references="/0/generateStrategicScenario/%/%.1/%/%">
+      <details key="start" value="3866"/>
+      <details key="end" value="3934"/>
       <details key="line" value="104"/>
     </eAnnotations>
-    <eAnnotations source="positions.386" references="/0/generateStrategicScenario/%/%.1/%/%/%">
-      <details key="start" value="3831"/>
-      <details key="end" value="3855"/>
+    <eAnnotations source="positions.398" references="/0/generateStrategicScenario/%/%.1/%/%/%">
+      <details key="start" value="3901"/>
+      <details key="end" value="3925"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.387" references="/0/generateStrategicScenario/%/%.1/%/%/%/elem">
-      <details key="start" value="3848"/>
-      <details key="end" value="3852"/>
+    <eAnnotations source="positions.399" references="/0/generateStrategicScenario/%/%.1/%/%/%/elem">
+      <details key="start" value="3918"/>
+      <details key="end" value="3922"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.388" references="/0/generateStrategicScenario/%/%.1/%/%/%/m">
-      <details key="start" value="3853"/>
-      <details key="end" value="3854"/>
+    <eAnnotations source="positions.400" references="/0/generateStrategicScenario/%/%.1/%/%/%/m">
+      <details key="start" value="3923"/>
+      <details key="end" value="3924"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.389" references="/0/generateStrategicScenario/%/%.1/%/%/%.1">
-      <details key="start" value="3857"/>
-      <details key="end" value="3859"/>
+    <eAnnotations source="positions.401" references="/0/generateStrategicScenario/%/%.1/%/%/%.1">
+      <details key="start" value="3927"/>
+      <details key="end" value="3929"/>
       <details key="line" value="106"/>
     </eAnnotations>
-    <eAnnotations source="positions.390" references="/0/generateStrategicScenario/%/%.1/%/%/%.2">
-      <details key="start" value="3799"/>
-      <details key="end" value="3827"/>
+    <eAnnotations source="positions.402" references="/0/generateStrategicScenario/%/%.1/%/%/%.2">
+      <details key="start" value="3869"/>
+      <details key="end" value="3897"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.391" references="/0/generateStrategicScenario/%/%.1/%/%/%.2/class">
-      <details key="start" value="3800"/>
-      <details key="end" value="3805"/>
+    <eAnnotations source="positions.403" references="/0/generateStrategicScenario/%/%.1/%/%/%.2/class">
+      <details key="start" value="3870"/>
+      <details key="end" value="3875"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.392" references="/0/generateStrategicScenario/%/%.1/%/%/%.2/%">
-      <details key="start" value="3815"/>
-      <details key="end" value="3825"/>
+    <eAnnotations source="positions.404" references="/0/generateStrategicScenario/%/%.1/%/%/%.2/%">
+      <details key="start" value="3885"/>
+      <details key="end" value="3895"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.393" references="/0/generateStrategicScenario/%/%.1/%/class">
-      <details key="start" value="3760"/>
-      <details key="end" value="3793"/>
+    <eAnnotations source="positions.405" references="/0/generateStrategicScenario/%/%.1/%/class">
+      <details key="start" value="3830"/>
+      <details key="end" value="3863"/>
       <details key="line" value="103"/>
     </eAnnotations>
-    <eAnnotations source="positions.394" references="/0/generateStrategicScenario/%/%.1/%/class/%">
-      <details key="start" value="3776"/>
-      <details key="end" value="3794"/>
+    <eAnnotations source="positions.406" references="/0/generateStrategicScenario/%/%.1/%/class/%">
+      <details key="start" value="3846"/>
+      <details key="end" value="3864"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.395" references="/0/generateStrategicScenario/%/%.1/%/class/%/%">
-      <details key="start" value="3776"/>
-      <details key="end" value="3789"/>
+    <eAnnotations source="positions.407" references="/0/generateStrategicScenario/%/%.1/%/class/%/%">
+      <details key="start" value="3846"/>
+      <details key="end" value="3859"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.396" references="/0/generateStrategicScenario/%/%.1/%/class/%/%/elem">
-      <details key="start" value="3776"/>
-      <details key="end" value="3780"/>
+    <eAnnotations source="positions.408" references="/0/generateStrategicScenario/%/%.1/%/class/%/%/elem">
+      <details key="start" value="3846"/>
+      <details key="end" value="3850"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.397" references="/0/generateStrategicScenario/%/%.1/elem">
-      <details key="start" value="3723"/>
-      <details key="end" value="3736"/>
+    <eAnnotations source="positions.409" references="/0/generateStrategicScenario/%/%.1/elem">
+      <details key="start" value="3793"/>
+      <details key="end" value="3806"/>
       <details key="line" value="102"/>
     </eAnnotations>
-    <eAnnotations source="positions.398" references="/0/generateStrategicScenario/%/%.1/%.1">
-      <details key="start" value="3739"/>
-      <details key="end" value="3751"/>
+    <eAnnotations source="positions.410" references="/0/generateStrategicScenario/%/%.1/%.1">
+      <details key="start" value="3809"/>
+      <details key="end" value="3821"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.399" references="/0/generateStrategicScenario/%/%.1/%.1/m">
-      <details key="start" value="3739"/>
-      <details key="end" value="3740"/>
+    <eAnnotations source="positions.411" references="/0/generateStrategicScenario/%/%.1/%.1/m">
+      <details key="start" value="3809"/>
+      <details key="end" value="3810"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.400" references="/0/generateStrategicScenario/%/%.2">
-      <details key="start" value="3882"/>
-      <details key="end" value="3925"/>
+    <eAnnotations source="positions.412" references="/0/generateStrategicScenario/%/%.2">
+      <details key="start" value="3952"/>
+      <details key="end" value="4104"/>
       <details key="line" value="109"/>
     </eAnnotations>
-    <eAnnotations source="positions.401" references="/0/generateStrategicScenario/%/%.3">
-      <details key="start" value="3925"/>
-      <details key="end" value="4085"/>
-      <details key="line" value="112"/>
+    <eAnnotations source="positions.413" references="/0/generateStrategicScenario/%/%.3">
+      <details key="start" value="4104"/>
+      <details key="end" value="4280"/>
+      <details key="line" value="115"/>
     </eAnnotations>
-    <eAnnotations source="positions.402" references="/0/generateStrategicScenario/%/%.3/%">
-      <details key="start" value="3963"/>
-      <details key="end" value="4077"/>
-      <details key="line" value="113"/>
-    </eAnnotations>
-    <eAnnotations source="positions.403" references="/0/generateStrategicScenario/%/%.3/%/%">
-      <details key="start" value="4004"/>
-      <details key="end" value="4069"/>
-      <details key="line" value="114"/>
-    </eAnnotations>
-    <eAnnotations source="positions.404" references="/0/generateStrategicScenario/%/%.3/%/%/%">
-      <details key="start" value="4035"/>
-      <details key="end" value="4060"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.405" references="/0/generateStrategicScenario/%/%.3/%/%/%/elem">
-      <details key="start" value="4055"/>
-      <details key="end" value="4059"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.406" references="/0/generateStrategicScenario/%/%.3/%/%/%.1">
-      <details key="start" value="4062"/>
-      <details key="end" value="4064"/>
+    <eAnnotations source="positions.414" references="/0/generateStrategicScenario/%/%.3/%">
+      <details key="start" value="4141"/>
+      <details key="end" value="4272"/>
       <details key="line" value="116"/>
     </eAnnotations>
-    <eAnnotations source="positions.407" references="/0/generateStrategicScenario/%/%.3/%/%/%.2">
-      <details key="start" value="4007"/>
-      <details key="end" value="4031"/>
+    <eAnnotations source="positions.415" references="/0/generateStrategicScenario/%/%.3/%/%">
+      <details key="start" value="4175"/>
+      <details key="end" value="4200"/>
+      <details key="line" value="117"/>
+    </eAnnotations>
+    <eAnnotations source="positions.416" references="/0/generateStrategicScenario/%/%.3/%/%.1">
+      <details key="start" value="4201"/>
+      <details key="end" value="4258"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.408" references="/0/generateStrategicScenario/%/%.3/%/%/%.2/class">
-      <details key="start" value="4008"/>
-      <details key="end" value="4013"/>
+    <eAnnotations source="positions.417" references="/0/generateStrategicScenario/%/%.3/%/%.1/%">
+      <details key="start" value="4212"/>
+      <details key="end" value="4257"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.409" references="/0/generateStrategicScenario/%/%.3/%/%/%.2/%">
-      <details key="start" value="4023"/>
-      <details key="end" value="4029"/>
+    <eAnnotations source="positions.418" references="/0/generateStrategicScenario/%/%.3/%/%.1/%/%">
+      <details key="start" value="4212"/>
+      <details key="end" value="4252"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.410" references="/0/generateStrategicScenario/%/%.3/%/class">
-      <details key="start" value="3968"/>
-      <details key="end" value="4001"/>
-      <details key="line" value="113"/>
-    </eAnnotations>
-    <eAnnotations source="positions.411" references="/0/generateStrategicScenario/%/%.3/%/class/%">
-      <details key="start" value="3984"/>
-      <details key="end" value="4002"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.412" references="/0/generateStrategicScenario/%/%.3/%/class/%/%">
-      <details key="start" value="3984"/>
-      <details key="end" value="3997"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.413" references="/0/generateStrategicScenario/%/%.3/%/class/%/%/elem">
-      <details key="start" value="3984"/>
-      <details key="end" value="3988"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.414" references="/0/generateStrategicScenario/%/%.3/elem">
-      <details key="start" value="3931"/>
-      <details key="end" value="3944"/>
-      <details key="line" value="112"/>
-    </eAnnotations>
-    <eAnnotations source="positions.415" references="/0/generateStrategicScenario/%/%.3/%.1">
-      <details key="start" value="3947"/>
-      <details key="end" value="3959"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.416" references="/0/generateStrategicScenario/%/%.3/%.1/m">
-      <details key="start" value="3947"/>
-      <details key="end" value="3948"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.417" references="/0/generateStrategicScenario/%/%.4">
-      <details key="start" value="4087"/>
-      <details key="end" value="4089"/>
-      <details key="line" value="119"/>
-    </eAnnotations>
-    <eAnnotations source="positions.418" references="/0/generateStrategicScenario/%/%.5">
-      <details key="start" value="4089"/>
-      <details key="end" value="4289"/>
-      <details key="line" value="120"/>
-    </eAnnotations>
-    <eAnnotations source="positions.419" references="/0/generateStrategicScenario/%/%.5/%">
-      <details key="start" value="4127"/>
-      <details key="end" value="4281"/>
-      <details key="line" value="121"/>
-    </eAnnotations>
-    <eAnnotations source="positions.420" references="/0/generateStrategicScenario/%/%.5/%/%">
-      <details key="start" value="4168"/>
-      <details key="end" value="4273"/>
-      <details key="line" value="122"/>
-    </eAnnotations>
-    <eAnnotations source="positions.421" references="/0/generateStrategicScenario/%/%.5/%/%/%">
-      <details key="start" value="4241"/>
-      <details key="end" value="4264"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.422" references="/0/generateStrategicScenario/%/%.5/%/%/%/elem">
-      <details key="start" value="4259"/>
-      <details key="end" value="4263"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.423" references="/0/generateStrategicScenario/%/%.5/%/%/%.1">
-      <details key="start" value="4266"/>
-      <details key="end" value="4268"/>
-      <details key="line" value="124"/>
-    </eAnnotations>
-    <eAnnotations source="positions.424" references="/0/generateStrategicScenario/%/%.5/%/%/%.2">
-      <details key="start" value="4171"/>
-      <details key="end" value="4237"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.425" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%">
-      <details key="start" value="4172"/>
-      <details key="end" value="4204"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.426" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%/class">
-      <details key="start" value="4172"/>
-      <details key="end" value="4177"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.427" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%/%">
-      <details key="start" value="4187"/>
-      <details key="end" value="4203"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.428" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%.1">
-      <details key="start" value="4208"/>
-      <details key="end" value="4236"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.429" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%.1/class">
-      <details key="start" value="4208"/>
-      <details key="end" value="4213"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.430" references="/0/generateStrategicScenario/%/%.5/%/%/%.2/%.1/%">
-      <details key="start" value="4223"/>
+    <eAnnotations source="positions.419" references="/0/generateStrategicScenario/%/%.3/%/%.1/%/%/%">
+      <details key="start" value="4212"/>
       <details key="end" value="4235"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.431" references="/0/generateStrategicScenario/%/%.5/%/class">
-      <details key="start" value="4132"/>
-      <details key="end" value="4165"/>
-      <details key="line" value="121"/>
+    <eAnnotations source="positions.420" references="/0/generateStrategicScenario/%/%.3/%/%.1/%/%/%/elem">
+      <details key="start" value="4212"/>
+      <details key="end" value="4216"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.432" references="/0/generateStrategicScenario/%/%.5/%/class/%">
-      <details key="start" value="4148"/>
+    <eAnnotations source="positions.421" references="/0/generateStrategicScenario/%/%.3/%/%.1/%/%/%/%">
+      <details key="start" value="4222"/>
+      <details key="end" value="4234"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.422" references="/0/generateStrategicScenario/%/%.3/%/%.1/%/%/%.1">
+      <details key="start" value="4246"/>
+      <details key="end" value="4251"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.423" references="/0/generateStrategicScenario/%/%.3/%/%.2">
+      <details key="start" value="4260"/>
+      <details key="end" value="4267"/>
+      <details key="line" value="117"/>
+    </eAnnotations>
+    <eAnnotations source="positions.424" references="/0/generateStrategicScenario/%/%.3/%/%.3">
+      <details key="start" value="4145"/>
+      <details key="end" value="4172"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.425" references="/0/generateStrategicScenario/%/%.3/%/%.3/%">
+      <details key="start" value="4146"/>
       <details key="end" value="4166"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.433" references="/0/generateStrategicScenario/%/%.5/%/class/%/%">
-      <details key="start" value="4148"/>
-      <details key="end" value="4161"/>
+    <eAnnotations source="positions.426" references="/0/generateStrategicScenario/%/%.3/%/%.3/%/elem">
+      <details key="start" value="4146"/>
+      <details key="end" value="4150"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.434" references="/0/generateStrategicScenario/%/%.5/%/class/%/%/elem">
-      <details key="start" value="4148"/>
-      <details key="end" value="4152"/>
+    <eAnnotations source="positions.427" references="/0/generateStrategicScenario/%/%.3/%/%.3/%/%">
+      <details key="start" value="4156"/>
+      <details key="end" value="4165"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.435" references="/0/generateStrategicScenario/%/%.5/elem">
-      <details key="start" value="4095"/>
-      <details key="end" value="4108"/>
+    <eAnnotations source="positions.428" references="/0/generateStrategicScenario/%/%.3/%/%.3/%.1">
+      <details key="start" value="4167"/>
+      <details key="end" value="4171"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.429" references="/0/generateStrategicScenario/%/%.3/elem">
+      <details key="start" value="4110"/>
+      <details key="end" value="4122"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.430" references="/0/generateStrategicScenario/%/%.3/%.1">
+      <details key="start" value="4125"/>
+      <details key="end" value="4137"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.431" references="/0/generateStrategicScenario/%/%.3/%.1/m">
+      <details key="start" value="4125"/>
+      <details key="end" value="4126"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.432" references="/0/generateStrategicScenario/%/%.4">
+      <details key="start" value="4282"/>
+      <details key="end" value="4340"/>
       <details key="line" value="120"/>
     </eAnnotations>
-    <eAnnotations source="positions.436" references="/0/generateStrategicScenario/%/%.5/%.1">
-      <details key="start" value="4111"/>
-      <details key="end" value="4123"/>
+    <eAnnotations source="positions.433" references="/0/generateStrategicScenario/%/%.5">
+      <details key="start" value="4340"/>
+      <details key="end" value="4448"/>
+      <details key="line" value="122"/>
+    </eAnnotations>
+    <eAnnotations source="positions.434" references="/0/generateStrategicScenario/%/%.5/%">
+      <details key="start" value="4377"/>
+      <details key="end" value="4440"/>
+      <details key="line" value="123"/>
+    </eAnnotations>
+    <eAnnotations source="positions.435" references="/0/generateStrategicScenario/%/%.5/%/%">
+      <details key="start" value="4412"/>
+      <details key="end" value="4431"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.437" references="/0/generateStrategicScenario/%/%.5/%.1/m">
-      <details key="start" value="4111"/>
-      <details key="end" value="4112"/>
+    <eAnnotations source="positions.436" references="/0/generateStrategicScenario/%/%.5/%/%/elem">
+      <details key="start" value="4426"/>
+      <details key="end" value="4430"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.438" references="/0/generateStrategicScenario/%/%.6">
-      <details key="start" value="4291"/>
+    <eAnnotations source="positions.437" references="/0/generateStrategicScenario/%/%.5/%/%.1">
+      <details key="start" value="4433"/>
+      <details key="end" value="4435"/>
+      <details key="line" value="125"/>
+    </eAnnotations>
+    <eAnnotations source="positions.438" references="/0/generateStrategicScenario/%/%.5/%/%.2">
+      <details key="start" value="4381"/>
+      <details key="end" value="4408"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.439" references="/0/generateStrategicScenario/%/%.5/%/%.2/%">
+      <details key="start" value="4382"/>
+      <details key="end" value="4402"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.440" references="/0/generateStrategicScenario/%/%.5/%/%.2/%/elem">
+      <details key="start" value="4382"/>
+      <details key="end" value="4386"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.441" references="/0/generateStrategicScenario/%/%.5/%/%.2/%/%">
+      <details key="start" value="4392"/>
+      <details key="end" value="4401"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.442" references="/0/generateStrategicScenario/%/%.5/%/%.2/%.1">
+      <details key="start" value="4403"/>
+      <details key="end" value="4407"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.443" references="/0/generateStrategicScenario/%/%.5/elem">
+      <details key="start" value="4346"/>
+      <details key="end" value="4358"/>
+      <details key="line" value="122"/>
+    </eAnnotations>
+    <eAnnotations source="positions.444" references="/0/generateStrategicScenario/%/%.5/%.1">
+      <details key="start" value="4361"/>
+      <details key="end" value="4373"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.445" references="/0/generateStrategicScenario/%/%.5/%.1/m">
+      <details key="start" value="4361"/>
       <details key="end" value="4362"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.446" references="/0/generateStrategicScenario/%/%.6">
+      <details key="start" value="4450"/>
+      <details key="end" value="4493"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.439" references="/0/generateStrategicScenario/%/%.7">
-      <details key="start" value="4362"/>
-      <details key="end" value="4523"/>
+    <eAnnotations source="positions.447" references="/0/generateStrategicScenario/%/%.7">
+      <details key="start" value="4493"/>
+      <details key="end" value="4653"/>
       <details key="line" value="130"/>
     </eAnnotations>
-    <eAnnotations source="positions.440" references="/0/generateStrategicScenario/%/%.7/%">
-      <details key="start" value="4399"/>
-      <details key="end" value="4515"/>
+    <eAnnotations source="positions.448" references="/0/generateStrategicScenario/%/%.7/%">
+      <details key="start" value="4531"/>
+      <details key="end" value="4645"/>
       <details key="line" value="131"/>
     </eAnnotations>
-    <eAnnotations source="positions.441" references="/0/generateStrategicScenario/%/%.7/%/%">
-      <details key="start" value="4440"/>
-      <details key="end" value="4507"/>
+    <eAnnotations source="positions.449" references="/0/generateStrategicScenario/%/%.7/%/%">
+      <details key="start" value="4572"/>
+      <details key="end" value="4637"/>
       <details key="line" value="132"/>
     </eAnnotations>
-    <eAnnotations source="positions.442" references="/0/generateStrategicScenario/%/%.7/%/%/%">
-      <details key="start" value="4478"/>
-      <details key="end" value="4498"/>
+    <eAnnotations source="positions.450" references="/0/generateStrategicScenario/%/%.7/%/%/%">
+      <details key="start" value="4603"/>
+      <details key="end" value="4628"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.443" references="/0/generateStrategicScenario/%/%.7/%/%/%/elem">
-      <details key="start" value="4491"/>
-      <details key="end" value="4495"/>
+    <eAnnotations source="positions.451" references="/0/generateStrategicScenario/%/%.7/%/%/%/elem">
+      <details key="start" value="4623"/>
+      <details key="end" value="4627"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.444" references="/0/generateStrategicScenario/%/%.7/%/%/%/m">
-      <details key="start" value="4496"/>
-      <details key="end" value="4497"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.445" references="/0/generateStrategicScenario/%/%.7/%/%/%.1">
-      <details key="start" value="4500"/>
-      <details key="end" value="4502"/>
+    <eAnnotations source="positions.452" references="/0/generateStrategicScenario/%/%.7/%/%/%.1">
+      <details key="start" value="4630"/>
+      <details key="end" value="4632"/>
       <details key="line" value="134"/>
     </eAnnotations>
-    <eAnnotations source="positions.446" references="/0/generateStrategicScenario/%/%.7/%/%/%.2">
-      <details key="start" value="4444"/>
-      <details key="end" value="4474"/>
+    <eAnnotations source="positions.453" references="/0/generateStrategicScenario/%/%.7/%/%/%.2">
+      <details key="start" value="4575"/>
+      <details key="end" value="4599"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.447" references="/0/generateStrategicScenario/%/%.7/%/%/%.2/class">
-      <details key="start" value="4445"/>
-      <details key="end" value="4450"/>
+    <eAnnotations source="positions.454" references="/0/generateStrategicScenario/%/%.7/%/%/%.2/class">
+      <details key="start" value="4576"/>
+      <details key="end" value="4581"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.448" references="/0/generateStrategicScenario/%/%.7/%/%/%.2/%">
-      <details key="start" value="4460"/>
-      <details key="end" value="4472"/>
+    <eAnnotations source="positions.455" references="/0/generateStrategicScenario/%/%.7/%/%/%.2/%">
+      <details key="start" value="4591"/>
+      <details key="end" value="4597"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.449" references="/0/generateStrategicScenario/%/%.7/%/class">
-      <details key="start" value="4404"/>
-      <details key="end" value="4437"/>
+    <eAnnotations source="positions.456" references="/0/generateStrategicScenario/%/%.7/%/class">
+      <details key="start" value="4536"/>
+      <details key="end" value="4569"/>
       <details key="line" value="131"/>
     </eAnnotations>
-    <eAnnotations source="positions.450" references="/0/generateStrategicScenario/%/%.7/%/class/%">
-      <details key="start" value="4420"/>
-      <details key="end" value="4438"/>
+    <eAnnotations source="positions.457" references="/0/generateStrategicScenario/%/%.7/%/class/%">
+      <details key="start" value="4552"/>
+      <details key="end" value="4570"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.451" references="/0/generateStrategicScenario/%/%.7/%/class/%/%">
-      <details key="start" value="4420"/>
-      <details key="end" value="4433"/>
+    <eAnnotations source="positions.458" references="/0/generateStrategicScenario/%/%.7/%/class/%/%">
+      <details key="start" value="4552"/>
+      <details key="end" value="4565"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.452" references="/0/generateStrategicScenario/%/%.7/%/class/%/%/elem">
-      <details key="start" value="4420"/>
-      <details key="end" value="4424"/>
+    <eAnnotations source="positions.459" references="/0/generateStrategicScenario/%/%.7/%/class/%/%/elem">
+      <details key="start" value="4552"/>
+      <details key="end" value="4556"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.453" references="/0/generateStrategicScenario/%/%.7/elem">
-      <details key="start" value="4368"/>
-      <details key="end" value="4380"/>
+    <eAnnotations source="positions.460" references="/0/generateStrategicScenario/%/%.7/elem">
+      <details key="start" value="4499"/>
+      <details key="end" value="4512"/>
       <details key="line" value="130"/>
     </eAnnotations>
-    <eAnnotations source="positions.454" references="/0/generateStrategicScenario/%/%.7/%.1">
-      <details key="start" value="4383"/>
-      <details key="end" value="4395"/>
+    <eAnnotations source="positions.461" references="/0/generateStrategicScenario/%/%.7/%.1">
+      <details key="start" value="4515"/>
+      <details key="end" value="4527"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.455" references="/0/generateStrategicScenario/%/%.7/%.1/m">
-      <details key="start" value="4383"/>
-      <details key="end" value="4384"/>
+    <eAnnotations source="positions.462" references="/0/generateStrategicScenario/%/%.7/%.1/m">
+      <details key="start" value="4515"/>
+      <details key="end" value="4516"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.456" references="/0/generateStrategicScenario/%/%.8">
-      <details key="start" value="4525"/>
-      <details key="end" value="4585"/>
+    <eAnnotations source="positions.463" references="/0/generateStrategicScenario/%/%.8">
+      <details key="start" value="4655"/>
+      <details key="end" value="4657"/>
       <details key="line" value="137"/>
     </eAnnotations>
-    <eAnnotations source="positions.457" references="/0/generateStrategicScenario/%/%.9">
-      <details key="start" value="4585"/>
-      <details key="end" value="4740"/>
+    <eAnnotations source="positions.464" references="/0/generateStrategicScenario/%/%.9">
+      <details key="start" value="4657"/>
+      <details key="end" value="4857"/>
+      <details key="line" value="138"/>
+    </eAnnotations>
+    <eAnnotations source="positions.465" references="/0/generateStrategicScenario/%/%.9/%">
+      <details key="start" value="4695"/>
+      <details key="end" value="4849"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.466" references="/0/generateStrategicScenario/%/%.9/%/%">
+      <details key="start" value="4736"/>
+      <details key="end" value="4841"/>
       <details key="line" value="140"/>
     </eAnnotations>
-    <eAnnotations source="positions.458" references="/0/generateStrategicScenario/%/%.9/%">
-      <details key="start" value="4622"/>
-      <details key="end" value="4732"/>
-      <details key="line" value="141"/>
-    </eAnnotations>
-    <eAnnotations source="positions.459" references="/0/generateStrategicScenario/%/%.9/%/%">
-      <details key="start" value="4663"/>
-      <details key="end" value="4724"/>
-      <details key="line" value="142"/>
-    </eAnnotations>
-    <eAnnotations source="positions.460" references="/0/generateStrategicScenario/%/%.9/%/%/%">
-      <details key="start" value="4696"/>
-      <details key="end" value="4715"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.461" references="/0/generateStrategicScenario/%/%.9/%/%/%/elem">
-      <details key="start" value="4710"/>
-      <details key="end" value="4714"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.462" references="/0/generateStrategicScenario/%/%.9/%/%/%.1">
-      <details key="start" value="4717"/>
-      <details key="end" value="4719"/>
-      <details key="line" value="144"/>
-    </eAnnotations>
-    <eAnnotations source="positions.463" references="/0/generateStrategicScenario/%/%.9/%/%/%.2">
-      <details key="start" value="4667"/>
-      <details key="end" value="4692"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.464" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/class">
-      <details key="start" value="4668"/>
-      <details key="end" value="4673"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.465" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%">
-      <details key="start" value="4683"/>
-      <details key="end" value="4690"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.466" references="/0/generateStrategicScenario/%/%.9/%/class">
-      <details key="start" value="4627"/>
-      <details key="end" value="4660"/>
-      <details key="line" value="141"/>
-    </eAnnotations>
-    <eAnnotations source="positions.467" references="/0/generateStrategicScenario/%/%.9/%/class/%">
-      <details key="start" value="4643"/>
-      <details key="end" value="4661"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.468" references="/0/generateStrategicScenario/%/%.9/%/class/%/%">
-      <details key="start" value="4643"/>
-      <details key="end" value="4656"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.469" references="/0/generateStrategicScenario/%/%.9/%/class/%/%/elem">
-      <details key="start" value="4643"/>
-      <details key="end" value="4647"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.470" references="/0/generateStrategicScenario/%/%.9/elem">
-      <details key="start" value="4591"/>
-      <details key="end" value="4603"/>
-      <details key="line" value="140"/>
-    </eAnnotations>
-    <eAnnotations source="positions.471" references="/0/generateStrategicScenario/%/%.9/%.1">
-      <details key="start" value="4606"/>
-      <details key="end" value="4618"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.472" references="/0/generateStrategicScenario/%/%.9/%.1/m">
-      <details key="start" value="4606"/>
-      <details key="end" value="4607"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.473" references="/0/generateStrategicScenario/%/%.10">
-      <details key="start" value="4742"/>
-      <details key="end" value="4744"/>
-      <details key="line" value="147"/>
-    </eAnnotations>
-    <eAnnotations source="positions.474" references="/0/generateStrategicScenario/%/%.11">
-      <details key="start" value="4744"/>
-      <details key="end" value="4906"/>
-      <details key="line" value="148"/>
-    </eAnnotations>
-    <eAnnotations source="positions.475" references="/0/generateStrategicScenario/%/%.11/%">
-      <details key="start" value="4781"/>
-      <details key="end" value="4898"/>
-      <details key="line" value="149"/>
-    </eAnnotations>
-    <eAnnotations source="positions.476" references="/0/generateStrategicScenario/%/%.11/%/%">
-      <details key="start" value="4822"/>
-      <details key="end" value="4890"/>
-      <details key="line" value="150"/>
-    </eAnnotations>
-    <eAnnotations source="positions.477" references="/0/generateStrategicScenario/%/%.11/%/%/%">
-      <details key="start" value="4854"/>
-      <details key="end" value="4881"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.478" references="/0/generateStrategicScenario/%/%.11/%/%/%/elem">
-      <details key="start" value="4876"/>
-      <details key="end" value="4880"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.479" references="/0/generateStrategicScenario/%/%.11/%/%/%.1">
-      <details key="start" value="4883"/>
-      <details key="end" value="4885"/>
-      <details key="line" value="152"/>
-    </eAnnotations>
-    <eAnnotations source="positions.480" references="/0/generateStrategicScenario/%/%.11/%/%/%.2">
-      <details key="start" value="4826"/>
-      <details key="end" value="4850"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.481" references="/0/generateStrategicScenario/%/%.11/%/%/%.2/class">
-      <details key="start" value="4827"/>
+    <eAnnotations source="positions.467" references="/0/generateStrategicScenario/%/%.9/%/%/%">
+      <details key="start" value="4809"/>
       <details key="end" value="4832"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.482" references="/0/generateStrategicScenario/%/%.11/%/%/%.2/%">
-      <details key="start" value="4842"/>
-      <details key="end" value="4848"/>
+    <eAnnotations source="positions.468" references="/0/generateStrategicScenario/%/%.9/%/%/%/elem">
+      <details key="start" value="4827"/>
+      <details key="end" value="4831"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.483" references="/0/generateStrategicScenario/%/%.11/%/class">
-      <details key="start" value="4786"/>
-      <details key="end" value="4819"/>
-      <details key="line" value="149"/>
+    <eAnnotations source="positions.469" references="/0/generateStrategicScenario/%/%.9/%/%/%.1">
+      <details key="start" value="4834"/>
+      <details key="end" value="4836"/>
+      <details key="line" value="142"/>
     </eAnnotations>
-    <eAnnotations source="positions.484" references="/0/generateStrategicScenario/%/%.11/%/class/%">
-      <details key="start" value="4802"/>
-      <details key="end" value="4820"/>
+    <eAnnotations source="positions.470" references="/0/generateStrategicScenario/%/%.9/%/%/%.2">
+      <details key="start" value="4739"/>
+      <details key="end" value="4805"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.485" references="/0/generateStrategicScenario/%/%.11/%/class/%/%">
-      <details key="start" value="4802"/>
-      <details key="end" value="4815"/>
+    <eAnnotations source="positions.471" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%">
+      <details key="start" value="4740"/>
+      <details key="end" value="4772"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.486" references="/0/generateStrategicScenario/%/%.11/%/class/%/%/elem">
-      <details key="start" value="4802"/>
-      <details key="end" value="4806"/>
+    <eAnnotations source="positions.472" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%/class">
+      <details key="start" value="4740"/>
+      <details key="end" value="4745"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.487" references="/0/generateStrategicScenario/%/%.11/elem">
-      <details key="start" value="4750"/>
-      <details key="end" value="4762"/>
+    <eAnnotations source="positions.473" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%/%">
+      <details key="start" value="4755"/>
+      <details key="end" value="4771"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.474" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%.1">
+      <details key="start" value="4776"/>
+      <details key="end" value="4804"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.475" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%.1/class">
+      <details key="start" value="4776"/>
+      <details key="end" value="4781"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.476" references="/0/generateStrategicScenario/%/%.9/%/%/%.2/%.1/%">
+      <details key="start" value="4791"/>
+      <details key="end" value="4803"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.477" references="/0/generateStrategicScenario/%/%.9/%/class">
+      <details key="start" value="4700"/>
+      <details key="end" value="4733"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.478" references="/0/generateStrategicScenario/%/%.9/%/class/%">
+      <details key="start" value="4716"/>
+      <details key="end" value="4734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.479" references="/0/generateStrategicScenario/%/%.9/%/class/%/%">
+      <details key="start" value="4716"/>
+      <details key="end" value="4729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.480" references="/0/generateStrategicScenario/%/%.9/%/class/%/%/elem">
+      <details key="start" value="4716"/>
+      <details key="end" value="4720"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.481" references="/0/generateStrategicScenario/%/%.9/elem">
+      <details key="start" value="4663"/>
+      <details key="end" value="4676"/>
+      <details key="line" value="138"/>
+    </eAnnotations>
+    <eAnnotations source="positions.482" references="/0/generateStrategicScenario/%/%.9/%.1">
+      <details key="start" value="4679"/>
+      <details key="end" value="4691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.483" references="/0/generateStrategicScenario/%/%.9/%.1/m">
+      <details key="start" value="4679"/>
+      <details key="end" value="4680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.484" references="/0/generateStrategicScenario/%/%.10">
+      <details key="start" value="4859"/>
+      <details key="end" value="4930"/>
+      <details key="line" value="145"/>
+    </eAnnotations>
+    <eAnnotations source="positions.485" references="/0/generateStrategicScenario/%/%.11">
+      <details key="start" value="4930"/>
+      <details key="end" value="5091"/>
       <details key="line" value="148"/>
     </eAnnotations>
-    <eAnnotations source="positions.488" references="/0/generateStrategicScenario/%/%.11/%.1">
-      <details key="start" value="4765"/>
-      <details key="end" value="4777"/>
+    <eAnnotations source="positions.486" references="/0/generateStrategicScenario/%/%.11/%">
+      <details key="start" value="4967"/>
+      <details key="end" value="5083"/>
+      <details key="line" value="149"/>
+    </eAnnotations>
+    <eAnnotations source="positions.487" references="/0/generateStrategicScenario/%/%.11/%/%">
+      <details key="start" value="5008"/>
+      <details key="end" value="5075"/>
+      <details key="line" value="150"/>
+    </eAnnotations>
+    <eAnnotations source="positions.488" references="/0/generateStrategicScenario/%/%.11/%/%/%">
+      <details key="start" value="5046"/>
+      <details key="end" value="5066"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.489" references="/0/generateStrategicScenario/%/%.11/%.1/m">
-      <details key="start" value="4765"/>
-      <details key="end" value="4766"/>
+    <eAnnotations source="positions.489" references="/0/generateStrategicScenario/%/%.11/%/%/%/elem">
+      <details key="start" value="5059"/>
+      <details key="end" value="5063"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.490" references="/0/generateStrategicScenario/%/%.12">
-      <details key="start" value="3628"/>
-      <details key="end" value="3650"/>
+    <eAnnotations source="positions.490" references="/0/generateStrategicScenario/%/%.11/%/%/%/m">
+      <details key="start" value="5064"/>
+      <details key="end" value="5065"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.491" references="/0/generateStrategicScenario/%/%.12/%">
-      <details key="start" value="3628"/>
-      <details key="end" value="3634"/>
+    <eAnnotations source="positions.491" references="/0/generateStrategicScenario/%/%.11/%/%/%.1">
+      <details key="start" value="5068"/>
+      <details key="end" value="5070"/>
+      <details key="line" value="152"/>
+    </eAnnotations>
+    <eAnnotations source="positions.492" references="/0/generateStrategicScenario/%/%.11/%/%/%.2">
+      <details key="start" value="5012"/>
+      <details key="end" value="5042"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.492" references="/0/generateStrategicScenario/%/%.12/%/m">
-      <details key="start" value="3628"/>
-      <details key="end" value="3629"/>
+    <eAnnotations source="positions.493" references="/0/generateStrategicScenario/%/%.11/%/%/%.2/class">
+      <details key="start" value="5013"/>
+      <details key="end" value="5018"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.493" references="/0/generateStrategicScenario/%/%.12/%.1">
-      <details key="start" value="3635"/>
-      <details key="end" value="3650"/>
+    <eAnnotations source="positions.494" references="/0/generateStrategicScenario/%/%.11/%/%/%.2/%">
+      <details key="start" value="5028"/>
+      <details key="end" value="5040"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.494" references="/0/generateStrategicScenario/%/%.13">
-      <details key="start" value="3659"/>
-      <details key="end" value="3666"/>
+    <eAnnotations source="positions.495" references="/0/generateStrategicScenario/%/%.11/%/class">
+      <details key="start" value="4972"/>
+      <details key="end" value="5005"/>
+      <details key="line" value="149"/>
+    </eAnnotations>
+    <eAnnotations source="positions.496" references="/0/generateStrategicScenario/%/%.11/%/class/%">
+      <details key="start" value="4988"/>
+      <details key="end" value="5006"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.495" references="/0/generateStrategicScenario/m">
-      <details key="start" value="3595"/>
-      <details key="end" value="3604"/>
+    <eAnnotations source="positions.497" references="/0/generateStrategicScenario/%/%.11/%/class/%/%">
+      <details key="start" value="4988"/>
+      <details key="end" value="5001"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.498" references="/0/generateStrategicScenario/%/%.11/%/class/%/%/elem">
+      <details key="start" value="4988"/>
+      <details key="end" value="4992"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.499" references="/0/generateStrategicScenario/%/%.11/elem">
+      <details key="start" value="4936"/>
+      <details key="end" value="4948"/>
+      <details key="line" value="148"/>
+    </eAnnotations>
+    <eAnnotations source="positions.500" references="/0/generateStrategicScenario/%/%.11/%.1">
+      <details key="start" value="4951"/>
+      <details key="end" value="4963"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.501" references="/0/generateStrategicScenario/%/%.11/%.1/m">
+      <details key="start" value="4951"/>
+      <details key="end" value="4952"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.502" references="/0/generateStrategicScenario/%/%.12">
+      <details key="start" value="5093"/>
+      <details key="end" value="5095"/>
+      <details key="line" value="155"/>
+    </eAnnotations>
+    <eAnnotations source="positions.503" references="/0/generateStrategicScenario/%/%.13">
+      <details key="start" value="5095"/>
+      <details key="end" value="5264"/>
+      <details key="line" value="156"/>
+    </eAnnotations>
+    <eAnnotations source="positions.504" references="/0/generateStrategicScenario/%/%.13/%">
+      <details key="start" value="5132"/>
+      <details key="end" value="5256"/>
+      <details key="line" value="157"/>
+    </eAnnotations>
+    <eAnnotations source="positions.505" references="/0/generateStrategicScenario/%/%.13/%/%">
+      <details key="start" value="5173"/>
+      <details key="end" value="5248"/>
+      <details key="line" value="158"/>
+    </eAnnotations>
+    <eAnnotations source="positions.506" references="/0/generateStrategicScenario/%/%.13/%/%/%">
+      <details key="start" value="5205"/>
+      <details key="end" value="5239"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.507" references="/0/generateStrategicScenario/%/%.13/%/%/%/elem">
+      <details key="start" value="5232"/>
+      <details key="end" value="5236"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.508" references="/0/generateStrategicScenario/%/%.13/%/%/%/m">
+      <details key="start" value="5237"/>
+      <details key="end" value="5238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.509" references="/0/generateStrategicScenario/%/%.13/%/%/%.1">
+      <details key="start" value="5241"/>
+      <details key="end" value="5243"/>
+      <details key="line" value="160"/>
+    </eAnnotations>
+    <eAnnotations source="positions.510" references="/0/generateStrategicScenario/%/%.13/%/%/%.2">
+      <details key="start" value="5177"/>
+      <details key="end" value="5201"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.511" references="/0/generateStrategicScenario/%/%.13/%/%/%.2/class">
+      <details key="start" value="5178"/>
+      <details key="end" value="5183"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.512" references="/0/generateStrategicScenario/%/%.13/%/%/%.2/%">
+      <details key="start" value="5193"/>
+      <details key="end" value="5199"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.513" references="/0/generateStrategicScenario/%/%.13/%/class">
+      <details key="start" value="5137"/>
+      <details key="end" value="5170"/>
+      <details key="line" value="157"/>
+    </eAnnotations>
+    <eAnnotations source="positions.514" references="/0/generateStrategicScenario/%/%.13/%/class/%">
+      <details key="start" value="5153"/>
+      <details key="end" value="5171"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.515" references="/0/generateStrategicScenario/%/%.13/%/class/%/%">
+      <details key="start" value="5153"/>
+      <details key="end" value="5166"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.516" references="/0/generateStrategicScenario/%/%.13/%/class/%/%/elem">
+      <details key="start" value="5153"/>
+      <details key="end" value="5157"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.517" references="/0/generateStrategicScenario/%/%.13/elem">
+      <details key="start" value="5101"/>
+      <details key="end" value="5113"/>
+      <details key="line" value="156"/>
+    </eAnnotations>
+    <eAnnotations source="positions.518" references="/0/generateStrategicScenario/%/%.13/%.1">
+      <details key="start" value="5116"/>
+      <details key="end" value="5128"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.519" references="/0/generateStrategicScenario/%/%.13/%.1/m">
+      <details key="start" value="5116"/>
+      <details key="end" value="5117"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.520" references="/0/generateStrategicScenario/%/%.14">
+      <details key="start" value="5266"/>
+      <details key="end" value="5270"/>
+      <details key="line" value="163"/>
+    </eAnnotations>
+    <eAnnotations source="positions.521" references="/0/generateStrategicScenario/%/%.15">
+      <details key="start" value="3725"/>
+      <details key="end" value="3747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.522" references="/0/generateStrategicScenario/%/%.15/%">
+      <details key="start" value="3725"/>
+      <details key="end" value="3731"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.523" references="/0/generateStrategicScenario/%/%.15/%/m">
+      <details key="start" value="3725"/>
+      <details key="end" value="3726"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.524" references="/0/generateStrategicScenario/%/%.15/%.1">
+      <details key="start" value="3732"/>
+      <details key="end" value="3747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.525" references="/0/generateStrategicScenario/%/%.16">
+      <details key="start" value="3756"/>
+      <details key="end" value="3763"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.526" references="/0/generateStrategicScenario/m">
+      <details key="start" value="3692"/>
+      <details key="end" value="3701"/>
       <details key="line" value="98"/>
     </eAnnotations>
-    <eAnnotations source="positions.496" references="/0/generateStrategicScenario/%.1">
-      <details key="start" value="3611"/>
-      <details key="end" value="3617"/>
+    <eAnnotations source="positions.527" references="/0/generateStrategicScenario/%.1">
+      <details key="start" value="3708"/>
+      <details key="end" value="3714"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.497" references="/0/generateStrategicScenario/%.1/self">
+    <eAnnotations source="positions.528" references="/0/generateStrategicScenario/%.1/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
