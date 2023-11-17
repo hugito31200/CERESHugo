@@ -3,6 +3,9 @@ primitive(isActuator(_host)).
 primitive(physicalAccess(_principal,_host)).
 primitive(malicious(_principal)).
 
+primitive(isA(_concreteType, _abstractType)).
+primitive(refines(_concreteType,_abstractType)).
+
 primitive(initiallyTriggered(_vulID)).
 derived(isTriggered(_vulID)).
 
@@ -10,6 +13,9 @@ derived(accessInfo(_host)).
 derived(isCompromised(_device)).
 derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
+
+derived(targetAsset(_asset,_property)).
+
 
 /******************************************************/
 /*             Tabling Predicates                     */
@@ -77,6 +83,7 @@ interaction_rule(
 interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakinfo),
+  /*refines(Software,AbstractSoftware),*/
   isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
@@ -166,6 +173,101 @@ interaction_rule(
   hacl(H1,H2,_,_)
   ),
   rule_desc('Exec code on end node', 1)).
+
+
+/***********************Compromise of assets*************************/
+interaction_rule(
+  (targetAsset(HostAsset,availability) :-
+  dos(HostAsset)
+  ),
+  rule_desc('Compromising the availability of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,availability) :-
+  dos(Host),
+  networkServiceInfo(Host,ProgAsset,_,_,_)
+  ),
+  rule_desc('Compromising the availability of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,integrity) :-
+  execCode(HostAsset,_)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,integrity) :-
+  execCode(Host,Perm),
+  networkServiceInfo(Host,ProgAsset,_,_,Perm)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,integrity) :-
+  hasAccount(ProgAsset,Principal,_),
+  malicious(Principal)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+
+interaction_rule(
+  (targetAsset(DeviceAsset,integrity) :-
+  covertAppropriation(DeviceAsset)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(DeviceAsset,integrity) :-
+  physicalAccess(Principal,DeviceAsset),
+  malicious(Principal)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,confidentiality) :-
+  accessInfo(HostAsset)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,confidentiality) :-
+  execCode(HostAsset,_)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,confidentiality) :-
+  accessInfo(Host),
+  networkServiceInfo(Host,ProgAsset,_,_,_)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,confidentiality) :-
+  execCode(Host,Perm),
+  networkServiceInfo(Host,ProgAsset,_,_,Perm)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+
+/*******************Refinement*********************/
+/*
+  interaction_rule(
+  (refines(Concrete,Abstract) :-
+  isA(Concrete,Abstract)
+  ),
+  rule_desc('Direct Refinement', 1)).
+
+  interaction_rule(
+  (refines(Concrete,Abstract) :-
+  isA(Concrete,Temp),
+  refines(Temp,Abstract)
+  ),
+  rule_desc('Indirect Refinement', 1)). 
+*/
+
+:-load_dyn('/tool/mulval/lib/vulList.P').
+:-load_dyn('/tool/mulval/lib/elementTypeHierarchy.P').
 
 
 

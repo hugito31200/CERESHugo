@@ -1,7 +1,12 @@
 /*attackGoal(execCode(webServer,_)).*/
 /*attackGoal(dos(scada)).*/
-attackGoal(accessInfo(scada)).
+attackGoal(targetAsset(plc,integrity)).
+/*attackGoal(accessInfo(scada)).*/
+/*attackGoal(refines(machineExpert,scadaSW)).*/
 /*attackGoal(covertAppropriation(plc)).*/
+/*attackGoal(refines(machineExpert,schneider_electric_ecostruxure_machine_expert)).*/
+
+
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
@@ -37,38 +42,7 @@ networkServiceInfo(plc,controlExpert,opcua,opcua_port,_).
 networkServiceInfo(scada,machineExpert,_,400,_).
 networkServiceInfo(scada,opcua_server,opcua,opcua_port,_).
 
-vulExists(scada,'CVE-2023-22610',machineExpert).
-vulProperty('CVE-2023-22610',hijackcomm,dos).
+isA(machineExpert,schneider_electric_ecostruxure_machine_expert_2_0).
 
-vulExists(scada,'CVE-2022-2988',machineExpert).
-vulProperty('CVE-2022-2988',webAccess,leakinfo).
 
-vulExists(scada,'CVE-2023-22611',machineExpert).
-vulProperty('CVE-2023-22611',hijackcomm,leakinfo).
 
-bugHyp(scada, machineExpert, remoteExploit, privEscalation).
-
-vulExists(plc,'CVE-2022-45789',controlExpert).
-vulProperty('CVE-2022-45789',localExploit,privEscalation).
-vulProperty('CVE-2022-45789',hijackcomm,authenticationBypass).
-
-vulExists(plc,'CVE-2022-45788',controlExpert).
-vulProperty('CVE-2022-45788',localExploit,privEscalation).
-vulProperty('CVE-2022-45788',codeExecution,dos).
-vulProperty('CVE-2022-45788',codeExecution,leakinfo).
-
-vulExists(plc,'CVE-2021-22789',controlExpert).
-vulProperty('CVE-2021-22789',loadFile,dos).
-
-vulExists(plc,'CVE-2023-1548',controlExpert).
-vulProperty('CVE-2023-1548',codeExecution,dos).
-
-vulExists(plc,'CVE-2023-27976',controlExpert).
-vulProperty('CVE-2023-27976',codeExecution,privEscalation).
-vulProperty('CVE-2023-27976',webAccess,remoteExploit).
-
-vulExists(plc,'CVE-2022-37300',controlExpert).
-vulProperty('CVE-2022-37300',hijackcomm,authenticationBypass).
-
-vulExists(scada,'CVE-2023-37200',opcua_server).
-vulProperty('CVE-2023-37200',codeExecution,leakinfo).
