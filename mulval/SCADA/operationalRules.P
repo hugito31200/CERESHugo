@@ -84,7 +84,6 @@ interaction_rule(
 interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakinfo),
-  /*refines(Software,AbstractSoftware),*/
   isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
@@ -255,7 +254,8 @@ interaction_rule(
 interaction_rule(
   (vulExists(Host,CVE_ID,ConcreteSW,Pre,Post) :-
   isA(ConcreteSW,AbstractSW),
-  vulExists(Host,CVE_ID,AbstractSW,Pre,Post)
+  vulExists(undef,CVE_ID,AbstractSW,Pre,Post),
+  networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
   rule_desc('Direct Refinement', 1)).
 /*
