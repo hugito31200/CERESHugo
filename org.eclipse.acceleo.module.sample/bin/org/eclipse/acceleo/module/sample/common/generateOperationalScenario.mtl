@@ -86,25 +86,6 @@ isSensor([formatName(device.name)/]).
 [/let]
 [/template]
 
-[template private generateVulnerabilities(elem:OclAny, m:Model) post(trim())]
-[let vul: DataStoreNode = elem.eGet('base_DataStoreNode').oclAsType(DataStoreNode)]
-[for(act: Activity | m.eAllContents(Activity))]
-[let prog: Class = act.eContainer(Class)]
-[for(preCond: Constraint | act.eAllContents(Constraint))]
-[if (preCond.getAppliedStereotypes().toString().contains('PreCondition')=true->asBag() and preCond.constrainedElement->includes(vul))]
-vulExists([getHostOfProgram(prog, m)/],'[elem.eGet('CVE_id')/]',[formatName(prog.name)/]).
-[for(postCond: Constraint | act.eAllContents(Constraint))]
-[if (postCond.getAppliedStereotypes().toString().contains('PostCondition')=true->asBag() and postCond.constrainedElement->includes(vul))]
-vulProperty('[elem.eGet('CVE_id')/]',[formatName(preCond.name)/],[formatName(postCond.name)/]).
-[/if]
-[/for]
-[/if]
-[/for]
-[/let]
-[/for]
-[/let]
-[/template]
-
 [template private generateUser(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [if (elem.eGet('isCompetent')=true)]
@@ -247,15 +228,6 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [/let]
 [/for]
 
-
-/******************Vulnerabilities***********************/
-[for (elem: OclAny | m.siblings())]
-[let class:String = elem.eClass().name]
-[if (class.contains('Vulnerability'))]
-[generateVulnerabilities(elem, m)/]
-[/if]
-[/let]
-[/for]
 
 /****************************Users******************************/
 [for (elem: OclAny | m.siblings())]
