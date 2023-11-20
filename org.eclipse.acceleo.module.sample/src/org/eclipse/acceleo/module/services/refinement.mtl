@@ -1,0 +1,8 @@
+[comment encoding = UTF-8 /]
+[module refinement('http://www.eclipse.org/uml2/5.0.0/UML')/]
+
+[query public refine(arg0 : Class) : String
+	= invoke('org.eclipse.acceleo.module.services.Refinement', 'refine(org.eclipse.uml2.uml.Class)', Sequence{arg0})
+/]
+
+
