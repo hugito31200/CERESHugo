@@ -46,7 +46,8 @@ interaction_rule(
 
 interaction_rule(
   (isTriggered(VulID) :-
-  vulExists(H1,VulID,_,hijackcomm,_),
+  vulExists(H1,VulID,SW,hijackcomm,_),
+  networkServiceInfo(H1,SW,_,_,_),
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
@@ -251,6 +252,12 @@ interaction_rule(
 
 
 /*******************Refinement*********************/
+interaction_rule(
+  (vulExists(Host,CVE_ID,ConcreteSW,Pre,Post) :-
+  isA(ConcreteSW,AbstractSW),
+  vulExists(Host,CVE_ID,AbstractSW,Pre,Post)
+  ),
+  rule_desc('Direct Refinement', 1)).
 /*
   interaction_rule(
   (refines(Concrete,Abstract) :-

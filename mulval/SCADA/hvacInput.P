@@ -2,18 +2,14 @@
 /*attackGoal(dos(scada)).*/
 attackGoal(targetAsset(plc,integrity)).
 /*attackGoal(accessInfo(scada)).*/
-/*attackGoal(refines(machineExpert,scadaSW)).*/
 /*attackGoal(covertAppropriation(plc)).*/
-/*attackGoal(refines(machineExpert,schneider_electric_ecostruxure_machine_expert)).*/
-
-
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
 hasAccount(alarmProvider,webServer,root).
 
 hacl(internet,webServer,ipSec,80).
-networkServiceInfo(webServer,vpnservice,ipSec,80,_).
+networkServiceInfo(webServer,vpn_service,ipSec,80,_).
 
 hacl(webServer,scada,_,_).
 hacl(plc,scada,opcua,opcua_port).
@@ -38,11 +34,13 @@ physicalAccess(technician,actuator).
 /*hacl(plc,actuator,modbus_tcp,modbus_port).*/
 hacl(plc,actuator,opcua,opcua_port).
 
-networkServiceInfo(plc,controlExpert,opcua,opcua_port,_).
-networkServiceInfo(scada,machineExpert,_,400,_).
+networkServiceInfo(plc,control_expert,opcua,opcua_port,_).
+networkServiceInfo(scada,machine_expert,_,400,_).
 networkServiceInfo(scada,opcua_server,opcua,opcua_port,_).
 
-isA(machineExpert,schneider_electric_ecostruxure_machine_expert_2_0).
+isA(machine_expert,ecostruxure_machine_expert).
+isA(control_expert,ecostruxure_control_expert).
+isA(opcua_server,ecostruxure_opcua_server).
 
 
 
