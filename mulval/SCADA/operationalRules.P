@@ -7,6 +7,7 @@ primitive(initiallyTriggered(_vulID)).
 derived(isTriggered(_vulID)).
 
 derived(accessInfo(_host)).
+derived(dos(_host)).
 derived(isCompromised(_device)).
 derived(canSniffCommunication(_h1,_h2)).
 derived(covertAppropriation(_plc)).
@@ -28,7 +29,7 @@ interaction_rule(
   (isTriggered(VulID) :-
   vulExists(_,VulID,_,none,_)
   ),
-  rule_desc('Vulnerability triggered from the start', 1)).
+  rule_desc('Vulnerability triggered from the start', certain)).
 
 interaction_rule(
   (isTriggered(VulID) :-
@@ -36,7 +37,7 @@ interaction_rule(
   vulExists(_,TriggeredVul,_,_,Condition),
   isTriggered(TriggeredVul)
   ),
-  rule_desc('Trigger cascading vulnerability', 1)).
+  rule_desc('Trigger cascading vulnerability', certain)).
 
 interaction_rule(
   (isTriggered(VulID) :-
@@ -44,7 +45,7 @@ interaction_rule(
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
-  rule_desc('Hijack communication', 1)).
+  rule_desc('Hijack communication', likely)).
 
 
 /*****Denial of Service*********/
@@ -54,16 +55,17 @@ interaction_rule(
   networkServiceInfo(H,_,opcua,opcua_port,_),
   netAccess(H,_,_)
   ),
-  rule_desc('OPC UA Flooding', 1)).
+  rule_desc('OPC UA Flooding', possible)).
 
 interaction_rule(
   (dos(H) :-
   vulExists(H, VulID, Software, _, dos),
+  cvss(VulID,AC),
   isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
-  rule_desc('DoS vulnerability exploit', 1)).
+  rule_desc('DoS vulnerability exploit', cvss_ac(AC))).
 
 /*From 'Denial of service attacks on network-based control systems: impact and mitigation'*/
 interaction_rule(
@@ -77,11 +79,12 @@ interaction_rule(
 interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakinfo),
+  cvss(VulID,AC),
   isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
-  rule_desc('Extracts info by exploiting vulnerability', 1)).
+  rule_desc('Extracts info by exploiting vulnerability', cvss_ac(AC))).
 
 
 /*****Covert appropriation*********/
@@ -96,7 +99,7 @@ interaction_rule(
   hacl(Sensor,Scada,_,_),
   hacl(Scada,Actuator,_,_)
   ),
-  rule_desc('Covert Appropriation by compromising sensors and actuators', 1)).
+  rule_desc('Covert Appropriation by compromising sensors and actuators', likely)).
 
 interaction_rule(
   (covertAppropriation(PLC) :-
@@ -106,7 +109,7 @@ interaction_rule(
   hacl(Sensor,PLC,_,_),
   hacl(PLC,Actuator,_,_)
   ),
-  rule_desc('Covert Appropriation by compromising the PLC', 1)).
+  rule_desc('Covert Appropriation by compromising the PLC', likely)).
 
 interaction_rule(
   (covertAppropriation(PLC) :-
@@ -117,7 +120,7 @@ interaction_rule(
   hacl(PLC,Actuator,_,_),
   canSniffCommunication(PLC,Actuator)
   ),
-  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', 1)).
+  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', possible)).
 
 
 /********************Physically compromising a sensor or an actuator************************************/
@@ -127,7 +130,7 @@ interaction_rule(
   physicalAccess(Principal,Sensor),
   malicious(Principal)
   ),
-  rule_desc('Physically compromising a sensor', 1)).
+  rule_desc('Physically compromising a sensor', likely)).
 
 interaction_rule(
   (isCompromised(Actuator) :-
@@ -135,7 +138,7 @@ interaction_rule(
   physicalAccess(Principal,Actuator),
   malicious(Principal)
   ),
-  rule_desc('Physically compromising an actuator', 1)).
+  rule_desc('Physically compromising an actuator', likely)).
   
 
 /********************Sniffing on a communication channel************************************/
@@ -144,28 +147,28 @@ interaction_rule(
   isCompromised(Device),
   hacl(Device,Host,_,_)
   ),
-  rule_desc('Compromise source of communication', 1)).
+  rule_desc('Compromise source of communication', likely)).
 
 interaction_rule(
   (canSniffCommunication(device,Host) :-
   isCompromised(Device),
   hacl(Host,Device,_,_)
   ),
-  rule_desc('Compromise end of communication', 1)).
+  rule_desc('Compromise end of communication', likely)).
 
   interaction_rule(
   (canSniffCommunication(H1,H2) :-
   execCode(H1,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on origin node', 1)).
+  rule_desc('Exec code on origin node', likely)).
 
   interaction_rule(
   (canSniffCommunication(H1,H2) :-
   execCode(H2,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on end node', 1)).
+  rule_desc('Exec code on end node', likely)).
 
 
 
