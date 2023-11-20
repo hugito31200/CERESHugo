@@ -1,17 +1,7 @@
 [comment encoding = UTF-8 /]
 [module generateOperationalScenario('http://www.eclipse.org/papyrus/sysml/1.6/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
 
-[template private underscoreIfEmpty(elem:OclAny, attribute:String) post(trim())]
-[(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
-[/template]
-
-[template private formatName(name:String) post(trim())]
-[name.replaceAll(' ', '').toLower()/]
-[/template]
-
-[template private formatName(names:Bag(String)) post(trim())]
-[names.replaceAll(' ', '').toLower()/]
-[/template]
+[import org::eclipse::acceleo::module::sample::services::utils/]
 
 
 [template private getProgramUser(program: Class, m : Model) post(trim())]
@@ -30,13 +20,6 @@
 [/for]
 [/template]
 
-[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow) post(trim())]
-[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
-hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Port).eContainer(Class).name)/], [underscoreIfEmpty(root,'protocol')/], [formatName(conn.informationTarget.oclAsType(Port).name)/]).
-[else]
-hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Property).name)/], [underscoreIfEmpty(root,'protocol')/], _).
-[/if]
-[/template]
 
 [template private generateNetworkServiceInfo(elem: OclAny, m : Model) post(trim())]
 [let host:Class = elem.eGet('base_Class').oclAsType(Class)]
@@ -103,7 +86,7 @@ vulProperty('[elem.eGet('CVE_id')/]',[formatName(preCond.name)/],[formatName(pos
 [/let]
 [/template]
 
-[template private generateUser(elem:OclAny, m:Model) post(trim())]
+[template private generateUser(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [if (elem.eGet('isCompetent')=true)]
 competent([formatName(user.name)/]).
@@ -143,16 +126,6 @@ attackGoal([translateAttackType(goal.eGet('type'))/]([formatName(goal.eGet('targ
 [/let]
 [/template] 
 
-[template private generateAttackerLocation(elem:OclAny, m:Model) post(trim())]
-[let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
-[for (prop:Property | m.eAllContents(Property))]
-[if (prop.type=attacker)]
-attackerLocated([formatName(prop.eContainer(Class).name)/]).
-[/if]
-[/for]
-[/let]
-[/template]
-
 [template private generateAttacker(elem:OclAny, m:Model) post(trim())]
 [generateAttackGoal(elem)/]
 [generateAttackerLocation(elem,m)/]
@@ -183,7 +156,7 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 
 
 [template public generateOperationalScenario( m : Model) post(trim())]
-[file (m.name+'_operational.txt', false, 'UTF-8')]
+[file (m.name+'operational.txt', false, 'UTF-8')]
 [comment @main/]
 /*****************Attacker*************************/
 [for (elem: OclAny | m.siblings())]
@@ -236,7 +209,7 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if (class.contains('User'))]
-[generateUser(elem, m)/]
+[generateUser(elem)/]
 [/if]
 [/let]
 [/for]

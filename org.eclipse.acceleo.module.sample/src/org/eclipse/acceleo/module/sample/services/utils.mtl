@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module utils('http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard', 'http://www.eclipse.org/papyrus/sysml/1.6/SysML')]
+
+[template public underscoreIfEmpty(elem:OclAny, attribute:String) post(trim())]
+[(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
+[/template]
+
+[template public formatName(name:String) post(trim())]
+[name.replaceAll(' ', '').toLower()/]
+[/template]
+
+[template public formatName(names:Bag(String)) post(trim())]
+[names.replaceAll(' ', '').toLower()/]
+[/template]
+
+[template public writeHACLWithOptions(root:OclAny, conn:InformationFlow) post(trim())]
+[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Port).eContainer(Class).name)/], [underscoreIfEmpty(root,'protocol')/], [formatName(conn.informationTarget.oclAsType(Port).name)/]).
+[else]
+hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Property).name)/], [underscoreIfEmpty(root,'protocol')/], _).
+[/if]
+[/template]
+
+[template public generateAttackerLocation(elem:OclAny, m:Model) post(trim())]
+[let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
+[for (prop:Property | m.eAllContents(Property))]
+[if (prop.type=attacker)]
+attackerLocated([formatName(prop.eContainer(Class).name)/]).
+[/if]
+[/for]
+[/let]
+[/template]

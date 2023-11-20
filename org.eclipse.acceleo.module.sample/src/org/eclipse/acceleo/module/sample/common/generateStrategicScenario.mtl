@@ -1,26 +1,8 @@
 [comment encoding = UTF-8 /]
 [module generateStrategicScenario('http://www.eclipse.org/papyrus/sysml/1.6/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
 
+[import org::eclipse::acceleo::module::sample::services::utils/]
 
-[template private underscoreIfEmpty(elem:OclAny, attribute:String) post(trim())]
-[(if (elem.eGet(attribute)=null or elem.eGet(attribute)='') then '_' else elem.eGet(attribute) endif)/]
-[/template]
-
-[template private formatName(name:String) post(trim())]
-[name.replaceAll(' ', '').toLower()/]
-[/template]
-
-[template private formatName(names:Bag(String)) post(trim())]
-[names.replaceAll(' ', '').toLower()/]
-[/template]
-
-[template private writeHACLWithOptions(root:OclAny, conn:InformationFlow)]
-[if(conn.informationTarget.eClass().name=('Port'->asBag()))]
-hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Port).eContainer(Class).name)/], [underscoreIfEmpty(root,'protocol')/], [formatName(conn.informationTarget.oclAsType(Port).name)/]).
-[else]
-hacl([formatName(conn.informationSource.oclAsType(Property).type.name)/], [formatName(conn.informationTarget.oclAsType(Property).name)/], [underscoreIfEmpty(root,'protocol')/], _).
-[/if]
-[/template]
 
 
 [template private generateStakeholder(elem:OclAny) post(trim())]
@@ -34,16 +16,6 @@ stakeHolder([formatName(user.name)/],[translateImportanceLevel(exposure)/]).
 [template private generateHasAccess(elem:OclAny) post(trim())]
 [let dependency:Dependency = elem.eGet('base_Dependency').oclAsType(Dependency)]
 hasAccess([formatName(dependency.client.name)/],[formatName(dependency.supplier.name)/]).
-[/let]
-[/template]
-
-[template private generateAttacker(elem:OclAny, m:Model) post(trim())]
-[let attacker:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
-[for (prop:Property | m.eAllContents(Property))]
-[if (prop.type=attacker)]
-attackerLocated([formatName(prop.eContainer(Class).name)/]).
-[/if]
-[/for]
 [/let]
 [/template]
 
@@ -102,7 +74,7 @@ attackGoal(targetAsset(_)).
 [for (elem : OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if(class.contains('Attacker'))]
-[generateAttacker(elem,m)/]
+[generateAttackerLocation(elem,m)/]
 [/if]
 [/let]
 [/for]
