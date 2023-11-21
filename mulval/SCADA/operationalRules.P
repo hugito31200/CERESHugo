@@ -53,7 +53,7 @@ interaction_rule(
 interaction_rule(
   (dos(H) :-
   networkServiceInfo(H,_,opcua,opcua_port,_),
-  netAccess(H,_,_)
+  netAccess(H,opcua,opcua_port)
   ),
   rule_desc('OPC UA Flooding', possible)).
 
@@ -70,8 +70,7 @@ interaction_rule(
 /*From 'Denial of service attacks on network-based control systems: impact and mitigation'*/
 interaction_rule(
   (dos(H) :-
-  execCode(H2,Perm),
-  hacl(H2,H,_,_)
+  netAccess(H,_,_)
   ),
   rule_desc('Local Network Attack', 1)).
 
