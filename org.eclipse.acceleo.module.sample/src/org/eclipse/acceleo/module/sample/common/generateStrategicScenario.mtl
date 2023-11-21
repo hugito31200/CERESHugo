@@ -94,6 +94,14 @@ isAsset([formatName(asset.name)/],[translateImportanceLevel(importance)/]).
 [/let]
 [/template]
 
+[template private generateAttackGoal(elem:OclAny) post(trim())]
+[let asset:Class = elem.eGet('base_Class').oclAsType(Class)]
+[for (property:OclAny | elem.eGet('securityProperty'))]
+/*attackGoal(targetAsset([formatName(asset.name)/],[formatName(property.toString())/])).*/
+[/for]
+[/let]
+[/template]
+
 
 [template public generateStrategicScenario( m : Model) post(trim())]
 [file (m.name+'strategic.txt', false, 'UTF-8')]
@@ -111,10 +119,10 @@ isAsset([formatName(asset.name)/],[translateImportanceLevel(importance)/]).
 /*Uncomment to run one or multiple attack goals*/
 
 
-/*attackGoal(targetAsset(_)).*/
+/*attackGoal(targetAsset(_,_)).*/
 [for (elem: OclAny | m.siblings())]
 [if (elem.eGet('isAsset')=true)]
-/*attackGoal(targetAsset([formatName(elem.eGet('base_Class').oclAsType(Class).name)/])).*/
+[generateAttackGoal(elem)/]
 [/if]
 [/for]
 

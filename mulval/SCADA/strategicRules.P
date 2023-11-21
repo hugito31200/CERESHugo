@@ -4,14 +4,14 @@ primitive(assetLocated(_asset,_machine)).
 primitive(stakeHolder(_stakeholder,_exposure)).
 primitive(hasAccess(_stakeholder,_machine)).
 
-primitive(targetAsset(_asset)).
+primitive(targetAsset(_asset,_property)).
 
 /******************************************************/
 /*             Tabling Predicates                     */
 /*   All derived predicates should be tabled          */
 /******************************************************/
 
-:- table targetAsset/1.
+:- table targetAsset/2.
 
 /**********Entry points*******************/
 interaction_rule(
@@ -40,14 +40,14 @@ interaction_rule(
 
 /**********Target assets*******************/
 interaction_rule(
-  (targetAsset(HostAsset) :-
+  (targetAsset(HostAsset,_) :-
   isAsset(HostAsset,Importance),
   canAccessHost(HostAsset)
   ),
   rule_desc('Access to a host asset', Importance)).
 
 interaction_rule(
-  (targetAsset(ProgAsset) :-
+  (targetAsset(ProgAsset,_) :-
   isAsset(ProgAsset,Importance),
   canAccessHost(H),
   networkServiceInfo(H,ProgAsset,_,_,_)

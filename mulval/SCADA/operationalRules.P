@@ -274,7 +274,6 @@ interaction_rule(
 */
 
 :-load_dyn('/tool/mulval/lib/vulList.P').
-:-load_dyn('/tool/mulval/lib/elementTypeHierarchy.P').
 
 
 
