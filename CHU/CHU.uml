@@ -96,8 +96,12 @@
         <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_koWZYIlCEe6lssfuL0bjRg" name="sQL Server" type="_b0dh4IlCEe6lssfuL0bjRg"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_qLpC0IlCEe6lssfuL0bjRg" name="1433" aggregation="composite"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_B68wwIlDEe6lssfuL0bjRg" name="ItemFlow9" informationSource="_koWZYIlCEe6lssfuL0bjRg" informationTarget="_qLpC0IlCEe6lssfuL0bjRg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_o-bhwH4eEe6wVOUTP2joHw" name="Actors">
       <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>
@@ -110,6 +114,7 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="Machine Expert"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA Server"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPN Service"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_b0dh4IlCEe6lssfuL0bjRg" name="MySQL Server"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_YMFugH41Ee6wVOUTP2joHw" name="Attacks">
       <packagedElement xmi:type="uml:Class" xmi:id="_aUXpoH41Ee6wVOUTP2joHw" name="Steal Info"/>
@@ -207,7 +212,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_mJzlwHmDEe69raeEJc1a7Q" name="ItemFlow58" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_kxaPcHmDEe69raeEJc1a7Q"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_zhagEHmDEe69raeEJc1a7Q" name="ItemFlow59" informationSource="_vdLggXmBEe69raeEJc1a7Q" informationTarget="_wJyH0nmBEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_wy5WQHmBEe69raeEJc1a7Q"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_qLpC0IlCEe6lssfuL0bjRg"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_ULHWIHmEEe69raeEJc1a7Q" name="ItemFlow61" informationSource="_FaR_EHmEEe69raeEJc1a7Q" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_iHHsEHmGEe69raeEJc1a7Q" name="ItemFlow62" informationSource="_7-iRoXloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="ItemFlow63" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
@@ -362,7 +367,7 @@
   <PortsAndFlows:ItemFlow xmi:id="_zhqXsHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_03QRoHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_1dWoUHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_2Z9agHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_2Z9agHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q" protocol="tcp"/>
   <PortsAndFlows:ItemFlow xmi:id="_ULRuMHmEEe69raeEJc1a7Q" base_InformationFlow="_ULHWIHmEEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_VAgGAHmEEe69raeEJc1a7Q" base_InformationFlow="_ULHWIHmEEe69raeEJc1a7Q" protocol="opcua"/>
   <PortsAndFlows:ItemFlow xmi:id="_iHVHcHmGEe69raeEJc1a7Q" base_InformationFlow="_iHHsEHmGEe69raeEJc1a7Q"/>
@@ -379,4 +384,8 @@
   <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_7DJ7MH4NEe6wVOUTP2joHw" base_Dependency="_5k4mYH4NEe6wVOUTP2joHw" account=""/>
   <PortsAndFlows:ItemFlow xmi:id="_0AXYcH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_1WSCgH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw" protocol="ipSec"/>
+  <Blocks:Block xmi:id="_b0qWMIlCEe6lssfuL0bjRg" base_Class="_b0dh4IlCEe6lssfuL0bjRg"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_e9jZwIlCEe6lssfuL0bjRg" base_Class="_b0dh4IlCEe6lssfuL0bjRg"/>
+  <PortsAndFlows:ItemFlow xmi:id="_B7BpQIlDEe6lssfuL0bjRg" base_InformationFlow="_B68wwIlDEe6lssfuL0bjRg"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_EUzkEIlDEe6lssfuL0bjRg" base_InformationFlow="_B68wwIlDEe6lssfuL0bjRg" protocol="tcp"/>
 </xmi:XMI>
