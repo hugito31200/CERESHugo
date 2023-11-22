@@ -16,20 +16,22 @@ vulProperty('CVE-2022-45788',localExploit,privEscalation).
 vulProperty('CVE-2022-45788',codeExecution,dos).
 vulProperty('CVE-2022-45788',codeExecution,leakinfo).
 
-vulExists(undef,'CVE-2021-22789',ecostruxure_control_expert).
+vulExists(undef,'CVE-2021-22789',plc_simulator_for_ecostruxure_control_expert).
 vulProperty('CVE-2021-22789',loadFile,dos).
 
-vulExists(undef,'CVE-2023-1548',ecostruxure_control_expert).
+vulExists(undef,'CVE-2023-1548',ecostruxure_control_expert_15_1).
 vulProperty('CVE-2023-1548',codeExecution,dos).
 
-vulExists(undef,'CVE-2023-27976',ecostruxure_control_expert).
+vulExists(undef,'CVE-2023-27976',ecostruxure_control_expert_15_1).
 vulProperty('CVE-2023-27976',codeExecution,privEscalation).
 vulProperty('CVE-2023-27976',webAccess,remoteExploit).
 
-vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert).
+vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_14_0).
+vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_14_1).
+vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_15_0).
 vulProperty('CVE-2022-37300',hijackcomm,authenticationBypass).
 
-vulExists(undef,'CVE-2023-37200',ecostruxure_opcua_server).
+vulExists(undef,'CVE-2023-37200',ecostruxure_opcua_server_expert).
 vulProperty('CVE-2023-37200',codeExecution,leakinfo).
 
 
