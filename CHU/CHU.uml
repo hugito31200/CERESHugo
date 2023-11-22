@@ -98,7 +98,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_koWZYIlCEe6lssfuL0bjRg" name="sQL Server" type="_b0dh4IlCEe6lssfuL0bjRg"/>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_qLpC0IlCEe6lssfuL0bjRg" name="1433" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_qLpC0IlCEe6lssfuL0bjRg" name="3306" aggregation="composite"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
       <packagedElement xmi:type="uml:InformationFlow" xmi:id="_B68wwIlDEe6lssfuL0bjRg" name="ItemFlow9" informationSource="_koWZYIlCEe6lssfuL0bjRg" informationTarget="_qLpC0IlCEe6lssfuL0bjRg"/>

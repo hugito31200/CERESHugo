@@ -11,8 +11,8 @@ derived(isTriggered(_vulID)).
 
 derived(accessInfo(_host)).
 derived(isCompromised(_device)).
-derived(canSniffCommunication(_h1,_h2)).
-derived(covertAppropriation(_plc)).
+derived(mitm(_h1,_h2)).
+derived(covertAppropriation(_h)).
 
 derived(targetAsset(_asset,_property)).
 
@@ -25,7 +25,7 @@ derived(targetAsset(_asset,_property)).
 :- table isTriggered/1.
 :- table accessInfo/1.
 :- table isCompromised/1.
-:- table canSniffCommunication/2.
+:- table mitm/2.
 :- table covertAppropriation/1.
 
 /************Vulnerability triggering*******************/
@@ -119,12 +119,10 @@ interaction_rule(
   (covertAppropriation(PLC) :-
   isSensor(Sensor),
   isActuator(Actuator),
-  hacl(Sensor,PLC,_,_),
-  canSniffCommunication(Sensor,PLC),
-  hacl(PLC,Actuator,_,_),
-  canSniffCommunication(PLC,Actuator)
+  mitm(Sensor,PLC),
+  mitm(PLC,Actuator)
   ),
-  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', 1)).
+  rule_desc('Covert Appropriation with MITM', 1)).
 
 
 /********************Physically compromising a sensor or an actuator************************************/
@@ -145,34 +143,34 @@ interaction_rule(
   rule_desc('Physically compromising an actuator', 1)).
   
 
-/********************Sniffing on a communication channel************************************/
+/********************Man In The Middle************************************/
 interaction_rule(
-  (canSniffCommunication(Device,Host) :-
+  (mitm(Device,Host) :-
   isCompromised(Device),
   hacl(Device,Host,_,_)
   ),
-  rule_desc('Compromise source of communication', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
 interaction_rule(
-  (canSniffCommunication(device,Host) :-
+  (mitm(Host,Device) :-
   isCompromised(Device),
   hacl(Host,Device,_,_)
   ),
-  rule_desc('Compromise end of communication', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
   interaction_rule(
-  (canSniffCommunication(H1,H2) :-
+  (mitm(H1,H2) :-
   execCode(H1,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on origin node', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
   interaction_rule(
-  (canSniffCommunication(H1,H2) :-
+  (mitm(H1,H2) :-
   execCode(H2,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on end node', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
 
 /***********************Compromise of assets*************************/
@@ -251,8 +249,8 @@ interaction_rule(
 
 interaction_rule(
   (targetAsset(Database,confidentiality) :-
-  netAccess(Database,tcp,1433),
-  networkServiceInfo(Database,SW,tcp,1433,_),
+  netAccess(Database,_,_),
+  networkServiceInfo(Database,SW,_,_,_),
   refines(SW,sql_sw)
   ),
   rule_desc('CAPEC 66 SQL Injection', 1)).
@@ -266,7 +264,7 @@ interaction_rule(
   networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
   rule_desc('Direct Refinement', 1)).
-  
+
   interaction_rule(
   (refines(Concrete,Abstract) :-
   isA(Concrete,Abstract)
