@@ -164,7 +164,7 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 
 [template private generateRefinement(elem:OclAny) post(trim())]
 [let prog:Class = elem.eGet('base_Class').oclAsType(Class)]
-[prog.refine()/]
+[prog.refine(elem.eGet('version').toString())/]
 [/let]
 [/template]
 
@@ -197,15 +197,6 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [let class:String = elem.eClass().name]
 [if (class.contains('Host'))]
 [generateNetworkServiceInfo(elem,m)/]
-[/if]
-[/let]
-[/for]
-
-/****************************Refinement******************************/
-[for (elem: OclAny | m.siblings())]
-[let class:String = elem.eClass().name]
-[if (class.contains('Program'))]
-[generateRefinement(elem)/]
 [/if]
 [/let]
 [/for]
@@ -250,6 +241,15 @@ dependsOn([getHostOfProgram(prog, m)/],[formatName(prog.name)/],[formatName(depe
 [let class:String = elem.eClass().name]
 [if(class.contains('physicalAccess'))]
 [generatePhysicalAccess(elem)/]
+[/if]
+[/let]
+[/for]
+
+/****************************Refinement******************************/
+[for (elem: OclAny | m.siblings())]
+[let class:String = elem.eClass().name]
+[if (class.contains('Program'))]
+[generateRefinement(elem)/]
 [/if]
 [/let]
 [/for]

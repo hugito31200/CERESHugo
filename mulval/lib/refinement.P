@@ -10,4 +10,4 @@ isA(ecostruxure_control_expert_15_1,ecostruxure_control_expert).
 isA(ecostruxure_machine_expert_2_0,ecostruxure_machine_expert).
 
 /*EcoStruxure OPC-UA Server Expert*/
-isA(ecostruxure_opcua_server_expert_2_00,ecostruxure_opcua_server_expert).
+isA(ecostruxure_opcua_server_expert_2_0,ecostruxure_opcua_server_expert).
