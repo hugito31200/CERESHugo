@@ -80,6 +80,10 @@
           <element xmi:type="uml:Property" href="SysML_Extension_for_MulVAL.profile.uml#__avsgFksEe6iHqTnsHpdDA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="__bCncVksEe6iHqTnsHpdDA"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_M0WSIIkVEe6lssfuL0bjRg" type="Property_ClassAttributeLabel">
+          <element xmi:type="uml:Property" href="SysML_Extension_for_MulVAL.profile.uml#_MxHX8IkVEe6lssfuL0bjRg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_M0WSIYkVEe6lssfuL0bjRg"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_In2AIlkrEe6iHqTnsHpdDA"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_In2AI1krEe6iHqTnsHpdDA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_In2AJFkrEe6iHqTnsHpdDA"/>
