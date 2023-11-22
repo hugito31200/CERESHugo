@@ -1,25 +1,34 @@
-attackGoal(targetAsset(_)).
+/*****************Attacker*************************/
 attackerLocated(internet).
 
-
-/********Stakeholders***************/
-stakeHolder(alarmprovider,'likely').
-stakeHolder(technician,'possible').
-stakeHolder(employee,'unlikely').
-
-hasAccess(technician,sensor).
-hasAccess(technician,actuator).
-hasAccess(technician,plc).
-hasAccess(employee,workstation).
-hasAccess(alarmprovider,webserver).
+/********************Attack Goals**************************/
+/*Uncomment to run one or multiple attack goals*/
 
 
-/******************Hosts and Connections************************/
+/*attackGoal(targetAsset(scada,availability)).*/
+/*attackGoal(targetAsset(scada,confidentiality)).*/
+/*attackGoal(targetAsset(plc,integrity)).*/
+/*attackGoal(targetAsset(webserver,availability)).*/
+/*attackGoal(targetAsset(webserver,integrity)).*/
+attackGoal(targetAsset(database,confidentiality)).
+
+
+
+/*********************Programs************************/
+
+networkServiceInfo(scada, machine_expert, _, _, _).
+networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
+networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
+networkServiceInfo(webserver, vpn_service, ipSec, 80, _).
+networkServiceInfo(database, mysql_server, tcp, 1433, _).
+
+
+/******************Connections**********************/
 
 
 
 hacl(workstation, webserver, _, _).
-hacl(webserver, database, _, _).
+hacl(webserver, database, tcp, 1433).
 hacl(webserver, scada, opcua, opcua_port).
 hacl(scada, plc, opcua, opcua_port).
 hacl(sensor, plc, opcua, opcua_port).
@@ -28,15 +37,28 @@ hacl(internet, webserver, ipSec, 80).
 
 
 
-/********************Assets**************************/
-isAsset(regulatetemperature,'likely').
-isAsset(monitorsystem,'possible').
-isAsset(handlenetworkrequests,'likely').
-isAsset(patientinformation,'certain').
+/*********************Devices************************/
+isSensor(sensor).
+isActuator(actuator).
 
 
-assetLocated(monitorsystem,scada).
-assetLocated(regulatetemperature,plc).
-assetLocated(handlenetworkrequests,webserver).
-assetLocated(patientinformation,database).
+/****************************Users******************************/
+inCompetent(alarm_provider).
+malicious(alarm_provider).
+inCompetent(technician).
+malicious(technician).
+inCompetent(employee).
+
+hasAccount(employee,workstation,root).
+hasAccount(alarm_provider,webserver,_).
+
+physicalAccess(technician,sensor).
+physicalAccess(technician,actuator).
+physicalAccess(technician,plc).
+
+/****************************Refinement******************************/
+isA(control_expert, ecostruxure_control_expert_14_1).
+isA(machine_expert, ecostruxure_machine_expert).
+isA(opcua_server, ecostruxure_opcua_server_expert_2_0).
+isA(mysql_server, oracle_mysql_server_8_0_33).
 
