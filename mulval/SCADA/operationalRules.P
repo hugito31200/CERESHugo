@@ -214,14 +214,14 @@ interaction_rule(
   (targetAsset(DeviceAsset,integrity) :-
   covertAppropriation(DeviceAsset)
   ),
-  rule_desc('Compromising the integrity of an asset', 1)).
+  rule_desc('Covertly appropriating an asset', 1)).
 
 interaction_rule(
   (targetAsset(DeviceAsset,integrity) :-
   physicalAccess(Principal,DeviceAsset),
   malicious(Principal)
   ),
-  rule_desc('Compromising the integrity of an asset', 1)).
+  rule_desc('CAPEC 624 Hardware Fault Injection', 1)).
 
 interaction_rule(
   (targetAsset(HostAsset,confidentiality) :-
@@ -249,6 +249,14 @@ interaction_rule(
   ),
   rule_desc('Compromising the confidentiality of an asset', 1)).
 
+interaction_rule(
+  (targetAsset(Database,confidentiality) :-
+  netAccess(Database,tcp,1433),
+  networkServiceInfo(Database,SW,tcp,1433,_),
+  refines(SW,sql_sw)
+  ),
+  rule_desc('CAPEC 66 SQL Injection', 1)).
+
 
 /*******************Refinement*********************/
 interaction_rule(
@@ -258,7 +266,7 @@ interaction_rule(
   networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
   rule_desc('Direct Refinement', 1)).
-/*
+  
   interaction_rule(
   (refines(Concrete,Abstract) :-
   isA(Concrete,Abstract)
@@ -271,7 +279,6 @@ interaction_rule(
   refines(Temp,Abstract)
   ),
   rule_desc('Indirect Refinement', 1)). 
-*/
 
 :-load_dyn('/tool/mulval/lib/vulList.P').
 
