@@ -8,7 +8,7 @@
       <importedPackage xmi:type="uml:Package" href="pathmap://SysML16_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_40sOoFISEe60br66PwaoIQ" name="Blocks">
-      <packagedElement xmi:type="uml:Class" xmi:id="_qi03UFFpEe6HEMNnvMx1Dw" name="System">
+      <packagedElement xmi:type="uml:Class" xmi:id="_qi03UFFpEe6HEMNnvMx1Dw" name="Hospital">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_QIBk4HloEe69raeEJc1a7Q" name="network" type="_MK0vgHloEe69raeEJc1a7Q" aggregation="shared" association="_QH-hkHloEe69raeEJc1a7Q">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QICL8HloEe69raeEJc1a7Q"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QICL8XloEe69raeEJc1a7Q" value="1"/>
@@ -22,7 +22,9 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YQu58Xl_Ee69raeEJc1a7Q" value="1"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_GsDs0HmAEe69raeEJc1a7Q" name="SCADA_Conn" informationSource="_QIBk4HloEe69raeEJc1a7Q" informationTarget="_rtNgwHl_Ee69raeEJc1a7Q"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_GsDs0HmAEe69raeEJc1a7Q" name="SCADA_Conn" informationSource="_QIBk4HloEe69raeEJc1a7Q" informationTarget="_rtNgwHl_Ee69raeEJc1a7Q">
+        <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_KAp-AHloEe69raeEJc1a7Q" name="HVAC">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_6DqgYnloEe69raeEJc1a7Q" name="sensor" type="_1mo6cHcCEe62INvlmVZBnw" aggregation="shared" association="_6Dp5UHloEe69raeEJc1a7Q">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6DrHcHloEe69raeEJc1a7Q"/>
@@ -58,6 +60,10 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wy59UXmBEe69raeEJc1a7Q" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_kxaPcHmDEe69raeEJc1a7Q" name="SCADA" type="_y3UNcHcCEe62INvlmVZBnw"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_ulGEYIoIEe62CplfIrYQcA" name="Webserver" type="_61FpYHmAEe69raeEJc1a7Q" aggregation="composite"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="__LTBoIoIEe62CplfIrYQcA" name="ItemFlow5" informationSource="_YQuS4nl_Ee69raeEJc1a7Q" informationTarget="_ulGEYIoIEe62CplfIrYQcA">
+        <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_hWbOkH4eEe6wVOUTP2joHw" name="Hosts">
@@ -254,8 +260,12 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_mjKXYncGEe62INvlmVZBnw" name="scada" type="_y3UNcHcCEe62INvlmVZBnw" association="_mjJJQHcGEe62INvlmVZBnw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_oOW4cHcHEe62INvlmVZBnw" name="ItemFlow41" informationSource="_mjJwUncGEe62INvlmVZBnw" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_BrSJUHcJEe62INvlmVZBnw" name="ItemFlow45" informationSource="_UB1RkncDEe62INvlmVZBnw" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_oOW4cHcHEe62INvlmVZBnw" name="ItemFlow41" informationSource="_mjJwUncGEe62INvlmVZBnw" informationTarget="_BJgj4HcHEe62INvlmVZBnw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_BrSJUHcJEe62INvlmVZBnw" name="ItemFlow45" informationSource="_UB1RkncDEe62INvlmVZBnw" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_QH-hkHloEe69raeEJc1a7Q" memberEnd="_QIBk4HloEe69raeEJc1a7Q _QICL8nloEe69raeEJc1a7Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QIA90HloEe69raeEJc1a7Q" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QIA90XloEe69raeEJc1a7Q" key="nature" value="UML_Nature"/>
@@ -316,17 +326,35 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_wy59UnmBEe69raeEJc1a7Q" name="network" type="_MK0vgHloEe69raeEJc1a7Q" association="_wy3hEHmBEe69raeEJc1a7Q"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_mJzlwHmDEe69raeEJc1a7Q" name="ItemFlow58" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_kxaPcHmDEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_zhagEHmDEe69raeEJc1a7Q" name="ItemFlow59" informationSource="_vdLggXmBEe69raeEJc1a7Q" informationTarget="_wJyH0nmBEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_wy5WQHmBEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_ULHWIHmEEe69raeEJc1a7Q" name="ItemFlow61" informationSource="_FaR_EHmEEe69raeEJc1a7Q" informationTarget="_BJgj4HcHEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_iHHsEHmGEe69raeEJc1a7Q" name="ItemFlow62" informationSource="_7-iRoXloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="ItemFlow63" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_vX6zwHmGEe69raeEJc1a7Q" name="ItemFlow64" informationSource="_7TLngnloEe69raeEJc1a7Q" informationTarget="_tdtw4HmGEe69raeEJc1a7Q"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_mJzlwHmDEe69raeEJc1a7Q" name="ItemFlow58" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_kxaPcHmDEe69raeEJc1a7Q">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_zhagEHmDEe69raeEJc1a7Q" name="ItemFlow59" informationSource="_vdLggXmBEe69raeEJc1a7Q" informationTarget="_wJyH0nmBEe69raeEJc1a7Q">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_wy5WQHmBEe69raeEJc1a7Q">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_ULHWIHmEEe69raeEJc1a7Q" name="ItemFlow61" informationSource="_FaR_EHmEEe69raeEJc1a7Q" informationTarget="_BJgj4HcHEe62INvlmVZBnw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_iHHsEHmGEe69raeEJc1a7Q" name="ItemFlow62" informationSource="_7-iRoXloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="ItemFlow63" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_vX6zwHmGEe69raeEJc1a7Q" name="ItemFlow64" informationSource="_7TLngnloEe69raeEJc1a7Q" informationTarget="_tdtw4HmGEe69raeEJc1a7Q">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_XePzcHmHEe69raeEJc1a7Q" client="_Nwgi0HmHEe69raeEJc1a7Q" supplier="_oQZwwHmBEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_KejzMHoyEe6F8cEIkGJudw" name="ItemFlow65" informationSource="_e3lVUHmDEe69raeEJc1a7Q" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_KejzMHoyEe6F8cEIkGJudw" name="ItemFlow65" informationSource="_e3lVUHmDEe69raeEJc1a7Q" informationTarget="_H7MekHoyEe6F8cEIkGJudw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_5k4mYH4NEe6wVOUTP2joHw" client="_2wRdcHGbEe64YpFtfVg2wg" supplier="_61FpYHmAEe69raeEJc1a7Q"/>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_0ALLMH4OEe6wVOUTP2joHw" name="ItemFlow63" informationSource="_yRFMIH4OEe6wVOUTP2joHw" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_0ALLMH4OEe6wVOUTP2joHw" name="ItemFlow63" informationSource="_yRFMIH4OEe6wVOUTP2joHw" informationTarget="_H7MekHoyEe6F8cEIkGJudw">
+      <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_N_mucFFpEe6HEMNnvMx1Dw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N_pKsFFpEe6HEMNnvMx1Dw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#/"/>
@@ -499,4 +527,5 @@
   <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_eBdmcH41Ee6wVOUTP2joHw" type="StealData" base_Class="_aUXpoH41Ee6wVOUTP2joHw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_lq2ZsH41Ee6wVOUTP2joHw" target="_dB1ScHcDEe62INvlmVZBnw" base_Class="_hdIcEH41Ee6wVOUTP2joHw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_ABq8cH42Ee6wVOUTP2joHw" type="CovertAppropriation" target="_fGeqwHcDEe62INvlmVZBnw" base_Class="_91FJEH41Ee6wVOUTP2joHw"/>
+  <PortsAndFlows:ItemFlow xmi:id="__LXTEIoIEe62CplfIrYQcA" base_InformationFlow="__LTBoIoIEe62CplfIrYQcA"/>
 </xmi:XMI>
