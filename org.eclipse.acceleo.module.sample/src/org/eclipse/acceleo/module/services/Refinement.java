@@ -4,8 +4,10 @@ import org.eclipse.uml2.uml.Class;
 
 public class Refinement {
 	
-	private String[] cpeNames= {"ecostruxure_control_expert","ecostruxure_machine_expert","ecostruxure_opcua_server_expert",
-			"oracle_mysql_server"};
+	private String[] cpeNames= 
+		{"ecostruxure_control_expert","ecostruxure_machine_expert","ecostruxure_opcua_server_expert", "oracle_mysql_server",
+				"web_server"
+		};
 	
 	
 	
@@ -17,7 +19,7 @@ public class Refinement {
 		
 		for(int i=0;i<cpeNames.length;i++) {
 			String cpeName = cpeNames[i];
-			if(cpeName.contains(formattedName)) {
+			if(cpeName.contains(formattedName) || formattedName.contains(cpeName)) {
 				if(versionNumber.isEmpty()) {
 					result+="isA("+formattedName+", "+cpeName+").\n";
 				}else {

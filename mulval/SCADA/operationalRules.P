@@ -247,6 +247,8 @@ interaction_rule(
   ),
   rule_desc('Compromising the confidentiality of an asset', 1)).
 
+
+/***************CAPEC Attacks************************/
 interaction_rule(
   (targetAsset(Database,confidentiality) :-
   netAccess(Database,_,_),
@@ -254,6 +256,14 @@ interaction_rule(
   refines(SW,sql_sw)
   ),
   rule_desc('CAPEC 66 SQL Injection', 1)).
+
+  interaction_rule(
+  (targetAsset(Webserver,integrity) :-
+  netAccess(Webserver,_,_),
+  networkServiceInfo(Webserver,Webserver_SW,_,_,_),
+  refines(Webserver_SW,web_server)
+  ),
+  rule_desc('CAPEC 101 Server Side Include SSI Injection', 1)).
 
 
 /*******************Refinement*********************/
