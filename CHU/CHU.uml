@@ -341,7 +341,7 @@
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_iHHsEHmGEe69raeEJc1a7Q" name="ItemFlow62" informationSource="_7-iRoXloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
       <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="ItemFlow63" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lOTfcHmGEe69raeEJc1a7Q" name="sensor_to_plc" informationSource="_6DqgYnloEe69raeEJc1a7Q" informationTarget="_tBMAMHcFEe62INvlmVZBnw">
       <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_vX6zwHmGEe69raeEJc1a7Q" name="ItemFlow64" informationSource="_7TLngnloEe69raeEJc1a7Q" informationTarget="_tdtw4HmGEe69raeEJc1a7Q">
