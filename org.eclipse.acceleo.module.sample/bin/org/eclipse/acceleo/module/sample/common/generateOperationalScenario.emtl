@@ -18,7 +18,7 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
     </input>
-    <imports href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0"/>
+    <imports href="../../services/refinement.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="underscoreIfEmpty">
       <body xsi:type="ocl.ecore:IfExp">
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -1983,7 +1983,7 @@
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0/refine"/>
+          <definition href="../../services/refinement.emtl#/0/refine"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="prog" referredVariable="/0/generateRefinement/%/prog">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -2767,7 +2767,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0/refine"/>
+          <references href="../../services/refinement.emtl#/0/refine"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
