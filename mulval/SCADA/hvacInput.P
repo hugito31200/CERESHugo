@@ -1,7 +1,7 @@
 /*attackGoal(execCode(webServer,_)).*/
-/*attackGoal(dos(scada)).*/
+attackGoal(dos(scada)).
 /*attackGoal(accessInfo(scada)).*/
-attackGoal(covertAppropriation(plc)).
+/*attackGoal(covertAppropriation(plc)).*/
 
 attackerLocated(internet).
 inCompetent(alarmProvider).
@@ -39,44 +39,44 @@ networkServiceInfo(scada,opcua_server,opcua,opcua_port,_).
 
 vulExists(scada,'CVE-2023-22610',machineExpert).
 vulProperty('CVE-2023-22610',hijackcomm,dos).
-cvss('CVE-2023-22610',h).
+cvss('CVE-2023-22610',l).
 
 vulExists(scada,'CVE-2022-2988',machineExpert).
 vulProperty('CVE-2022-2988',webAccess,leakinfo).
-cvss('CVE-2022-2988',h).
+cvss('CVE-2022-2988',l).
 
 vulExists(scada,'CVE-2023-22611',machineExpert).
 vulProperty('CVE-2023-22611',hijackcomm,leakinfo).
-cvss('CVE-2023-22611',likely).
+cvss('CVE-2023-22611',l).
 
 vulExists(plc,'CVE-2022-45789',controlExpert).
 vulProperty('CVE-2022-45789',localExploit,privEscalation).
 vulProperty('CVE-2022-45789',hijackcomm,authenticationBypass).
-cvss('CVE-2022-45789',h).
+cvss('CVE-2022-45789',l).
 
 vulExists(plc,'CVE-2022-45788',controlExpert).
 vulProperty('CVE-2022-45788',localExploit,privEscalation).
 vulProperty('CVE-2022-45788',codeExecution,dos).
 vulProperty('CVE-2022-45788',codeExecution,leakinfo).
-cvss('CVE-2022-45788',h).
+cvss('CVE-2022-45788',l).
 
 vulExists(plc,'CVE-2021-22789',controlExpert).
 vulProperty('CVE-2021-22789',loadFile,dos).
-cvss('CVE-2021-22789',m).
+cvss('CVE-2021-22789',l).
 
 vulExists(plc,'CVE-2023-1548',controlExpert).
 vulProperty('CVE-2023-1548',codeExecution,dos).
-cvss('CVE-2023-1548',m).
+cvss('CVE-2023-1548',l).
 
 vulExists(plc,'CVE-2023-27976',controlExpert).
 vulProperty('CVE-2023-27976',codeExecution,privEscalation).
 vulProperty('CVE-2023-27976',webAccess,remoteExploit).
-cvss('CVE-2023-27976',h).
+cvss('CVE-2023-27976',l).
 
 vulExists(plc,'CVE-2022-37300',controlExpert).
 vulProperty('CVE-2022-37300',hijackcomm,authenticationBypass).
-cvss('CVE-2022-37300',h).
+cvss('CVE-2022-37300',l).
 
 vulExists(scada,'CVE-2023-37200',opcua_server).
 vulProperty('CVE-2023-37200',codeExecution,leakinfo).
-cvss('CVE-2023-37200',m).
+cvss('CVE-2023-37200',l).
