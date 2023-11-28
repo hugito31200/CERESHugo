@@ -48,11 +48,12 @@ interaction_rule(
 interaction_rule(
   (isTriggered(VulID) :-
   vulExists(H1,VulID,SW,hijackcomm,_),
+  cvss(VulID,AC),
   networkServiceInfo(H1,SW,_,_,_),
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
-  rule_desc('Hijack communication', likely)).
+  rule_desc('Hijack communication', cvss_ac(AC))).
 
 
 /*****Denial of Service*********/
