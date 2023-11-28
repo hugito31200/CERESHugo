@@ -328,7 +328,7 @@
     <securityProperty>Availability</securityProperty>
     <securityProperty>Confidentiality</securityProperty>
   </SysML_Extension_for_MulVAL.Stereotypes:Host>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_fGeqwHcDEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw" isAsset="true">
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_fGeqwHcDEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw" importance="High" isAsset="true">
     <securityProperty>Integrity</securityProperty>
   </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <Blocks:Block xmi:id="_ipNxsHcDEe62INvlmVZBnw" base_Class="_io96EHcDEe62INvlmVZBnw"/>
@@ -356,7 +356,7 @@
   <PortsAndFlows:ItemFlow xmi:id="_GsOE4HmAEe69raeEJc1a7Q" base_InformationFlow="_GsDs0HmAEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_Hh7k4HmAEe69raeEJc1a7Q" base_InformationFlow="_GsDs0HmAEe69raeEJc1a7Q"/>
   <Blocks:Block xmi:id="_61PaYHmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_9tWP8HmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q" isAsset="true">
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_9tWP8HmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q" importance="Medium" isAsset="true">
     <securityProperty>Availability</securityProperty>
     <securityProperty>Integrity</securityProperty>
   </SysML_Extension_for_MulVAL.Stereotypes:Host>
@@ -365,7 +365,9 @@
     <securityProperty>Confidentiality</securityProperty>
   </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <Blocks:Block xmi:id="_oQhFgHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_pkRzcHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q" isAsset="true"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_pkRzcHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q" importance="Low" isAsset="true">
+    <securityProperty>Availability</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <PortsAndFlows:ItemFlow xmi:id="_mKC2UHmDEe69raeEJc1a7Q" base_InformationFlow="_mJzlwHmDEe69raeEJc1a7Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_zhqXsHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_03QRoHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>

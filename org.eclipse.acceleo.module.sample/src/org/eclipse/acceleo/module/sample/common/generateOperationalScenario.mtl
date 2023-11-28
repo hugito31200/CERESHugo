@@ -9,7 +9,7 @@
 
 [template private formatName(name:String) post(trim())]
 [name.replaceAll(' ', '_').toLower()/]
-[/template]
+[/template] 
 
 [template private formatName(names:Bag(String)) post(trim())]
 [names.replaceAll(' ', '_').toLower()/]

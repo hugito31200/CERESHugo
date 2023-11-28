@@ -1,25 +1,22 @@
-
 attackerLocated(internet).
 
 /********************Attack Goals**************************/
 /*Uncomment to run one or multiple attack goals*/
-
-
 /*attackGoal(targetAsset(_,_)).*/
-attackGoal(targetAsset(scada,availability)).
+/*attackGoal(targetAsset(scada,availability)).*/
 /*attackGoal(targetAsset(scada,confidentiality)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
 /*attackGoal(targetAsset(webserver,integrity)).*/
 /*attackGoal(targetAsset(database,confidentiality)).*/
-
+/*attackGoal(targetAsset(workstation,availability)).*/
 
 /********************Assets**************************/
 isAsset(scada,'certain').
-isAsset(plc,'certain').
-isAsset(webserver,'certain').
+isAsset(plc,'likely').
+isAsset(webserver,'possible').
 isAsset(database,'certain').
-isAsset(workstation,'certain').
+isAsset(workstation,'unlikely').
 
 
 /********Stakeholders***************/
@@ -30,7 +27,7 @@ stakeHolder(employee,'unlikely').
 hasAccess(technician,sensor).
 hasAccess(technician,actuator).
 hasAccess(technician,plc).
-/*hasAccess(employee,workstation).*/
+hasAccess(employee,workstation).
 hasAccess(alarmprovider,webserver).
 
 
@@ -39,7 +36,7 @@ hacl(workstation, webserver, _, _).
 hacl(webserver, database, tcp, 3306).
 hacl(webserver, scada, opcua, opcua_port).
 hacl(scada, plc, opcua, opcua_port).
-hacl(sensor, plc, opcua, opcua_port).
+/*hacl(sensor, plc, opcua, opcua_port).*/
 hacl(plc, actuator, opcua, opcua_port).
 hacl(internet, webserver, ipSec, 80).
 
@@ -50,6 +47,3 @@ networkServiceInfo(plc, controlexpert, _, _, _).
 networkServiceInfo(webserver, vpnservice, _, _, _).
 networkServiceInfo(webserver, webserversw, _, _, _).
 networkServiceInfo(database, sqlserver, _, _, _).
-
-
-

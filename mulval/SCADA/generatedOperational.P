@@ -15,7 +15,6 @@ attackGoal(targetAsset(database,confidentiality)).
 
 
 /*********************Programs************************/
-
 networkServiceInfo(scada, machine_expert, _, _, _).
 networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
 networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
@@ -25,9 +24,6 @@ networkServiceInfo(database, mysql_server, tcp, 3306, _).
 
 
 /******************Connections**********************/
-
-
-
 hacl(workstation, webserver, _, _).
 hacl(webserver, database, tcp, 3306).
 hacl(webserver, scada, opcua, opcua_port).
