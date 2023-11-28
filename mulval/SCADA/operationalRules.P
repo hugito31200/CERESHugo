@@ -152,28 +152,28 @@ interaction_rule(
   isCompromised(Device),
   hacl(Device,Host,_,_)
   ),
-  rule_desc('CAPEC 94 Man In The Middle', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', likely)).
 
 interaction_rule(
   (mitm(Host,Device) :-
   isCompromised(Device),
   hacl(Host,Device,_,_)
   ),
-  rule_desc('CAPEC 94 Man In The Middle', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', likely)).
 
   interaction_rule(
   (mitm(H1,H2) :-
   execCode(H1,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('CAPEC 94 Man In The Middle', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', likely)).
 
   interaction_rule(
   (mitm(H1,H2) :-
   execCode(H2,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('CAPEC 94 Man In The Middle', 1)).
+  rule_desc('CAPEC 94 Man In The Middle', likely)).
 
 
 /***********************Compromise of assets*************************/
@@ -222,7 +222,7 @@ interaction_rule(
   physicalAccess(Principal,DeviceAsset),
   malicious(Principal)
   ),
-  rule_desc('CAPEC 624 Hardware Fault Injection', 1)).
+  rule_desc('CAPEC 624 Hardware Fault Injection', unlikely)).
 
 interaction_rule(
   (targetAsset(HostAsset,confidentiality) :-
@@ -258,7 +258,7 @@ interaction_rule(
   networkServiceInfo(Database,SW,_,_,_),
   refines(SW,sql_sw)
   ),
-  rule_desc('CAPEC 66 SQL Injection', 1)).
+  rule_desc('CAPEC 66 SQL Injection', likely)).
 
   interaction_rule(
   (targetAsset(Webserver,integrity) :-
@@ -266,7 +266,7 @@ interaction_rule(
   networkServiceInfo(Webserver,Webserver_SW,_,_,_),
   refines(Webserver_SW,web_server)
   ),
-  rule_desc('CAPEC 101 Server Side Include SSI Injection', 1)).
+  rule_desc('CAPEC 101 Server Side Include SSI Injection', possible)).
 
 
 /*******************Refinement*********************/
