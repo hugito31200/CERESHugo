@@ -15,4 +15,3 @@ mulval/*/translated_rules.P
 mulval/SCADA/generatedInput.P
 mulval/testcases/*
 org.eclipse.acceleo.module.sample/dst/*
-org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/sample/common/generateOperationalScenario.emtl

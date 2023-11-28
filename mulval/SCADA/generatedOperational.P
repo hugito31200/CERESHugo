@@ -9,8 +9,8 @@ attackerLocated(internet).
 /*attackGoal(targetAsset(scada,confidentiality)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
-/*attackGoal(targetAsset(webserver,integrity)).*/
-attackGoal(targetAsset(database,confidentiality)).
+attackGoal(targetAsset(webserver,integrity)).
+/*attackGoal(targetAsset(database,confidentiality)).*/
 
 
 

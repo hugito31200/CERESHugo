@@ -1,9 +1,7 @@
 [comment encoding = UTF-8 /]
 [module generateStrategicScenario('http://www.eclipse.org/papyrus/sysml/1.6/SysML', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
 
-[import org::eclipse::acceleo::module::sample::services::utils/]
-
-
+[import org::eclipse::acceleo::module::services::utils/]
 
 [template private generateStakeholder(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]

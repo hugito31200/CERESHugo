@@ -108,8 +108,12 @@
         <ownedAttribute xmi:type="uml:Port" xmi:id="_qLpC0IlCEe6lssfuL0bjRg" name="3306" aggregation="composite"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
-      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_B68wwIlDEe6lssfuL0bjRg" name="ItemFlow9" informationSource="_koWZYIlCEe6lssfuL0bjRg" informationTarget="_qLpC0IlCEe6lssfuL0bjRg"/>
-      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_S2dwEInaEe62CplfIrYQcA" name="ItemFlow10" informationSource="_QJgakInaEe62CplfIrYQcA" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_B68wwIlDEe6lssfuL0bjRg" name="ItemFlow9" informationSource="_koWZYIlCEe6lssfuL0bjRg" informationTarget="_qLpC0IlCEe6lssfuL0bjRg">
+        <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_S2dwEInaEe62CplfIrYQcA" name="ItemFlow10" informationSource="_QJgakInaEe62CplfIrYQcA" informationTarget="_H7MekHoyEe6F8cEIkGJudw">
+        <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_o-bhwH4eEe6wVOUTP2joHw" name="Actors">
       <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>

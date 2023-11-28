@@ -2,7 +2,7 @@ attackerLocated(internet).
 
 /********************Attack Goals**************************/
 /*Uncomment to run one or multiple attack goals*/
-/*attackGoal(targetAsset(_,_)).*/
+attackGoal(targetAsset(_,_)).
 /*attackGoal(targetAsset(scada,availability)).*/
 /*attackGoal(targetAsset(scada,confidentiality)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
