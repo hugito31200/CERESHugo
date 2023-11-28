@@ -1,0 +1,64 @@
+/*****************Attacker*************************/
+attackerLocated(internet).
+
+/********************Attack Goals**************************/
+/*Uncomment to run one or multiple attack goals*/
+
+
+/*attackGoal(targetAsset(scada,availability)).*/
+/*attackGoal(targetAsset(scada,confidentiality)).*/
+/*attackGoal(targetAsset(plc,integrity)).*/
+/*attackGoal(targetAsset(webserver,availability)).*/
+/*attackGoal(targetAsset(webserver,integrity)).*/
+attackGoal(targetAsset(database,confidentiality)).
+
+
+
+/*********************Programs************************/
+networkServiceInfo(scada, machine_expert, _, _, _).
+networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
+networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
+networkServiceInfo(webserver, vpn_service, ipSec, 80, _).
+networkServiceInfo(webserver, web_server_sw, http, 80, _).
+networkServiceInfo(database, mysql_server, tcp, 3306, _).
+
+
+/******************Connections**********************/
+hacl(workstation, webserver, _, _).
+hacl(webserver, database, tcp, 3306).
+hacl(webserver, scada, opcua, opcua_port).
+hacl(scada, plc, opcua, opcua_port).
+hacl(sensor, plc, opcua, opcua_port).
+hacl(plc, actuator, opcua, opcua_port).
+hacl(internet, webserver, ipSec, 80).
+
+
+
+
+/*********************Devices************************/
+isSensor(sensor).
+isActuator(actuator).
+
+
+/****************************Users******************************/
+inCompetent(alarm_provider).
+malicious(alarm_provider).
+inCompetent(technician).
+malicious(technician).
+inCompetent(employee).
+
+hasAccount(employee,workstation,root).
+hasAccount(alarm_provider,webserver,_).
+
+physicalAccess(technician,sensor).
+physicalAccess(technician,actuator).
+physicalAccess(technician,plc).
+
+/****************************Refinement******************************/
+isA(control_expert, ecostruxure_control_expert_14_1).
+isA(machine_expert, ecostruxure_machine_expert).
+isA(opcua_server, ecostruxure_opcua_server_expert_2_0).
+
+isA(mysql_server, oracle_mysql_server_8_0_33).
+isA(web_server_sw, web_server).
+

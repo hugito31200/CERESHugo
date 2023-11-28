@@ -1,0 +1,47 @@
+/********************Refinement knowledge***********************/
+
+/*EcoStruxure Control Expert*/
+isA(ecostruxure_control_expert_14_0,ecostruxure_control_expert).
+isA(ecostruxure_control_expert_14_1,ecostruxure_control_expert).
+isA(ecostruxure_control_expert_15_0,ecostruxure_control_expert).
+isA(ecostruxure_control_expert_15_1,ecostruxure_control_expert).
+
+/*EcoStruxure Machine Expert*/
+isA(ecostruxure_machine_expert_2_0,ecostruxure_machine_expert).
+
+/*EcoStruxure OPC-UA Server Expert*/
+isA(ecostruxure_opcua_server_expert_2_0,ecostruxure_opcua_server_expert).
+
+/*MySQL Server*/
+isA(oracle_mysql_server_5_7_0,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_26,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_27,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_28,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_32,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_33,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_34,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_35,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_36,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_37,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_38,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_39,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_40,oracle_mysql_server).
+isA(oracle_mysql_server_5_7_41,oracle_mysql_server).
+isA(oracle_mysql_server_8_0,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_15,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_17,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_22,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_23,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_24,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_25,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_26,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_27,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_28,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_29,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_30,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_31,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_32,oracle_mysql_server).
+isA(oracle_mysql_server_8_0_33,oracle_mysql_server).
+
+isA(oracle_mysql_server,sql_sw).
+

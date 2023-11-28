@@ -3,14 +3,20 @@ primitive(isActuator(_host)).
 primitive(physicalAccess(_principal,_host)).
 primitive(malicious(_principal)).
 
+primitive(isA(_concreteType, _abstractType)).
+primitive(refines(_concreteType,_abstractType)).
+
 primitive(initiallyTriggered(_vulID)).
 derived(isTriggered(_vulID)).
 
 derived(accessInfo(_host)).
 derived(dos(_host)).
 derived(isCompromised(_device)).
-derived(canSniffCommunication(_h1,_h2)).
-derived(covertAppropriation(_plc)).
+derived(mitm(_h1,_h2)).
+derived(covertAppropriation(_h)).
+
+derived(targetAsset(_asset,_property)).
+
 
 /******************************************************/
 /*             Tabling Predicates                     */
@@ -20,7 +26,7 @@ derived(covertAppropriation(_plc)).
 :- table isTriggered/1.
 :- table accessInfo/1.
 :- table isCompromised/1.
-:- table canSniffCommunication/2.
+:- table mitm/2.
 :- table covertAppropriation/1.
 
 /************Vulnerability triggering*******************/
@@ -41,7 +47,8 @@ interaction_rule(
 
 interaction_rule(
   (isTriggered(VulID) :-
-  vulExists(H1,VulID,_,hijackcomm,_),
+  vulExists(H1,VulID,SW,hijackcomm,_),
+  networkServiceInfo(H1,SW,_,_,_),
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
@@ -114,12 +121,10 @@ interaction_rule(
   (covertAppropriation(PLC) :-
   isSensor(Sensor),
   isActuator(Actuator),
-  hacl(Sensor,PLC,_,_),
-  canSniffCommunication(Sensor,PLC),
-  hacl(PLC,Actuator,_,_),
-  canSniffCommunication(PLC,Actuator)
+  mitm(Sensor,PLC),
+  mitm(PLC,Actuator)
   ),
-  rule_desc('Covert Appropriation by sniffing communication btw sensors/actuators and PLC', possible)).
+  rule_desc('Covert Appropriation with MITM', 1)).
 
 
 /********************Physically compromising a sensor or an actuator************************************/
@@ -140,34 +145,152 @@ interaction_rule(
   rule_desc('Physically compromising an actuator', likely)).
   
 
-/********************Sniffing on a communication channel************************************/
+/********************Man In The Middle************************************/
 interaction_rule(
-  (canSniffCommunication(Device,Host) :-
+  (mitm(Device,Host) :-
   isCompromised(Device),
   hacl(Device,Host,_,_)
   ),
-  rule_desc('Compromise source of communication', likely)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
 interaction_rule(
-  (canSniffCommunication(device,Host) :-
+  (mitm(Host,Device) :-
   isCompromised(Device),
   hacl(Host,Device,_,_)
   ),
-  rule_desc('Compromise end of communication', likely)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
   interaction_rule(
-  (canSniffCommunication(H1,H2) :-
+  (mitm(H1,H2) :-
   execCode(H1,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on origin node', likely)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
 
   interaction_rule(
-  (canSniffCommunication(H1,H2) :-
+  (mitm(H1,H2) :-
   execCode(H2,_),
   hacl(H1,H2,_,_)
   ),
-  rule_desc('Exec code on end node', likely)).
+  rule_desc('CAPEC 94 Man In The Middle', 1)).
+
+
+/***********************Compromise of assets*************************/
+interaction_rule(
+  (targetAsset(HostAsset,availability) :-
+  dos(HostAsset)
+  ),
+  rule_desc('Compromising the availability of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,availability) :-
+  dos(Host),
+  networkServiceInfo(Host,ProgAsset,_,_,_)
+  ),
+  rule_desc('Compromising the availability of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,integrity) :-
+  execCode(HostAsset,_)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,integrity) :-
+  execCode(Host,Perm),
+  networkServiceInfo(Host,ProgAsset,_,_,Perm)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,integrity) :-
+  hasAccount(ProgAsset,Principal,_),
+  malicious(Principal)
+  ),
+  rule_desc('Compromising the integrity of an asset', 1)).
+
+
+interaction_rule(
+  (targetAsset(DeviceAsset,integrity) :-
+  covertAppropriation(DeviceAsset)
+  ),
+  rule_desc('Covertly appropriating an asset', 1)).
+
+interaction_rule(
+  (targetAsset(DeviceAsset,integrity) :-
+  physicalAccess(Principal,DeviceAsset),
+  malicious(Principal)
+  ),
+  rule_desc('CAPEC 624 Hardware Fault Injection', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,confidentiality) :-
+  accessInfo(HostAsset)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(HostAsset,confidentiality) :-
+  execCode(HostAsset,_)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,confidentiality) :-
+  accessInfo(Host),
+  networkServiceInfo(Host,ProgAsset,_,_,_)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+interaction_rule(
+  (targetAsset(ProgAsset,confidentiality) :-
+  execCode(Host,Perm),
+  networkServiceInfo(Host,ProgAsset,_,_,Perm)
+  ),
+  rule_desc('Compromising the confidentiality of an asset', 1)).
+
+
+/***************CAPEC Attacks************************/
+interaction_rule(
+  (targetAsset(Database,confidentiality) :-
+  netAccess(Database,_,_),
+  networkServiceInfo(Database,SW,_,_,_),
+  refines(SW,sql_sw)
+  ),
+  rule_desc('CAPEC 66 SQL Injection', 1)).
+
+  interaction_rule(
+  (targetAsset(Webserver,integrity) :-
+  netAccess(Webserver,_,_),
+  networkServiceInfo(Webserver,Webserver_SW,_,_,_),
+  refines(Webserver_SW,web_server)
+  ),
+  rule_desc('CAPEC 101 Server Side Include SSI Injection', 1)).
+
+
+/*******************Refinement*********************/
+interaction_rule(
+  (vulExists(Host,CVE_ID,ConcreteSW,Pre,Post) :-
+  isA(ConcreteSW,AbstractSW),
+  vulExists(undef,CVE_ID,AbstractSW,Pre,Post),
+  networkServiceInfo(Host,ConcreteSW,_,_,_)
+  ),
+  rule_desc('Direct Refinement', 1)).
+
+  interaction_rule(
+  (refines(Concrete,Abstract) :-
+  isA(Concrete,Abstract)
+  ),
+  rule_desc('Direct Refinement', 1)).
+
+  interaction_rule(
+  (refines(Concrete,Abstract) :-
+  isA(Concrete,Temp),
+  refines(Temp,Abstract)
+  ),
+  rule_desc('Indirect Refinement', 1)). 
+
+:-load_dyn('/tool/mulval/lib/vulList.P').
 
 
 

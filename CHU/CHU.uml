@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL.Stereotypes="http:///SysML_Extension_for_MulVAL/Stereotypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///SysML_Extension_for_MulVAL/Stereotypes.ecore ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_CtViYn4_Ee6wVOUTP2joHw">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows" xmlns:SysML_Extension_for_MulVAL.Stereotypes="http:///SysML_Extension_for_MulVAL/Stereotypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows http:///SysML_Extension_for_MulVAL/Stereotypes.ecore ../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_6vnjwolIEe6lssfuL0bjRg">
   <uml:Model xmi:id="_N9wUUFFpEe6HEMNnvMx1Dw" name="CHU">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_ODo54FFpEe6HEMNnvMx1Dw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -101,9 +101,15 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_61FpYHmAEe69raeEJc1a7Q" name="WebServer">
         <ownedAttribute xmi:type="uml:Port" xmi:id="_H7MekHoyEe6F8cEIkGJudw" name="80" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yRFMIH4OEe6wVOUTP2joHw" name="vpnService" type="_4DiocHcHEe62INvlmVZBnw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QJgakInaEe62CplfIrYQcA" name="web Server SW" type="_-PPNYInZEe62CplfIrYQcA"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hMlvwHmBEe69raeEJc1a7Q" name="Database">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_koWZYIlCEe6lssfuL0bjRg" name="sQL Server" type="_b0dh4IlCEe6lssfuL0bjRg"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_qLpC0IlCEe6lssfuL0bjRg" name="3306" aggregation="composite"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oQZwwHmBEe69raeEJc1a7Q" name="Workstation"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_B68wwIlDEe6lssfuL0bjRg" name="ItemFlow9" informationSource="_koWZYIlCEe6lssfuL0bjRg" informationTarget="_qLpC0IlCEe6lssfuL0bjRg"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_S2dwEInaEe62CplfIrYQcA" name="ItemFlow10" informationSource="_QJgakInaEe62CplfIrYQcA" informationTarget="_H7MekHoyEe6F8cEIkGJudw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_o-bhwH4eEe6wVOUTP2joHw" name="Actors">
       <packagedElement xmi:type="uml:Actor" xmi:id="_2wRdcHGbEe64YpFtfVg2wg" name="Alarm Provider"/>
@@ -112,121 +118,12 @@
       <packagedElement xmi:type="uml:Actor" xmi:id="_Nwgi0HmHEe69raeEJc1a7Q" name="employee"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_wi-RQH4eEe6wVOUTP2joHw" name="Programs">
-      <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="ControlExpert" classifierBehavior="_OZwnwH1DEe6tb6ZOauBynQ">
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_OZwnwH1DEe6tb6ZOauBynQ" name="Vulnerabilities" node="_TTc6kH1DEe6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _6hLrQH14Ee6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_eC0nUH1DEe6tb6ZOauBynQ" name="HijackComm" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Sgwp0H15Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_eC3DkH1DEe6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_sjbKAH1DEe6tb6ZOauBynQ" name="Dos" constrainedElement="_TTc6kH1DEe6tb6ZOauBynQ _Dkvy8H14Ee6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ _O6risH1zEe6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_sjcYIH1DEe6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_UdXvMH1zEe6tb6ZOauBynQ" name="CodeExecution" constrainedElement="_O6risH1zEe6tb6ZOauBynQ _Tdbi4H14Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_UdZkYH1zEe6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_hL6eYH1zEe6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_O6risH1zEe6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_hL7sgH1zEe6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_Hw2nAH14Ee6tb6ZOauBynQ" name="loadFile" constrainedElement="_Dkvy8H14Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_Hw3OEH14Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_BNfLMH15Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_BNgZUH15Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_FcT8EH15Ee6tb6ZOauBynQ" name="RemoteExploit" constrainedElement="_6hLrQH14Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_FcUjIH15Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_Y8GVkH15Ee6tb6ZOauBynQ" name="AuthenticationBypass" constrainedElement="_Sgwp0H15Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y8HjsH15Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_TTc6kH1DEe6tb6ZOauBynQ" name="CVE-2022-45789">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TTeIsH1DEe6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_O6risH1zEe6tb6ZOauBynQ" name="CVE-2022-45788">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_O6sJwH1zEe6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_Dkvy8H14Ee6tb6ZOauBynQ" name="CVE-2021-22789">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_DkwaAH14Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_Tdbi4H14Ee6tb6ZOauBynQ" name="CVE-2023-1548">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_TdcJ8H14Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_6hLrQH14Ee6tb6ZOauBynQ" name="CVE-2023-27976">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_6hMSUH14Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_Sgwp0H15Ee6tb6ZOauBynQ" name="CVE-2022-37300">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_SgxQ4H15Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-        </ownedBehavior>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="MachineExpert" classifierBehavior="_tzYGcH15Ee6tb6ZOauBynQ">
-        <ownedBehavior xmi:type="uml:Activity" xmi:id="_tzYGcH15Ee6tb6ZOauBynQ" name="Activity1" node="_1qnIcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_ANhGgH16Ee6tb6ZOauBynQ" name="HijackComm" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ _da8qAH16Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ANiUoH16Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_FN2z4H16Ee6tb6ZOauBynQ" name="Dos" constrainedElement="_1qnIcH15Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_FN3a8H16Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_R7jOgH16Ee6tb6ZOauBynQ" name="LeakInfo" constrainedElement="_da8qAH16Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_R7j1kH16Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <ownedRule xmi:type="uml:Constraint" xmi:id="_LXYW4H16Ee6tb6ZOauBynQ" name="WebAccess" constrainedElement="_tzYGcH15Ee6tb6ZOauBynQ _ZEwF0H16Ee6tb6ZOauBynQ">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_LXY98H16Ee6tb6ZOauBynQ" name="constraintSpec">
-              <language>OCL</language>
-              <body>true</body>
-            </specification>
-          </ownedRule>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_1qnIcH15Ee6tb6ZOauBynQ" name="CVE-2023-22610">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_1qnIcX15Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_ZEwF0H16Ee6tb6ZOauBynQ" name="CVE-2022-2988">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_ZEwF0X16Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-          <node xmi:type="uml:DataStoreNode" xmi:id="_da8qAH16Ee6tb6ZOauBynQ" name="CVE-2023-22611">
-            <upperBound xmi:type="uml:LiteralInteger" xmi:id="_da9REH16Ee6tb6ZOauBynQ" value="1"/>
-          </node>
-        </ownedBehavior>
-      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Mx3q8HcDEe62INvlmVZBnw" name="Control Expert"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_io96EHcDEe62INvlmVZBnw" name="Machine Expert"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_fFN_IHcGEe62INvlmVZBnw" name="OPCUA Server"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPNService"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_-_zuQH4eEe6wVOUTP2joHw" name="Assets">
-      <packagedElement xmi:type="uml:Class" xmi:id="_WnL2IHlnEe69raeEJc1a7Q" name="Regulate Temperature"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_hEjz8HlnEe69raeEJc1a7Q" name="Monitor System"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_KAOW0HmBEe69raeEJc1a7Q" name="Handle Network Requests"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_cj5tYHmBEe69raeEJc1a7Q" name="Patient Information"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_4DiocHcHEe62INvlmVZBnw" name="VPN Service"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_b0dh4IlCEe6lssfuL0bjRg" name="MySQL Server"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-PPNYInZEe62CplfIrYQcA" name="Web Server SW"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_YMFugH41Ee6wVOUTP2joHw" name="Attacks">
       <packagedElement xmi:type="uml:Class" xmi:id="_aUXpoH41Ee6wVOUTP2joHw" name="Steal Info"/>
@@ -416,15 +313,15 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_JTI1oFfHEe6A-uQ1qxwh1w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FRh9cH4_Ee6wVOUTP2joHw" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FRh9cX4_Ee6wVOUTP2joHw" key="Version" value="0.1.23"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FRh9cn4_Ee6wVOUTP2joHw" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FRh9c34_Ee6wVOUTP2joHw" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FRh9dH4_Ee6wVOUTP2joHw" key="Date" value="2023-11-08"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FRh9dX4_Ee6wVOUTP2joHw" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-5F6kIlIEe6lssfuL0bjRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-5F6kYlIEe6lssfuL0bjRg" key="Version" value="0.1.30"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-5F6kolIEe6lssfuL0bjRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-5F6k4lIEe6lssfuL0bjRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-5F6lIlIEe6lssfuL0bjRg" key="Date" value="2023-11-22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-5F6lYlIEe6lssfuL0bjRg" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JTKq0FfHEe6A-uQ1qxwh1w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_CtViYH4_Ee6wVOUTP2joHw"/>
+        <references xmi:type="ecore:EPackage" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_6vnjwIlIEe6lssfuL0bjRg"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../SysML_Extension_for_MulVAL/SysML_Extension_for_MulVAL.profile.uml#_vOlHkFfGEe6A-uQ1qxwh1w"/>
     </profileApplication>
@@ -440,53 +337,70 @@
   <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_CIzgIHGVEe6Kao45UCQQrQ" base_Class="_AVZBwHGVEe6Kao45UCQQrQ"/>
   <SysML_Extension_for_MulVAL.Stereotypes:User xmi:id="_E6x0UHGcEe64YpFtfVg2wg" base_Actor="_2wRdcHGbEe64YpFtfVg2wg" isMalicious="true" exposure="High"/>
   <SysML_Extension_for_MulVAL.Stereotypes:User xmi:id="_IPDogHGcEe64YpFtfVg2wg" base_Actor="_Cz3yMHGcEe64YpFtfVg2wg" isMalicious="true" exposure="Medium"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Attacker xmi:id="_mIkkAHGeEe64YpFtfVg2wg" base_Actor="_k1sm4HGeEe64YpFtfVg2wg" goal="_lq2ZsH41Ee6wVOUTP2joHw"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Attacker xmi:id="_mIkkAHGeEe64YpFtfVg2wg" base_Actor="_k1sm4HGeEe64YpFtfVg2wg"/>
   <Blocks:Block xmi:id="_x0Q1AHcCEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_y3vrQHcCEe62INvlmVZBnw" base_Class="_y3UNcHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_1m6nQHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_3VfB4HcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Device xmi:id="_65i-gHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Device xmi:id="_8Gn1oHcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw" type="Actuator"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Device xmi:id="_65i-gHcCEe62INvlmVZBnw" base_Class="_1mo6cHcCEe62INvlmVZBnw" importance="Medium">
+    <securityProperty>Integrity</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Device>
+  <SysML_Extension_for_MulVAL.Stereotypes:Device xmi:id="_8Gn1oHcCEe62INvlmVZBnw" base_Class="_3VPxUHcCEe62INvlmVZBnw" importance="Medium" type="Actuator">
+    <securityProperty>Integrity</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Device>
   <SysML_Extension_for_MulVAL.Stereotypes:physicalAccess xmi:id="_JjS2IHcDEe62INvlmVZBnw" base_Dependency="_HGjt8HcDEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:physicalAccess xmi:id="_KbcmIHcDEe62INvlmVZBnw" base_Dependency="_Hn78sHcDEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:physicalAccess xmi:id="_LnFS0HcDEe62INvlmVZBnw" base_Dependency="_ISiY4HcDEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_MyA04HcDEe62INvlmVZBnw" base_Class="_Mx3q8HcDEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_dB1ScHcDEe62INvlmVZBnw" base_Class="_y3UNcHcCEe62INvlmVZBnw" assets="_j2z5IHlnEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_fGeqwHcDEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw" assets="_aWJbMHlnEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_dB1ScHcDEe62INvlmVZBnw" base_Class="_y3UNcHcCEe62INvlmVZBnw" isAsset="true">
+    <securityProperty>Availability</securityProperty>
+    <securityProperty>Confidentiality</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_fGeqwHcDEe62INvlmVZBnw" base_Class="_xzkRcHcCEe62INvlmVZBnw" importance="High" isAsset="true">
+    <securityProperty>Integrity</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <Blocks:Block xmi:id="_ipNxsHcDEe62INvlmVZBnw" base_Class="_io96EHcDEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_ouDB8HcDEe62INvlmVZBnw" base_Class="_Mx3q8HcDEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_p6VO4HcDEe62INvlmVZBnw" base_Class="_io96EHcDEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_ouDB8HcDEe62INvlmVZBnw" base_Class="_Mx3q8HcDEe62INvlmVZBnw" user="" version="14.1"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_p6VO4HcDEe62INvlmVZBnw" base_Class="_io96EHcDEe62INvlmVZBnw" version="">
+    <securityProperty>Availability</securityProperty>
+    <securityProperty>Confidentiality</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Program>
   <PortsAndFlows:FullPort xmi:id="_tBfiMHcFEe62INvlmVZBnw" base_Port="_tBMAMHcFEe62INvlmVZBnw"/>
   <PortsAndFlows:FullPort xmi:id="_9DFWgHcFEe62INvlmVZBnw" base_Port="_9C3UEHcFEe62INvlmVZBnw"/>
   <Blocks:Block xmi:id="_fFYXMHcGEe62INvlmVZBnw" base_Class="_fFN_IHcGEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_ifl0QHcGEe62INvlmVZBnw" base_Class="_fFN_IHcGEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_ifl0QHcGEe62INvlmVZBnw" base_Class="_fFN_IHcGEe62INvlmVZBnw" user="" version="2.0"/>
   <PortsAndFlows:FullPort xmi:id="_BJtYMHcHEe62INvlmVZBnw" base_Port="_BJgj4HcHEe62INvlmVZBnw"/>
   <PortsAndFlows:ItemFlow xmi:id="_oOhQgHcHEe62INvlmVZBnw" base_InformationFlow="_oOW4cHcHEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_pO8ywHcHEe62INvlmVZBnw" base_InformationFlow="_oOW4cHcHEe62INvlmVZBnw" protocol="opcua"/>
   <Blocks:Block xmi:id="_4DryYHcHEe62INvlmVZBnw" base_Class="_4DiocHcHEe62INvlmVZBnw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_DsgPoHcIEe62INvlmVZBnw" base_Class="_4DiocHcHEe62INvlmVZBnw"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_DsgPoHcIEe62INvlmVZBnw" base_Class="_4DiocHcHEe62INvlmVZBnw" version="">
+    <securityProperty>Confidentiality</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Program>
   <PortsAndFlows:ItemFlow xmi:id="_Brgy0HcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_C9YqYHcJEe62INvlmVZBnw" base_InformationFlow="_BrSJUHcJEe62INvlmVZBnw" protocol="opcua"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Asset xmi:id="_aWJbMHlnEe69raeEJc1a7Q" importanceLevel="High" base_Class="_WnL2IHlnEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Asset xmi:id="_j2z5IHlnEe69raeEJc1a7Q" importanceLevel="Medium" base_Class="_hEjz8HlnEe69raeEJc1a7Q"/>
   <Blocks:Block xmi:id="_KA1kMHloEe69raeEJc1a7Q" base_Class="_KAp-AHloEe69raeEJc1a7Q"/>
   <Blocks:Block xmi:id="_MK_HkHloEe69raeEJc1a7Q" base_Class="_MK0vgHloEe69raeEJc1a7Q"/>
   <PortsAndFlows:FullPort xmi:id="_rtX40Hl_Ee69raeEJc1a7Q" base_Port="_rtNgwHl_Ee69raeEJc1a7Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_GsOE4HmAEe69raeEJc1a7Q" base_InformationFlow="_GsDs0HmAEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_Hh7k4HmAEe69raeEJc1a7Q" base_InformationFlow="_GsDs0HmAEe69raeEJc1a7Q"/>
   <Blocks:Block xmi:id="_61PaYHmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_9tWP8HmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q" assets="_MMrAQHmBEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Asset xmi:id="_MMrAQHmBEe69raeEJc1a7Q" importanceLevel="High" base_Class="_KAOW0HmBEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Asset xmi:id="_doW0AHmBEe69raeEJc1a7Q" base_Class="_cj5tYHmBEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_9tWP8HmAEe69raeEJc1a7Q" base_Class="_61FpYHmAEe69raeEJc1a7Q" importance="Medium" isAsset="true">
+    <securityProperty>Availability</securityProperty>
+    <securityProperty>Integrity</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <Blocks:Block xmi:id="_hMtrkHmBEe69raeEJc1a7Q" base_Class="_hMlvwHmBEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_kSaRMHmBEe69raeEJc1a7Q" base_Class="_hMlvwHmBEe69raeEJc1a7Q" assets="_doW0AHmBEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_kSaRMHmBEe69raeEJc1a7Q" base_Class="_hMlvwHmBEe69raeEJc1a7Q" isAsset="true">
+    <securityProperty>Confidentiality</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <Blocks:Block xmi:id="_oQhFgHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_pkRzcHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Host xmi:id="_pkRzcHmBEe69raeEJc1a7Q" base_Class="_oQZwwHmBEe69raeEJc1a7Q" importance="Low" isAsset="true">
+    <securityProperty>Availability</securityProperty>
+  </SysML_Extension_for_MulVAL.Stereotypes:Host>
   <PortsAndFlows:ItemFlow xmi:id="_mKC2UHmDEe69raeEJc1a7Q" base_InformationFlow="_mJzlwHmDEe69raeEJc1a7Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_zhqXsHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_03QRoHmDEe69raeEJc1a7Q" base_InformationFlow="_zhagEHmDEe69raeEJc1a7Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_1dWoUHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_2Z9agHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_2Z9agHmDEe69raeEJc1a7Q" base_InformationFlow="_1dP6oHmDEe69raeEJc1a7Q" protocol="tcp"/>
   <PortsAndFlows:ItemFlow xmi:id="_ULRuMHmEEe69raeEJc1a7Q" base_InformationFlow="_ULHWIHmEEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_VAgGAHmEEe69raeEJc1a7Q" base_InformationFlow="_ULHWIHmEEe69raeEJc1a7Q" protocol="opcua"/>
   <PortsAndFlows:ItemFlow xmi:id="_iHVHcHmGEe69raeEJc1a7Q" base_InformationFlow="_iHHsEHmGEe69raeEJc1a7Q"/>
@@ -500,32 +414,15 @@
   <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_YfkGgHmHEe69raeEJc1a7Q" base_Dependency="_XePzcHmHEe69raeEJc1a7Q" account="root"/>
   <PortsAndFlows:ItemFlow xmi:id="_KfJCAHoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_LruJ4HoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw" protocol="ipSec"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_W4l1QH1DEe6tb6ZOauBynQ" base_DataStoreNode="_TTc6kH1DEe6tb6ZOauBynQ" CVE_id="CVE-2022-45789"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_oy768H1DEe6tb6ZOauBynQ" base_Constraint="_eC0nUH1DEe6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_vL0IkH1DEe6tb6ZOauBynQ" base_Constraint="_sjbKAH1DEe6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_SgfLwH1zEe6tb6ZOauBynQ" base_DataStoreNode="_O6risH1zEe6tb6ZOauBynQ" CVE_id="CVE-2022-45788"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_aTDJIH1zEe6tb6ZOauBynQ" base_Constraint="_UdXvMH1zEe6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_ja10EH1zEe6tb6ZOauBynQ" base_Constraint="_hL6eYH1zEe6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_Elv88H14Ee6tb6ZOauBynQ" base_DataStoreNode="_Dkvy8H14Ee6tb6ZOauBynQ" CVE_id="CVE-2021-22789"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_N-t3cH14Ee6tb6ZOauBynQ" base_Constraint="_Hw2nAH14Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_YFCnMH14Ee6tb6ZOauBynQ" base_DataStoreNode="_Tdbi4H14Ee6tb6ZOauBynQ" CVE_id="CVE-2023-1548"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_99XeQH14Ee6tb6ZOauBynQ" base_DataStoreNode="_6hLrQH14Ee6tb6ZOauBynQ" CVE_id="CVE-2023-27976"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_Ehrf0H15Ee6tb6ZOauBynQ" base_Constraint="_BNfLMH15Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_JyBYEH15Ee6tb6ZOauBynQ" base_Constraint="_FcT8EH15Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_VwdgAH15Ee6tb6ZOauBynQ" base_DataStoreNode="_Sgwp0H15Ee6tb6ZOauBynQ" CVE_id="CVE-2022-37300"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_cmdugH15Ee6tb6ZOauBynQ" base_Constraint="_Y8GVkH15Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_21gOQH15Ee6tb6ZOauBynQ" base_DataStoreNode="_1qnIcH15Ee6tb6ZOauBynQ" CVE_id="CVE-2023-22610"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_ERWIUH16Ee6tb6ZOauBynQ" base_Constraint="_ANhGgH16Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PreCondition xmi:id="_PW3EMH16Ee6tb6ZOauBynQ" base_Constraint="_LXYW4H16Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_Q0eRsH16Ee6tb6ZOauBynQ" base_Constraint="_FN2z4H16Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:PostCondition xmi:id="_WNioIH16Ee6tb6ZOauBynQ" base_Constraint="_R7jOgH16Ee6tb6ZOauBynQ"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_aINt8H16Ee6tb6ZOauBynQ" base_DataStoreNode="_ZEwF0H16Ee6tb6ZOauBynQ" CVE_id="CVE-2022-2988"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Vulnerability xmi:id="_ecmUQH16Ee6tb6ZOauBynQ" base_DataStoreNode="_da8qAH16Ee6tb6ZOauBynQ" CVE_id="CVE-2023-22611"/>
   <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_7DJ7MH4NEe6wVOUTP2joHw" base_Dependency="_5k4mYH4NEe6wVOUTP2joHw" account=""/>
   <PortsAndFlows:ItemFlow xmi:id="_0AXYcH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_1WSCgH4OEe6wVOUTP2joHw" base_InformationFlow="_0ALLMH4OEe6wVOUTP2joHw" protocol="ipSec"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_eBdmcH41Ee6wVOUTP2joHw" type="StealData" base_Class="_aUXpoH41Ee6wVOUTP2joHw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_lq2ZsH41Ee6wVOUTP2joHw" target="_dB1ScHcDEe62INvlmVZBnw" base_Class="_hdIcEH41Ee6wVOUTP2joHw"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:Attack xmi:id="_ABq8cH42Ee6wVOUTP2joHw" type="CovertAppropriation" target="_fGeqwHcDEe62INvlmVZBnw" base_Class="_91FJEH41Ee6wVOUTP2joHw"/>
-  <PortsAndFlows:ItemFlow xmi:id="__LXTEIoIEe62CplfIrYQcA" base_InformationFlow="__LTBoIoIEe62CplfIrYQcA"/>
+  <Blocks:Block xmi:id="_b0qWMIlCEe6lssfuL0bjRg" base_Class="_b0dh4IlCEe6lssfuL0bjRg"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_e9jZwIlCEe6lssfuL0bjRg" base_Class="_b0dh4IlCEe6lssfuL0bjRg" user="" version="8.0.33"/>
+  <PortsAndFlows:ItemFlow xmi:id="_B7BpQIlDEe6lssfuL0bjRg" base_InformationFlow="_B68wwIlDEe6lssfuL0bjRg"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_EUzkEIlDEe6lssfuL0bjRg" base_InformationFlow="_B68wwIlDEe6lssfuL0bjRg" protocol="tcp"/>
+  <Blocks:Block xmi:id="_-P5UsInZEe62CplfIrYQcA" base_Class="_-PPNYInZEe62CplfIrYQcA"/>
+  <PortsAndFlows:ItemFlow xmi:id="_S2mS8InaEe62CplfIrYQcA" base_InformationFlow="_S2dwEInaEe62CplfIrYQcA"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_UI1W4InaEe62CplfIrYQcA" base_InformationFlow="_S2dwEInaEe62CplfIrYQcA" protocol="http"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:Program xmi:id="_tGkm0InaEe62CplfIrYQcA" base_Class="_-PPNYInZEe62CplfIrYQcA"/>
 </xmi:XMI>

@@ -3,8 +3,6 @@
 
 [import org::eclipse::acceleo::module::sample::services::utils/]
 
-
-
 [template private generateStakeholder(elem:OclAny) post(trim())]
 [let user:Actor = elem.eGet('base_Actor').oclAsType(Actor)]
 [let exposure:String = elem.eGet('exposure').toString()]
@@ -28,6 +26,18 @@ hasAccess([formatName(dependency.client.name)/],[formatName(dependency.supplier.
 [/let]
 [/template]
 
+[template private generateNetworkServiceInfo(elem: OclAny, m : Model) post(trim())]
+[let host:Class = elem.eGet('base_Class').oclAsType(Class)]
+[for (program:Property | host.ownedAttribute->selectByType(Property))]
+[let isProgram : Boolean = program.type.getAppliedStereotypes().toString().contains('Program') = true->asBag()]
+[if (isProgram)]
+networkServiceInfo([formatName(host.name)/], [formatName(program.name)/], _, _, _).
+[/if]
+[/let] 
+[/for]
+[/let]
+[/template]
+
 [template private translateImportanceLevel(importance:String) post(trim())]
 [if (importance='VeryHigh')]
 'certain'
@@ -48,21 +58,17 @@ hasAccess([formatName(dependency.client.name)/],[formatName(dependency.supplier.
 
 [template private generateAsset(elem:OclAny) post(trim())]
 [let asset:Class = elem.eGet('base_Class').oclAsType(Class)]
-[let importance:String = elem.eGet('importanceLevel').toString()]
+[let importance:String = elem.eGet('importance').toString()]
 isAsset([formatName(asset.name)/],[translateImportanceLevel(importance)/]).
 [/let]
 [/let]
 [/template]
 
-[template private generateAssetLocation(elem:OclAny) post(trim())]
-[let host:Class = elem.eGet('base_Class').oclAsType(Class)]
-[let assets:OclAny = elem.eGet('assets')]
-[for(item : OclAny | assets)]
-[let asset:Class = item.eGet('base_Class').oclAsType(Class)]
-assetLocated([formatName(asset.name)/],[formatName(host.name)/]).
-[/let]
+[template private generateAttackGoal(elem:OclAny) post(trim())]
+[let asset:Class = elem.eGet('base_Class').oclAsType(Class)]
+[for (property:OclAny | elem.eGet('securityProperty'))]
+/*attackGoal(targetAsset([formatName(asset.name)/],[formatName(property.toString())/])).*/
 [/for]
-[/let]
 [/let]
 [/template]
 
@@ -70,13 +76,31 @@ assetLocated([formatName(asset.name)/],[formatName(host.name)/]).
 [template public generateStrategicScenario( m : Model) post(trim())]
 [file (m.name+'strategic.txt', false, 'UTF-8')]
 [comment @main/]
-attackGoal(targetAsset(_)).
+
 [for (elem : OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if(class.contains('Attacker'))]
 [generateAttackerLocation(elem,m)/]
 [/if]
 [/let]
+[/for]
+
+/********************Attack Goals**************************/
+/*Uncomment to run one or multiple attack goals*/
+
+
+/*attackGoal(targetAsset(_,_)).*/
+[for (elem: OclAny | m.siblings())]
+[if (elem.eGet('isAsset')=true)]
+[generateAttackGoal(elem)/]
+[/if]
+[/for]
+
+/********************Assets**************************/
+[for (elem: OclAny | m.siblings())]
+[if (elem.eGet('isAsset')=true)]
+[generateAsset(elem)/]
+[/if]
 [/for]
 
 
@@ -107,23 +131,22 @@ attackGoal(targetAsset(_)).
 [/let]
 [/for]
 
-
-/********************Assets**************************/
 [for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
-[if (class.contains('Asset'))]
-[generateAsset(elem)/]
+[if (class.contains('Host'))]
+[generateNetworkServiceInfo(elem,m)/]
 [/if]
 [/let]
 [/for]
 
-[for (elem: OclAny | m.siblings())]
+
+[comment][for (elem: OclAny | m.siblings())]
 [let class:String = elem.eClass().name]
 [if (class.contains('Host'))]
 [generateAssetLocation(elem)/]
 [/if]
 [/let]
-[/for]
+[/for][/comment]
 [/file]
 [/template]
 
