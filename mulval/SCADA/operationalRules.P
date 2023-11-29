@@ -98,13 +98,13 @@ interaction_rule(
 /* From 'A Decoupled Feedback Structure for Covertly Appropriating Networked Control Systems' */
 
 interaction_rule(
-  (covertAppropriation(Scada) :-
+  (covertAppropriation(PLC) :-
   isSensor(Sensor),
   isCompromised(Sensor),
   isActuator(Actuator),
   isCompromised(Actuator),
-  hacl(Sensor,Scada,_,_),
-  hacl(Scada,Actuator,_,_)
+  hacl(Sensor,PLC,_,_),
+  hacl(PLC,Actuator,_,_)
   ),
   rule_desc('Covert Appropriation by compromising sensors and actuators', likely)).
 

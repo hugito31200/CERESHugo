@@ -1,5 +1,4 @@
-primitive(isAsset(_asset,_importance)).
-primitive(assetLocated(_asset,_machine)).
+primitive(isAsset(_asset,_importance)). /*_asset is either a host, a program, or a physical device*/
 
 primitive(stakeHolder(_stakeholder,_exposure)).
 primitive(hasAccess(_stakeholder,_machine)).
