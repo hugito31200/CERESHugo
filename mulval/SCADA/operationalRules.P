@@ -80,7 +80,7 @@ interaction_rule(
   (dos(H) :-
   netAccess(H,_,_)
   ),
-  rule_desc('Local Network Attack', 1)).
+  rule_desc('Local Network Attack', possible)).
 
 /*****Information Disclosure*********/
 interaction_rule(
@@ -125,7 +125,7 @@ interaction_rule(
   mitm(Sensor,PLC),
   mitm(PLC,Actuator)
   ),
-  rule_desc('Covert Appropriation with MITM', 1)).
+  rule_desc('Covert Appropriation with MITM', likely)).
 
 
 /********************Physically compromising a sensor or an actuator************************************/
@@ -181,41 +181,41 @@ interaction_rule(
   (targetAsset(HostAsset,availability) :-
   dos(HostAsset)
   ),
-  rule_desc('Compromising the availability of an asset', 1)).
+  rule_desc('Compromising the availability of an asset', certain)).
 
 interaction_rule(
   (targetAsset(ProgAsset,availability) :-
   dos(Host),
   networkServiceInfo(Host,ProgAsset,_,_,_)
   ),
-  rule_desc('Compromising the availability of an asset', 1)).
+  rule_desc('Compromising the availability of an asset', certain)).
 
 interaction_rule(
   (targetAsset(HostAsset,integrity) :-
   execCode(HostAsset,_)
   ),
-  rule_desc('Compromising the integrity of an asset', 1)).
+  rule_desc('Compromising the integrity of an asset', certain)).
 
 interaction_rule(
   (targetAsset(ProgAsset,integrity) :-
   execCode(Host,Perm),
   networkServiceInfo(Host,ProgAsset,_,_,Perm)
   ),
-  rule_desc('Compromising the integrity of an asset', 1)).
+  rule_desc('Compromising the integrity of an asset', certain)).
 
 interaction_rule(
   (targetAsset(ProgAsset,integrity) :-
   hasAccount(ProgAsset,Principal,_),
   malicious(Principal)
   ),
-  rule_desc('Compromising the integrity of an asset', 1)).
+  rule_desc('Compromising the integrity of an asset', likely)).
 
 
 interaction_rule(
   (targetAsset(DeviceAsset,integrity) :-
   covertAppropriation(DeviceAsset)
   ),
-  rule_desc('Covertly appropriating an asset', 1)).
+  rule_desc('Covertly appropriating an asset', certain)).
 
 interaction_rule(
   (targetAsset(DeviceAsset,integrity) :-
@@ -228,27 +228,27 @@ interaction_rule(
   (targetAsset(HostAsset,confidentiality) :-
   accessInfo(HostAsset)
   ),
-  rule_desc('Compromising the confidentiality of an asset', 1)).
+  rule_desc('Compromising the confidentiality of an asset', certain)).
 
 interaction_rule(
   (targetAsset(HostAsset,confidentiality) :-
   execCode(HostAsset,_)
   ),
-  rule_desc('Compromising the confidentiality of an asset', 1)).
+  rule_desc('Compromising the confidentiality of an asset', certain)).
 
 interaction_rule(
   (targetAsset(ProgAsset,confidentiality) :-
   accessInfo(Host),
   networkServiceInfo(Host,ProgAsset,_,_,_)
   ),
-  rule_desc('Compromising the confidentiality of an asset', 1)).
+  rule_desc('Compromising the confidentiality of an asset', certain)).
 
 interaction_rule(
   (targetAsset(ProgAsset,confidentiality) :-
   execCode(Host,Perm),
   networkServiceInfo(Host,ProgAsset,_,_,Perm)
   ),
-  rule_desc('Compromising the confidentiality of an asset', 1)).
+  rule_desc('Compromising the confidentiality of an asset', certain)).
 
 
 /***************CAPEC Attacks************************/
@@ -276,20 +276,20 @@ interaction_rule(
   vulExists(undef,CVE_ID,AbstractSW,Pre,Post),
   networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
-  rule_desc('Direct Refinement', 1)).
+  rule_desc('Direct Refinement', certain)).
 
   interaction_rule(
   (refines(Concrete,Abstract) :-
   isA(Concrete,Abstract)
   ),
-  rule_desc('Direct Refinement', 1)).
+  rule_desc('Direct Refinement', certain)).
 
   interaction_rule(
   (refines(Concrete,Abstract) :-
   isA(Concrete,Temp),
   refines(Temp,Abstract)
   ),
-  rule_desc('Indirect Refinement', 1)). 
+  rule_desc('Indirect Refinement', certain)). 
 
 :-load_dyn('/tool/mulval/lib/vulList.P').
 
