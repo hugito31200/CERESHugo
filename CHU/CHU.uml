@@ -232,7 +232,7 @@
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_zhagEHmDEe69raeEJc1a7Q" name="ItemFlow59" informationSource="_vdLggXmBEe69raeEJc1a7Q" informationTarget="_wJyH0nmBEe69raeEJc1a7Q">
       <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_wy5WQHmBEe69raeEJc1a7Q">
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1dP6oHmDEe69raeEJc1a7Q" name="ItemFlow60" informationSource="_wJyH0nmBEe69raeEJc1a7Q" informationTarget="_qLpC0IlCEe6lssfuL0bjRg">
       <conveyed xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </packagedElement>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_ULHWIHmEEe69raeEJc1a7Q" name="ItemFlow61" informationSource="_FaR_EHmEEe69raeEJc1a7Q" informationTarget="_BJgj4HcHEe62INvlmVZBnw">
@@ -413,7 +413,7 @@
   <PortsAndFlows:ItemFlow xmi:id="_vYHBAHmGEe69raeEJc1a7Q" base_InformationFlow="_vX6zwHmGEe69raeEJc1a7Q"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_x7jOIHmGEe69raeEJc1a7Q" base_InformationFlow="_vX6zwHmGEe69raeEJc1a7Q" protocol="opcua"/>
   <SysML_Extension_for_MulVAL.Stereotypes:User xmi:id="_OvzcoHmHEe69raeEJc1a7Q" base_Actor="_Nwgi0HmHEe69raeEJc1a7Q" exposure="Low"/>
-  <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_YfkGgHmHEe69raeEJc1a7Q" base_Dependency="_XePzcHmHEe69raeEJc1a7Q" account="root"/>
+  <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_YfkGgHmHEe69raeEJc1a7Q" base_Dependency="_XePzcHmHEe69raeEJc1a7Q" account="normalUser"/>
   <PortsAndFlows:ItemFlow xmi:id="_KfJCAHoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw"/>
   <SysML_Extension_for_MulVAL.Stereotypes:Connection xmi:id="_LruJ4HoyEe6F8cEIkGJudw" base_InformationFlow="_KejzMHoyEe6F8cEIkGJudw" protocol="ipSec"/>
   <SysML_Extension_for_MulVAL.Stereotypes:hasAccount xmi:id="_7DJ7MH4NEe6wVOUTP2joHw" base_Dependency="_5k4mYH4NEe6wVOUTP2joHw" account=""/>

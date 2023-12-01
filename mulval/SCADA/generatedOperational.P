@@ -3,17 +3,18 @@ attackerLocated(internet).
 
 /********************Attack Goals**************************/
 /*Uncomment to run one or multiple attack goals*/
+
 /*attackGoal(targetAsset(scada,availability)).*/
 /*attackGoal(targetAsset(scada,confidentiality)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
-attackGoal(targetAsset(webserver,integrity)).
+/*attackGoal(targetAsset(webserver,integrity)).*/
 /*attackGoal(targetAsset(database,confidentiality)).*/
-
+/*attackGoal(targetAsset(workstation,availability)).*/
 
 
 /*********************Programs************************/
-/*networkServiceInfo(scada, machine_expert, _, _, _).*/
+networkServiceInfo(scada, machine_expert, _, _, _).
 networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
 networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
 networkServiceInfo(webserver, vpn_service, ipSec, 80, _).
@@ -41,7 +42,9 @@ isActuator(actuator).
 /****************************Users******************************/
 inCompetent(alarm_provider).
 malicious(alarm_provider).
+inCompetent(technician).
 malicious(technician).
+inCompetent(employee).
 
 hasAccount(employee,workstation,normalUser).
 hasAccount(alarm_provider,webserver,_).

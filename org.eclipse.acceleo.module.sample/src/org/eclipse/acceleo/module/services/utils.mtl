@@ -6,11 +6,11 @@
 [/template]
 
 [template public formatName(name:String) post(trim())]
-[name.replaceAll(' ', '').toLower()/]
+[name.replaceAll(' ', '_').toLower()/]
 [/template]
 
 [template public formatName(names:Bag(String)) post(trim())]
-[names.replaceAll(' ', '').toLower()/]
+[names.replaceAll(' ', '_').toLower()/]
 [/template]
 
 [template public writeHACLWithOptions(root:OclAny, conn:InformationFlow) post(trim())]
