@@ -19,7 +19,7 @@ vulExists(undef,'CVE-2022-45788',ecostruxure_control_expert).
 vulProperty('CVE-2022-45788',localExploit,privEscalation).
 vulProperty('CVE-2022-45788',codeExecution,dos).
 vulProperty('CVE-2022-45788',codeExecution,leakinfo).
-cvss('CVE-2023-45788',l).
+cvss('CVE-2022-45788',l).
 
 vulExists(undef,'CVE-2021-22789',plc_simulator_for_ecostruxure_control_expert).
 vulProperty('CVE-2021-22789',loadFile,dos).

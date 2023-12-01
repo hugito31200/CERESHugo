@@ -87,7 +87,7 @@ interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakinfo),
   cvss(VulID,AC),
-  isTriggered(VulID),
+  /*isTriggered(VulID),*/
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
@@ -263,7 +263,7 @@ interaction_rule(
 /*******************Refinement*********************/
 interaction_rule(
   (vulExists(Host,CVE_ID,ConcreteSW,Pre,Post) :-
-  isA(ConcreteSW,AbstractSW),
+  refines(ConcreteSW,AbstractSW),
   vulExists(undef,CVE_ID,AbstractSW,Pre,Post),
   networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
