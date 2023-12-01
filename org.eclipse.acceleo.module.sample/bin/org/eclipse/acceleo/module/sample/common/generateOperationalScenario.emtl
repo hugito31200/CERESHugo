@@ -18,14 +18,14 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
     </input>
-    <imports href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0"/>
-    <imports href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0"/>
+    <imports href="../../services/utils.emtl#/0"/>
+    <imports href="../../services/refinement.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="getProgramUser">
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/underscoreIfEmpty"/>
+            <definition href="../../services/utils.emtl#/0/underscoreIfEmpty"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getProgramUser/%/elem">
               <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
             </argument>
@@ -106,7 +106,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/ecore_EObject_Class/eContainer">
@@ -177,7 +177,7 @@
                             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="networkServiceInfo("/>
                             <body xsi:type="mtl:TemplateInvocation">
                               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+                              <definition href="../../services/utils.emtl#/0/formatName"/>
                               <argument xsi:type="ocl.ecore:PropertyCallExp">
                                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                                 <source xsi:type="ocl.ecore:VariableExp" name="host" referredVariable="/0/generateNetworkServiceInfo/%/host">
@@ -189,7 +189,7 @@
                             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
                             <body xsi:type="mtl:TemplateInvocation">
                               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+                              <definition href="../../services/utils.emtl#/0/formatName"/>
                               <argument xsi:type="ocl.ecore:PropertyCallExp">
                                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                                 <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -205,7 +205,7 @@
                             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
                             <body xsi:type="mtl:TemplateInvocation">
                               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/underscoreIfEmpty"/>
+                              <definition href="../../services/utils.emtl#/0/underscoreIfEmpty"/>
                               <argument xsi:type="ocl.ecore:VariableExp" name="elem2" referredVariable="/0/generateNetworkServiceInfo/%/%/%/%/%/%/%/elem2">
                                 <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
                               </argument>
@@ -221,7 +221,7 @@
                               </condition>
                               <thenExpression xsi:type="mtl:TemplateInvocation">
                                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                                <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+                                <definition href="../../services/utils.emtl#/0/formatName.1"/>
                                 <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
                                   <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
                                     <source xsi:type="ocl.ecore:VariableExp" name="conn" referredVariable="/0/generateNetworkServiceInfo/%/%/%/%/%/%/%/%/%/conn">
@@ -406,7 +406,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="networkServiceInfo("/>
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+                      <definition href="../../services/utils.emtl#/0/formatName"/>
                       <argument xsi:type="ocl.ecore:PropertyCallExp">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                         <source xsi:type="ocl.ecore:VariableExp" name="host" referredVariable="/0/generateNetworkServiceInfo/%/host">
@@ -418,7 +418,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
                     <body xsi:type="mtl:TemplateInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+                      <definition href="../../services/utils.emtl#/0/formatName"/>
                       <argument xsi:type="ocl.ecore:PropertyCallExp">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                         <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -660,7 +660,7 @@
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/writeHACLWithOptions"/>
+            <definition href="../../services/utils.emtl#/0/writeHACLWithOptions"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateHACL/elem">
               <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
             </argument>
@@ -844,7 +844,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="isActuator("/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="device" referredVariable="/0/generateDevice/%/device">
@@ -877,7 +877,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="isSensor("/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+              <definition href="../../services/utils.emtl#/0/formatName"/>
               <argument xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="device" referredVariable="/0/generateDevice/%/device">
@@ -928,7 +928,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="competent("/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="user" referredVariable="/0/generateUser/%/user">
@@ -958,7 +958,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="inCompetent("/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+              <definition href="../../services/utils.emtl#/0/formatName"/>
               <argument xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="user" referredVariable="/0/generateUser/%/user">
@@ -974,7 +974,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="malicious("/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="user" referredVariable="/0/generateUser/%/user">
@@ -1108,7 +1108,7 @@
     <ownedModuleElement xsi:type="mtl:Template" name="generateAttacker">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/generateAttackerLocation"/>
+        <definition href="../../services/utils.emtl#/0/generateAttackerLocation"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateAttacker/elem">
           <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
         </argument>
@@ -1134,7 +1134,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="hasAccount("/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+          <definition href="../../services/utils.emtl#/0/formatName.1"/>
           <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
               <source xsi:type="ocl.ecore:VariableExp" name="dependency" referredVariable="/0/generateHasAccount/%/dependency">
@@ -1157,7 +1157,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+          <definition href="../../services/utils.emtl#/0/formatName.1"/>
           <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
               <source xsi:type="ocl.ecore:VariableExp" name="dependency" referredVariable="/0/generateHasAccount/%/dependency">
@@ -1180,7 +1180,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/underscoreIfEmpty"/>
+          <definition href="../../services/utils.emtl#/0/underscoreIfEmpty"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/generateHasAccount/elem">
             <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
           </argument>
@@ -1224,7 +1224,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="physicalAccess("/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+          <definition href="../../services/utils.emtl#/0/formatName.1"/>
           <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
               <source xsi:type="ocl.ecore:VariableExp" name="dependency" referredVariable="/0/generatePhysicalAccess/%/dependency">
@@ -1247,7 +1247,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+          <definition href="../../services/utils.emtl#/0/formatName.1"/>
           <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
               <source xsi:type="ocl.ecore:VariableExp" name="dependency" referredVariable="/0/generatePhysicalAccess/%/dependency">
@@ -1315,7 +1315,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+              <definition href="../../services/utils.emtl#/0/formatName"/>
               <argument xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="prog" referredVariable="/0/generateDependency/%/%/%/prog">
@@ -1327,7 +1327,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+              <definition href="../../services/utils.emtl#/0/formatName.1"/>
               <argument xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/7/Bag(String)">
                 <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/Set(NamedElement)">
                   <source xsi:type="ocl.ecore:VariableExp" name="dependency" referredVariable="/0/generateDependency/%/dependency">
@@ -1416,7 +1416,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/*attackGoal(targetAsset("/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="asset" referredVariable="/0/generateAsset/%/asset">
@@ -1428,7 +1428,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+            <definition href="../../services/utils.emtl#/0/formatName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/toString">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="property" referredVariable="/0/generateAsset/%/%/property">
@@ -1484,7 +1484,7 @@
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0/refine"/>
+          <definition href="../../services/refinement.emtl#/0/refine"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="prog" referredVariable="/0/generateRefinement/%/prog">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -2201,7 +2201,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/underscoreIfEmpty"/>
+          <references href="../../services/utils.emtl#/0/underscoreIfEmpty"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -2216,7 +2216,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName"/>
+          <references href="../../services/utils.emtl#/0/formatName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="name">
@@ -2228,11 +2228,11 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/formatName.1"/>
+          <references href="../../services/utils.emtl#/0/formatName.1"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="names">
-          <eType xsi:type="ocl.ecore:BagType" href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/3/Bag(String)"/>
+          <eType xsi:type="ocl.ecore:BagType" href="../../services/utils.emtl#/3/Bag(String)"/>
         </eParameters>
       </eOperations>
       <eOperations name="writeHACLWithOptions">
@@ -2240,7 +2240,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/writeHACLWithOptions"/>
+          <references href="../../services/utils.emtl#/0/writeHACLWithOptions"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="root">
@@ -2255,7 +2255,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/0/generateAttackerLocation"/>
+          <references href="../../services/utils.emtl#/0/generateAttackerLocation"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -2270,7 +2270,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/refinement.emtl#/0/refine"/>
+          <references href="../../services/refinement.emtl#/0/refine"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -2317,7 +2317,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="collections_Bag(String)_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="platform:/resource/org.eclipse.acceleo.module.sample/bin/org/eclipse/acceleo/module/services/utils.emtl#/3/Bag(String)"/>
+        <references href="../../services/utils.emtl#/3/Bag(String)"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>

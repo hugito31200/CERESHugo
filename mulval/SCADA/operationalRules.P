@@ -80,7 +80,7 @@ interaction_rule(
   (dos(H) :-
   netAccess(H,_,_)
   ),
-  rule_desc('Local Network Attack', possible)).
+  rule_desc('Local Network Attack', unlikely)).
 
 /*****Information Disclosure*********/
 interaction_rule(
@@ -130,20 +130,11 @@ interaction_rule(
 
 /********************Physically compromising a sensor or an actuator************************************/
 interaction_rule(
-  (isCompromised(Sensor) :-
-  isSensor(Sensor),
-  physicalAccess(Principal,Sensor),
+  (isCompromised(Device) :-
+  physicalAccess(Principal,Device),
   malicious(Principal)
   ),
-  rule_desc('Physically compromising a sensor', likely)).
-
-interaction_rule(
-  (isCompromised(Actuator) :-
-  isActuator(Actuator),
-  physicalAccess(Principal,Actuator),
-  malicious(Principal)
-  ),
-  rule_desc('Physically compromising an actuator', likely)).
+  rule_desc('Physically compromising a device', likely)).
   
 
 /********************Man In The Middle************************************/
