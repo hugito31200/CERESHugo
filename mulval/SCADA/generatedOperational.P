@@ -6,13 +6,13 @@ attackerLocated(internet).
 
 
 /*attackGoal(targetAsset(scada,availability)).*/
-/*attackGoal(targetAsset(scada,confidentiality)).*/
+attackGoal(targetAsset(scada,confidentiality)).
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
 /*attackGoal(targetAsset(webserver,integrity)).*/
 /*attackGoal(targetAsset(database,confidentiality)).*/
+/*attackGoal(targetAsset(database,availability)).*/
 /*attackGoal(targetAsset(workstation,availability)).*/
-attackGoal(targetAsset(workstation)).
 
 
 /*********************Programs************************/

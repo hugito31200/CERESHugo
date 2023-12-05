@@ -5,6 +5,7 @@ primitive(malicious(_principal)).
 
 primitive(isA(_concreteType, _abstractType)).
 primitive(refines(_concreteType,_abstractType)).
+primitive(abstractVul(_cveID,_program)).
 
 primitive(initiallyTriggered(_vulID)).
 derived(isTriggered(_vulID)).
@@ -267,7 +268,8 @@ interaction_rule(
 interaction_rule(
   (vulExists(Host,CVE_ID,ConcreteSW,Pre,Post) :-
   refines(ConcreteSW,AbstractSW),
-  vulExists(undef,CVE_ID,AbstractSW,Pre,Post),
+  abstractVul(CVE_ID,AbstractSW),
+  vulProperty(CVE_ID,Pre,Post),
   networkServiceInfo(Host,ConcreteSW,_,_,_)
   ),
   rule_desc('Direct Refinement', certain)).

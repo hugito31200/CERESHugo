@@ -1,48 +1,82 @@
-vulExists(undef,'CVE-2023-22610',ecostruxure_machine_expert).
+abstractVul('CVE-2023-22610',ecostruxure_machine_expert).
 vulProperty('CVE-2023-22610',hijackcomm,dos).
 cvss('CVE-2023-22610',l).
 
-vulExists(undef,'CVE-2022-2988',ecostruxure_machine_expert).
+abstractVul('CVE-2022-2988',ecostruxure_machine_expert).
 vulProperty('CVE-2022-2988',webAccess,leakinfo).
 cvss('CVE-2022-2988',l).
 
-vulExists(undef,'CVE-2023-22611',ecostruxure_machine_expert).
+abstractVul('CVE-2023-22611',ecostruxure_machine_expert).
 vulProperty('CVE-2023-22611',hijackcomm,leakinfo).
 cvss('CVE-2023-22611',l).
 
-vulExists(undef,'CVE-2022-45789',ecostruxure_control_expert).
+abstractVul('CVE-2022-45789',ecostruxure_control_expert).
 vulProperty('CVE-2022-45789',localExploit,privEscalation).
 vulProperty('CVE-2022-45789',hijackcomm,authenticationBypass).
 cvss('CVE-2022-45789',l).
 
-vulExists(undef,'CVE-2022-45788',ecostruxure_control_expert).
+abstractVul('CVE-2022-45788',ecostruxure_control_expert).
 vulProperty('CVE-2022-45788',localExploit,privEscalation).
 vulProperty('CVE-2022-45788',codeExecution,dos).
 vulProperty('CVE-2022-45788',codeExecution,leakinfo).
 cvss('CVE-2022-45788',l).
 
-vulExists(undef,'CVE-2021-22789',plc_simulator_for_ecostruxure_control_expert).
+abstractVul('CVE-2021-22789',plc_simulator_for_ecostruxure_control_expert).
 vulProperty('CVE-2021-22789',loadFile,dos).
 cvss('CVE-2023-22789',l).
 
-vulExists(undef,'CVE-2023-1548',ecostruxure_control_expert_15_1).
+abstractVul('CVE-2023-1548',ecostruxure_control_expert_15_1).
 vulProperty('CVE-2023-1548',codeExecution,dos).
 cvss('CVE-2023-1548',l).
 
-vulExists(undef,'CVE-2023-27976',ecostruxure_control_expert_15_1).
+abstractVul('CVE-2023-27976',ecostruxure_control_expert_15_1).
 vulProperty('CVE-2023-27976',codeExecution,privEscalation).
 vulProperty('CVE-2023-27976',webAccess,remoteExploit).
 cvss('CVE-2023-27976',l).
 
-vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_14_0).
-vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_14_1).
-vulExists(undef,'CVE-2022-37300',ecostruxure_control_expert_15_0).
+abstractVul('CVE-2022-37300',ecostruxure_control_expert_14_0).
+abstractVul('CVE-2022-37300',ecostruxure_control_expert_14_1).
+abstractVul('CVE-2022-37300',ecostruxure_control_expert_15_0).
 vulProperty('CVE-2022-37300',hijackcomm,authenticationBypass).
 cvss('CVE-2022-37300',l).
 
-vulExists(undef,'CVE-2023-37200',ecostruxure_opcua_server_expert).
+abstractVul('CVE-2023-37200',ecostruxure_opcua_server_expert).
 vulProperty('CVE-2023-37200',codeExecution,leakinfo).
 cvss('CVE-2023-37200',l).
 
 
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_33).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_32).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_31).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_30).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_29).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_28).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_27).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_26).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_25).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_24).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_23).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_22).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_17).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0_15).
+abstractVul('CVE-2023-22115',oracle_mysql_server_8_0).
+vulProperty('CVE-2023-22115',none,dos).
+cvss('CVE-2023-22115',l).
 
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_33).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_32).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_31).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_30).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_29).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_28).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_27).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_26).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_25).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_24).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_23).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_22).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_17).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0_15).
+abstractVul('CVE-2023-22057',oracle_mysql_server_8_0).
+vulProperty('CVE-2023-22057',none,dos).
+cvss('CVE-2023-22057',l).
