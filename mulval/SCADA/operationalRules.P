@@ -16,6 +16,9 @@ derived(mitm(_h1,_h2)).
 derived(covertAppropriation(_h)).
 
 derived(targetAsset(_asset,_property)).
+derived(targetAsset(_asset)).
+
+
 
 
 /******************************************************/
@@ -87,7 +90,7 @@ interaction_rule(
   (accessInfo(H) :-
   vulExists(H,VulID,Software,_,leakinfo),
   cvss(VulID,AC),
-  /*isTriggered(VulID),*/
+  isTriggered(VulID),
   networkServiceInfo(H,Software,Protocol,Port,_),
   netAccess(H,Protocol,Port)
   ),
@@ -281,6 +284,12 @@ interaction_rule(
   refines(Temp,Abstract)
   ),
   rule_desc('Indirect Refinement', certain)). 
+
+ interaction_rule(
+  (targetAsset(Asset) :-
+  targetAsset(Asset,_)
+  ),
+  rule_desc('Aggregate Target Asset', certain)). 
 
 :-load_dyn('/tool/mulval/lib/vulList.P').
 

@@ -4,6 +4,7 @@ attackerLocated(internet).
 /********************Attack Goals**************************/
 /*Uncomment to run one or multiple attack goals*/
 
+
 /*attackGoal(targetAsset(scada,availability)).*/
 /*attackGoal(targetAsset(scada,confidentiality)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
@@ -11,9 +12,11 @@ attackerLocated(internet).
 /*attackGoal(targetAsset(webserver,integrity)).*/
 /*attackGoal(targetAsset(database,confidentiality)).*/
 /*attackGoal(targetAsset(workstation,availability)).*/
+attackGoal(targetAsset(workstation)).
 
 
 /*********************Programs************************/
+
 networkServiceInfo(scada, machine_expert, _, _, _).
 networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
 networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
@@ -23,6 +26,9 @@ networkServiceInfo(database, mysql_server, tcp, 3306, _).
 
 
 /******************Connections**********************/
+
+
+
 hacl(workstation, webserver, _, _).
 hacl(webserver, database, tcp, 3306).
 hacl(webserver, scada, opcua, opcua_port).
