@@ -52,12 +52,11 @@ interaction_rule(
 interaction_rule(
   (isTriggered(VulID) :-
   vulExists(H1,VulID,SW,hijackcomm,_),
-  cvss(VulID,AC),
   networkServiceInfo(H1,SW,_,_,_),
   execCode(H2,_),
   hacl(H2,H1,_,_)
   ),
-  rule_desc('Hijack communication', cvss_ac(AC))).
+  rule_desc('Hijack communication', certain)).
 
 
 /*****Denial of Service*********/
@@ -249,6 +248,14 @@ interaction_rule(
 /***************CAPEC Attacks************************/
 interaction_rule(
   (targetAsset(Database,confidentiality) :-
+  netAccess(Database,_,_),
+  networkServiceInfo(Database,SW,_,_,_),
+  refines(SW,sql_sw)
+  ),
+  rule_desc('CAPEC 66 SQL Injection', likely)).
+
+interaction_rule(
+  (targetAsset(Database,integrity) :-
   netAccess(Database,_,_),
   networkServiceInfo(Database,SW,_,_,_),
   refines(SW,sql_sw)

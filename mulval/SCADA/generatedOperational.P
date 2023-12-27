@@ -6,19 +6,19 @@ attackerLocated(internet).
 
 
 /*attackGoal(targetAsset(scada,availability)).*/
-attackGoal(targetAsset(scada,confidentiality)).
+/*attackGoal(targetAsset(scada,confidentiality)).*/
+attackGoal(targetAsset(scada,_)).
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
 /*attackGoal(targetAsset(webserver,integrity)).*/
 /*attackGoal(targetAsset(database,confidentiality)).*/
-/*attackGoal(targetAsset(database,availability)).*/
 /*attackGoal(targetAsset(workstation,availability)).*/
 
 
 /*********************Programs************************/
 
 networkServiceInfo(scada, machine_expert, _, _, _).
-networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).
+/*networkServiceInfo(scada, opcua_server, opcua, opcua_port, _).*/
 networkServiceInfo(plc, control_expert, opcua, opcua_port, _).
 networkServiceInfo(webserver, vpn_service, ipSec, 80, _).
 networkServiceInfo(webserver, web_server_sw, http, 80, _).
