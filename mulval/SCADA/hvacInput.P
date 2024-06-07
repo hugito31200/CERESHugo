@@ -1,6 +1,6 @@
 /*attackGoal(execCode(webServer,_)).*/
-/*attackGoal(dos(scada)).*/
-attackGoal(targetAsset(plc,integrity)).
+attackGoal(dos(scada)).
+/*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(accessInfo(scada)).*/
 /*attackGoal(covertAppropriation(plc)).*/
 

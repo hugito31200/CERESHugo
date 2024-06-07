@@ -5,9 +5,9 @@ attackerLocated(internet).
 /*Uncomment to run one or multiple attack goals*/
 
 
-/*attackGoal(targetAsset(scada,availability)).*/
+attackGoal(targetAsset(scada,availability)).
 /*attackGoal(targetAsset(scada,confidentiality)).*/
-attackGoal(targetAsset(scada,_)).
+/*attackGoal(targetAsset(scada,_)).*/
 /*attackGoal(targetAsset(plc,integrity)).*/
 /*attackGoal(targetAsset(webserver,availability)).*/
 /*attackGoal(targetAsset(webserver,integrity)).*/
@@ -59,10 +59,12 @@ physicalAccess(technician,sensor).
 physicalAccess(technician,actuator).
 
 /****************************Refinement******************************/
+/*
 isA(control_expert, ecostruxure_control_expert_14_1).
 isA(machine_expert, ecostruxure_machine_expert).
 isA(opcua_server, ecostruxure_opcua_server_expert_2_0).
 
 isA(mysql_server, oracle_mysql_server_8_0_33).
 isA(web_server_sw, web_server).
+*/
 

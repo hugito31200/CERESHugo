@@ -1,5 +1,5 @@
 attackerLocated(internet).
-attackGoal(execCode(workStation,_)).
+attackGoal(accessFile(fileServer,write,'/export')).
 
 hacl(internet, webServer, tcp, 80).
 hacl(webServer, _,  _, _).
